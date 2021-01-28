@@ -21,9 +21,9 @@ The workflow is based on the following materials but modified and updated for Ga
 
 # 0. Goal of this workflow
 
-### Objective: Compare the mitochondrial variants between mother and child (human)
+Objective: Compare the mitochondrial variants between mother and child (human)
 
-### We will learn: A.How to conduct "cleaning" of the data, B.How to map the sequence read to refeerence genome, C. How to call genetic variants.
+We will learn: A.How to conduct "cleaning" of the data, B.How to map the sequence read to refeerence genome, C. How to call genetic variants.
 
 
 # 1. Galaxy introduction
@@ -59,10 +59,10 @@ Modern sequencing technologies can generate a massive number of sequence reads i
 Therefore, it is necessary to understand, identify and exclude error-types that may impact the interpretation of downstream analysis. Sequence quality control is therefore an essential first step in your analysis. Catching errors early saves time later on.
 
 
-### Objective:
+Objective:
 Conduct quality control and trimming of sequence data from two individuals, mother and child 
 
-### We will learn:
+We will learn:
 How to conduct quality control with FastQC, how to interpret FastQC output, how to conduct trimming with fastp.
 
 ## 2-1. Prapere the data
@@ -111,7 +111,7 @@ Let's have a look on the example below while running it...
 
 ![screen](assets/Bio326/Slide18.png)
 
-#3.Mapping.
+# 3.Mapping.
 
 ![screen](assets/Bio326/Slide21.png)
 Taking too long? Download the data from here:
