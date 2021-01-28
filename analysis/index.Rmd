@@ -8,4 +8,14 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+### Welcome to Bio326.
+BIO326 Genome sequencing; tools and analysis
+This is the repository of MS's part (Bioinformatics Analysis) of BIO326 at NMBU. https://www.nmbu.no/course/BIO326
+
+
+### **Note**
+
+
+### **Procedure**
+* [1.Genome Analysis](Bio326.genome.html)
+
