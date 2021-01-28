@@ -457,16 +457,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree76be30310a478d8037735fe82d4f90da8d7e3a68targetblank76be303a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/76be30310a478d8037735fe82d4f90da8d7e3a68" target="_blank">76be303</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treef447408f9507fb183dfa2c589a8d062e0f772d97targetblankf447408a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/f447408f9507fb183dfa2c589a8d062e0f772d97" target="_blank">f447408</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree76be30310a478d8037735fe82d4f90da8d7e3a68targetblank76be303a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treef447408f9507fb183dfa2c589a8d062e0f772d97targetblankf447408a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/76be30310a478d8037735fe82d4f90da8d7e3a68" target="_blank">76be303</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/f447408f9507fb183dfa2c589a8d062e0f772d97" target="_blank">f447408</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -516,6 +516,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/f447408f9507fb183dfa2c589a8d062e0f772d97/analysis/Bio326.genome.Rmd" target="_blank">f447408</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2021-01-28
+</td>
+<td>
+Publish the initial files for BIO326
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/067284ec8f125f22a1a9226089f2262be576ccb2/docs/Bio326.genome.html" target="_blank">067284e</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2021-01-28
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -666,12 +700,8 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/Bio326.genome.Rmd”))
 <p><a href="https://training.galaxyproject.org/training-material/topics/variant-analysis/tutorials/non-dip/tutorial.html">Variant Analysis</a></p>
 <div id="goal-of-this-workflow" class="section level1">
 <h1>0. Goal of this workflow</h1>
-<div id="objective-compare-the-mitochondrial-variants-between-mother-and-child-human" class="section level3">
-<h3>Objective: Compare the mitochondrial variants between mother and child (human)</h3>
-</div>
-<div id="we-will-learn-a.how-to-conduct-cleaning-of-the-data-b.how-to-map-the-sequence-read-to-refeerence-genome-c.-how-to-call-genetic-variants." class="section level3">
-<h3>We will learn: A.How to conduct “cleaning” of the data, B.How to map the sequence read to refeerence genome, C. How to call genetic variants.</h3>
-</div>
+<p>Objective: Compare the mitochondrial variants between mother and child (human)</p>
+<p>We will learn: A.How to conduct “cleaning” of the data, B.How to map the sequence read to refeerence genome, C. How to call genetic variants.</p>
 </div>
 <div id="galaxy-introduction" class="section level1">
 <h1>1. Galaxy introduction</h1>
@@ -706,14 +736,8 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/Bio326.genome.Rmd”))
 <p>During sequencing, the nucleotide bases in a DNA or RNA sample (library) are determined by the sequencer. For each fragment in the library, a short sequence (=read) is generated,.</p>
 <p>Modern sequencing technologies can generate a massive number of sequence reads in a single experiment. However, each instrument will generate different types and amount of errors, such as incorrect nucleotides being called. These wrongly called bases are due to the technical limitations.</p>
 <p>Therefore, it is necessary to understand, identify and exclude error-types that may impact the interpretation of downstream analysis. Sequence quality control is therefore an essential first step in your analysis. Catching errors early saves time later on.</p>
-<div id="objective" class="section level3">
-<h3>Objective:</h3>
-<p>Conduct quality control and trimming of sequence data from two individuals, mother and child</p>
-</div>
-<div id="we-will-learn" class="section level3">
-<h3>We will learn:</h3>
-<p>How to conduct quality control with FastQC, how to interpret FastQC output, how to conduct trimming with fastp.</p>
-</div>
+<p>Objective: Conduct quality control and trimming of sequence data from two individuals, mother and child</p>
+<p>We will learn: How to conduct quality control with FastQC, how to interpret FastQC output, how to conduct trimming with fastp.</p>
 </div>
 <div id="prapere-the-data" class="section level2">
 <h2>2-1. Prapere the data</h2>
@@ -744,10 +768,12 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/Bio326.genome.Rmd”))
 <img src="assets/Bio326/Slide18.png" alt="" />
 <p class="caption">screen</p>
 </div>
-<p>#3.Mapping.</p>
+</div>
+</div>
+<div id="mapping." class="section level1">
+<h1>3.Mapping.</h1>
 <p><img src="assets/Bio326/Slide21.png" alt="screen" /> Taking too long? Download the data from here:</p>
 <p>Here are the mapped data.</p>
-</div>
 </div>
 
 
