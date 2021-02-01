@@ -408,7 +408,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -417,7 +417,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -426,10 +426,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-01-28
+<strong>Last updated:</strong> 2021-02-01
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>Bio326/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -445,28 +445,28 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treef447408f9507fb183dfa2c589a8d062e0f772d97targetblankf447408a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/f447408f9507fb183dfa2c589a8d062e0f772d97" target="_blank">f447408</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treeb42559418a8c15aa7d8006b60d6f313d424ed5a8targetblankb425594a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/b42559418a8c15aa7d8006b60d6f313d424ed5a8" target="_blank">b425594</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treef447408f9507fb183dfa2c589a8d062e0f772d97targetblankf447408a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treeb42559418a8c15aa7d8006b60d6f313d424ed5a8targetblankb425594a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/f447408f9507fb183dfa2c589a8d062e0f772d97" target="_blank">f447408</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/b42559418a8c15aa7d8006b60d6f313d424ed5a8" target="_blank">b425594</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -476,8 +476,13 @@ Ignored files:
     Ignored:    .DS_Store
 
 Untracked files:
+    Untracked:  BIO326-genome.pptx
     Untracked:  Bio326.genome.html
     Untracked:  workflowR.bio326.R
+    Untracked:  ~$BIO326-genome.pptx
+
+Unstaged changes:
+    Modified:   analysis/Bio326.genome.Rmd
 
 </code></pre>
 <p>
@@ -516,6 +521,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/b42559418a8c15aa7d8006b60d6f313d424ed5a8/docs/Bio326.genome.html" target="_blank">b425594</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2021-01-28
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -693,7 +715,7 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/Bio326.genome.Rmd”))
 </div>
 </div>
 </div>
-<p>This workflow is based on Galaxy Training materials aimed for the two-hour coueses in <a href="https://www.nmbu.no/course/BIO326">Bio326</a>, NMBU 2021.</p>
+<p>This workflow is based on Galaxy Training materials aimed for the two-hour courses in <a href="https://www.nmbu.no/course/BIO326">Bio326</a>, NMBU 2021. Lecture slide is here: (contains hands-on materials on this page)<a href="assets/BIO326-genome/BIO326-genome.pdf">pdf</a></p>
 <p>The workflow is based on the following materials but modified and updated for Galaxy.no 2021.</p>
 <p><a href="https://training.galaxyproject.org/training-material/topics/sequence-analysis/tutorials/quality-control/tutorial.html">Quality Control</a></p>
 <p><a href="https://training.galaxyproject.org/training-material/topics/sequence-analysis/tutorials/mapping/tutorial.html">Mapping</a></p>
@@ -707,26 +729,17 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/Bio326.genome.Rmd”))
 <h1>1. Galaxy introduction</h1>
 <div id="register-and-login-to-galaxy" class="section level2">
 <h2>1-1. Register and login to Galaxy</h2>
-<p>Go to <a href="https://usegalaxy.no/" class="uri">https://usegalaxy.no/</a> You should be able to log in with “Feide” information (NMBU ID and password) Galaxy is a web platform with various software for genome analyses.</p>
+<p>Go to <a href="https://usegalaxy.no/" class="uri">https://usegalaxy.no/</a> or <a href="https://usegalaxy.org/" class="uri">https://usegalaxy.org/</a> Galaxy is a web platform with various software for genome analyses. You should be able to log in with “Feide” information at galaxy.no (NMBU ID and password)</p>
 </div>
 <div id="play-around-with-galaxy" class="section level2">
 <h2>1-2. Play around with Galaxy</h2>
-<div class="figure">
-<img src="assets/Bio326/Slide2.png" alt="" />
-<p class="caption">screen</p>
+<p><img src="assets/BIO326-genome/Slide18.png" /></p>
+<p><img src="assets/BIO326-genome/Slide19.png" /> <img src="assets/BIO326-genome/Slide20.png" /></p>
+<p><img src="assets/BIO326-genome/Slide21.png" /></p>
 </div>
-<p><img src="assets/Bio326/Slide3.png" alt="screen" /> <img src="assets/Bio326/Slide4.png" alt="screen" /></p>
-<div class="figure">
-<img src="assets/Bio326/Slide5.png" alt="" />
-<p class="caption">screen</p>
-</div>
-</div>
-<div id="review-the-workflow" class="section level2">
-<h2>1-3. Review the workflow</h2>
-<div class="figure">
-<img src="assets/Bio326/Slide6.png" alt="" />
-<p class="caption">screen</p>
-</div>
+<div id="review-the-genome-analysis-workflow" class="section level2">
+<h2>1-3. Review the genome analysis workflow</h2>
+<p><img src="assets/BIO326-genome/Slide15.png" /></p>
 </div>
 </div>
 <div id="quality-control" class="section level1">
@@ -741,39 +754,81 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/Bio326.genome.Rmd”))
 </div>
 <div id="prapere-the-data" class="section level2">
 <h2>2-1. Prapere the data</h2>
-<p>Create a new history. <img src="assets/Bio326/Slide7.png" alt="screen" /></p>
+<p>Create a new history. <img src="assets/BIO326-genome/Slide22.png" /></p>
 <p>Import the data set.</p>
-<p><img src="assets/Bio326/Slide8.png" alt="screen" /> Copy and paste the following URLs to import the data: <a href="https://zenodo.org/record/1251112/files/raw_child-ds-1.fq" class="uri">https://zenodo.org/record/1251112/files/raw_child-ds-1.fq</a> <a href="https://zenodo.org/record/1251112/files/raw_child-ds-2.fq" class="uri">https://zenodo.org/record/1251112/files/raw_child-ds-2.fq</a> <a href="https://zenodo.org/record/1251112/files/raw_mother-ds-1.fq" class="uri">https://zenodo.org/record/1251112/files/raw_mother-ds-1.fq</a> <a href="https://zenodo.org/record/1251112/files/raw_mother-ds-2.fq" class="uri">https://zenodo.org/record/1251112/files/raw_mother-ds-2.fq</a></p>
-<p>Let’s have a look… <img src="assets/Bio326/Slide9.png" alt="screen" /> <img src="assets/Bio326/Slide10.png" alt="screen" /></p>
-<div class="figure">
-<img src="assets/Bio326/Slide11.png" alt="" />
-<p class="caption">screen</p>
-</div>
+<p><img src="assets/BIO326-genome/Slide24.png" /> Copy and paste the following URLs to import the data:</p>
+<p><a href="https://zenodo.org/record/1251112/files/raw_child-ds-1.fq" class="uri">https://zenodo.org/record/1251112/files/raw_child-ds-1.fq</a></p>
+<p><a href="https://zenodo.org/record/1251112/files/raw_child-ds-2.fq" class="uri">https://zenodo.org/record/1251112/files/raw_child-ds-2.fq</a></p>
+<p><a href="https://zenodo.org/record/1251112/files/raw_mother-ds-1.fq" class="uri">https://zenodo.org/record/1251112/files/raw_mother-ds-1.fq</a></p>
+<p><a href="https://zenodo.org/record/1251112/files/raw_mother-ds-2.fq" class="uri">https://zenodo.org/record/1251112/files/raw_mother-ds-2.fq</a></p>
+<p>Rename the data for to manage them. <img src="assets/BIO326-genome/Slide25.png" /></p>
+<p>Let’s have a look… <img src="assets/BIO326-genome/Slide26.png" /></p>
+<p>What is written in the FastQ files <img src="assets/BIO326-genome/Slide27.png" /> <img src="assets/BIO326-genome/Slide28.png" /></p>
 </div>
 <div id="quality-control-with-fastqc" class="section level2">
 <h2>2-2. Quality control with fastQC</h2>
 <p><a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">fastQC</a> (go to the website for details)</p>
-<div class="figure">
-<img src="assets/Bio326/Slide12.png" alt="" />
-<p class="caption">screen</p>
-</div>
-<p>Taking too long? Download the data from here: (Will be uploaded) Let’s have a look on the example below while running it…</p>
-<p><img src="assets/Bio326/Slide13.png" alt="screen" /> <img src="assets/Bio326/Slide14.png" alt="screen" /></p>
-<p><img src="assets/Bio326/Slide15.png" alt="screen" /> <img src="assets/Bio326/Slide16.png" alt="screen" /> <img src="assets/Bio326/Slide17.png" alt="screen" /></p>
+<p><img src="assets/BIO326-genome/Slide29.png" /></p>
+<p>Taking too long? Download the data from here: (Will be uploaded)</p>
+<p>Let’s see the result of quality check <img src="assets/BIO326-genome/Slide30.png" /> Example results “Per base sequence quality”: X-axis is the base position, Y-axis is the read quality. Green is good, yellow is okay, red is not good. <img src="assets/BIO326-genome/Slide31.png" /></p>
+<p>Our results: We see that the ending part ot our reads shows not good quality. -&gt; Trimming. <img src="assets/BIO326-genome/Slide32.png" /> Per sequence quality score. X-axis is the quality score, Y-axis is the observed count. We see that most of the reads show good quality, but still there are some low-quality reads. <img src="assets/BIO326-genome/Slide33.png" /></p>
+<p>Sequence duplication levels. There are some duplication (small peak) due to enrichment bias. These read will be removed in the further step. <img src="assets/BIO326-genome/Slide34.png" /></p>
 </div>
 <div id="trimming-with-fastp" class="section level2">
 <h2>2-3. Trimming with fastp</h2>
 <p><a href="https://github.com/OpenGene/fastp">fastp</a> (go to the website for details)</p>
-<div class="figure">
-<img src="assets/Bio326/Slide18.png" alt="" />
-<p class="caption">screen</p>
+<p><img src="assets/BIO326-genome/Slide35.png" /> Let’s see how many low-quality reads are removed: <img src="assets/BIO326-genome/Slide36.png" /></p>
 </div>
 </div>
+<div id="mapping" class="section level1">
+<h1>3. Mapping</h1>
+<p>Now, we are going to map reads to the reference genome (human genome) <img src="assets/BIO326-genome/Slide37.png" /></p>
+<div id="mapping-with-bwa-mem" class="section level2">
+<h2>3-1. Mapping with BWA-MEM</h2>
+<p><img src="assets/BIO326-genome/Slide38.png" /> Taking too long? Here are the bam files:<a href="assets/BIO326-genome/mother.bam">mogher</a> and <a href="assets/BIO326-genome/child.bam">child</a></p>
 </div>
-<div id="mapping." class="section level1">
-<h1>3.Mapping.</h1>
-<p><img src="assets/Bio326/Slide21.png" alt="screen" /> Taking too long? Download the data from here:</p>
-<p>Here are the mapped data.</p>
+<div id="merge-the-two-bam-files" class="section level2">
+<h2>3-2. Merge the two BAM files</h2>
+<p>We will merge the mother and child BAM files into one file so that we can handle it easily. <img src="assets/BIO326-genome/Slide39.png" /></p>
+</div>
+<div id="remove-the-pcr-duplicates-review-2-2." class="section level2">
+<h2>3-3. Remove the PCR duplicates (review 2-2.)</h2>
+<p><img src="assets/BIO326-genome/Slide40.png" /></p>
+</div>
+<div id="left-aligning-insertiondeletion-variants" class="section level2">
+<h2>3-4. Left-aligning insertion/deletion variants</h2>
+<p><img src="assets/BIO326-genome/Slide42.png" /></p>
+<p>Left-aligning insertion/deletion variants with "BamLeftAlign. <img src="assets/BIO326-genome/Slide43.png" /></p>
+</div>
+<div id="bam-file-filtering" class="section level2">
+<h2>3-5. BAM file filtering:</h2>
+<p><img src="assets/BIO326-genome/Slide44.png" /></p>
+<p><img src="assets/BIO326-genome/Slide45.png" /></p>
+</div>
+</div>
+<div id="varitnt-calling" class="section level1">
+<h1>4. Varitnt Calling</h1>
+<div id="calling-variants-with-freebayes" class="section level2">
+<h2>4-1. Calling variants with FreeBayes</h2>
+<p><img src="assets/BIO326-genome/Slide46.png" /> <img src="assets/BIO326-genome/Slide47.png" /></p>
+<p><img src="assets/BIO326-genome/Slide48.png" /></p>
+<p><img src="assets/BIO326-genome/Slide49.png" /></p>
+<p>Taking too long? Here are the vcf <a href="file:%5BVCF%5D(assets/BIO326-genome/FreeBayes_mother_child.vcf" class="uri">file:[VCF](assets/BIO326-genome/FreeBayes_mother_child.vcf</a>)</p>
+</div>
+<div id="filtering-variants" class="section level2">
+<h2>4-2. Filtering variants</h2>
+<p><img src="assets/BIO326-genome/Slide50.png" /></p>
+<p><img src="assets/BIO326-genome/Slide51.png" /></p>
+<p><img src="assets/BIO326-genome/Slide52.png" /></p>
+</div>
+<div id="reformatting-the-vcf-file" class="section level2">
+<h2>4-3. Reformatting the VCF file</h2>
+<p><img src="assets/BIO326-genome/Slide53.png" /> <img src="assets/BIO326-genome/Slide54.png" /></p>
+</div>
+</div>
+<div id="examine-the-variants." class="section level1">
+<h1>5. Examine the variants.</h1>
+<p><img src="assets/BIO326-genome/Slide55.png" /> <img src="assets/BIO326-genome/Slide56.png" /> <img src="assets/BIO326-genome/Slide57.png" /></p>
 </div>
 
 

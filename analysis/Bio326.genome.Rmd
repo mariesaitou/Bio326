@@ -8,7 +8,8 @@ output: html_document
 
 
 
-This workflow is based on Galaxy Training materials aimed for the two-hour coueses in [Bio326](https://www.nmbu.no/course/BIO326), NMBU 2021.
+This workflow is based on Galaxy Training materials aimed for the two-hour courses in [Bio326](https://www.nmbu.no/course/BIO326), NMBU 2021.
+Lecture slide is here: (contains hands-on materials on  this page)[pdf](assets/BIO326-genome/BIO326-genome.pdf)
 
 The workflow is based on the following materials but modified and updated for Galaxy.no 2021. 
 
@@ -28,26 +29,25 @@ We will learn: A.How to conduct "cleaning" of the data, B.How to map the sequenc
 
 # 1. Galaxy introduction
 ## 1-1. Register and login to Galaxy
-Go to https://usegalaxy.no/ 
-You should be able to log in with "Feide" information (NMBU ID and password)
+Go to https://usegalaxy.no/ or https://usegalaxy.org/
 Galaxy is a web platform with various software for genome analyses.
-
+You should be able to log in with "Feide" information at galaxy.no (NMBU ID and password)
 
 ## 1-2. Play around with Galaxy
 
-![screen](assets/Bio326/Slide2.png)
+![](assets/BIO326-genome/Slide18.png)
 
 
-![screen](assets/Bio326/Slide3.png)
-![screen](assets/Bio326/Slide4.png)
+![](assets/BIO326-genome/Slide19.png)
+![](assets/BIO326-genome/Slide20.png)
 
-![screen](assets/Bio326/Slide5.png)
+![](assets/BIO326-genome/Slide21.png)
 
 
 
-## 1-3. Review the workflow
+## 1-3. Review the genome analysis workflow
 
-![screen](assets/Bio326/Slide6.png)
+![](assets/BIO326-genome/Slide15.png)
 
 # 2. Quality Control
 ## 2-0. Introduction
@@ -67,55 +67,135 @@ How to conduct quality control with FastQC, how to interpret FastQC output, how 
 
 ## 2-1. Prapere the data
 Create a new history.
-![screen](assets/Bio326/Slide7.png)
+![](assets/BIO326-genome/Slide22.png)
 
 
 
 Import the data set.
 
-![screen](assets/Bio326/Slide8.png)
+![](assets/BIO326-genome/Slide24.png)
 Copy and paste the following URLs to import the data:
+
 https://zenodo.org/record/1251112/files/raw_child-ds-1.fq
+
 https://zenodo.org/record/1251112/files/raw_child-ds-2.fq
+
 https://zenodo.org/record/1251112/files/raw_mother-ds-1.fq
+
 https://zenodo.org/record/1251112/files/raw_mother-ds-2.fq
 
 
-
-
+Rename the data for to manage them.
+![](assets/BIO326-genome/Slide25.png)
 
 Let's have a look...
-![screen](assets/Bio326/Slide9.png)
-![screen](assets/Bio326/Slide10.png)
+![](assets/BIO326-genome/Slide26.png)
 
-![screen](assets/Bio326/Slide11.png)
+What is written in the FastQ files
+![](assets/BIO326-genome/Slide27.png)
+![](assets/BIO326-genome/Slide28.png)
+
+
 
 ## 2-2. Quality control with fastQC
 [fastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) (go to the website for details)
 
-![screen](assets/Bio326/Slide12.png)
+![](assets/BIO326-genome/Slide29.png)
 
 Taking too long? Download the data from here:
 (Will be uploaded)
-Let's have a look on the example below while running it... 
 
-![screen](assets/Bio326/Slide13.png)
-![screen](assets/Bio326/Slide14.png)
+Let's see the result of quality check
+![](assets/BIO326-genome/Slide30.png)
+Example results "Per base sequence quality":
+X-axis is the base position, Y-axis is the read quality.
+Green is good, yellow is okay, red is not good.
+![](assets/BIO326-genome/Slide31.png)
 
-![screen](assets/Bio326/Slide15.png)
-![screen](assets/Bio326/Slide16.png)
-![screen](assets/Bio326/Slide17.png)
+Our results:
+We see that the ending part ot our reads shows not good quality. -> Trimming.
+![](assets/BIO326-genome/Slide32.png)
+Per sequence quality score. 
+X-axis is the quality score, Y-axis is the observed count.
+We see that most of the reads show good quality, but still there are some low-quality reads.
+![](assets/BIO326-genome/Slide33.png)
+
+Sequence duplication levels.
+There are some duplication (small peak) due to enrichment bias. These read will be removed in the further step.
+![](assets/BIO326-genome/Slide34.png)
+
 
 ## 2-3. Trimming with fastp
 [fastp](https://github.com/OpenGene/fastp) (go to the website for details)
 
-![screen](assets/Bio326/Slide18.png)
+![](assets/BIO326-genome/Slide35.png)
+Let's see how many low-quality reads are removed:
+![](assets/BIO326-genome/Slide36.png)
 
-# 3.Mapping.
 
-![screen](assets/Bio326/Slide21.png)
-Taking too long? Download the data from here:
+# 3. Mapping
 
-Here are the mapped data.
+Now, we are going to map reads to the reference genome (human genome)
+![](assets/BIO326-genome/Slide37.png)
 
+## 3-1. Mapping with BWA-MEM
+
+![](assets/BIO326-genome/Slide38.png)
+Taking too long?
+Here are the bam files:[mogher](assets/BIO326-genome/mother.bam) and [child](assets/BIO326-genome/child.bam)
+
+## 3-2. Merge the two BAM files
+We will merge the mother and child BAM files into one file so that we can handle it easily.
+![](assets/BIO326-genome/Slide39.png)
+
+## 3-3. Remove the PCR duplicates (review 2-2.)
+
+![](assets/BIO326-genome/Slide40.png)
+
+## 3-4. Left-aligning insertion/deletion variants
+
+![](assets/BIO326-genome/Slide42.png)
+
+Left-aligning insertion/deletion variants with "BamLeftAlign.
+![](assets/BIO326-genome/Slide43.png)
+
+## 3-5. BAM file filtering:
+
+![](assets/BIO326-genome/Slide44.png)
+
+![](assets/BIO326-genome/Slide45.png)
+
+
+# 4. Varitnt Calling
+
+## 4-1. Calling variants with FreeBayes
+
+![](assets/BIO326-genome/Slide46.png)
+![](assets/BIO326-genome/Slide47.png)
+
+![](assets/BIO326-genome/Slide48.png)
+
+![](assets/BIO326-genome/Slide49.png)
+
+Taking too long?
+Here are the vcf file:[VCF](assets/BIO326-genome/FreeBayes_mother_child.vcf)
+
+## 4-2. Filtering variants
+
+![](assets/BIO326-genome/Slide50.png)
+
+![](assets/BIO326-genome/Slide51.png)
+
+![](assets/BIO326-genome/Slide52.png)
+
+## 4-3. Reformatting the VCF file
+
+![](assets/BIO326-genome/Slide53.png)
+![](assets/BIO326-genome/Slide54.png)
+
+# 5. Examine the variants.
+
+![](assets/BIO326-genome/Slide55.png)
+![](assets/BIO326-genome/Slide56.png)
+![](assets/BIO326-genome/Slide57.png)
 
