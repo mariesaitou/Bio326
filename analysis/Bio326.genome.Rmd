@@ -29,7 +29,7 @@ We will learn: A.How to conduct "cleaning" of the data, B.How to map the sequenc
 
 # 1. Galaxy introduction
 ## 1-1. Register and login to Galaxy
-Go to https://usegalaxy.no/ or https://usegalaxy.org/
+Go to https://usegalaxy.no/ , https://usegalaxy.eu/ or https://usegalaxy.org/
 Galaxy is a web platform with various software for genome analyses.
 You should be able to log in with "Feide" information at galaxy.no (NMBU ID and password)
 
