@@ -218,11 +218,11 @@ Let's take a close look on column five and six.
 ![](assets/BIO326-genome/Slide58.png)
 Q: Allele frequency of variants in Mother and Child
 
-Posision 3243
+Position 3243
 Child : G = 0.67
 Mother : G = ???
 
-Posision 5538
+Position 5538
 Child : G = ???
 Mother : G = ???
 
