@@ -203,15 +203,19 @@ Filter the variant based on the reliability. There are various "biases" and arti
 Just reformat VCF file so that human eye can easily read it. 
 ![](assets/BIO326-genome/Slide53.png)
 ![](assets/BIO326-genome/Slide54.png)
+There seem to be some version differences between Galaxy.no and Galaxy.org (2.2021)
+
+![](assets/BIO326-genome/Slide55.png)
+
 
 # 5. Examine the variants.
 
 We see two variants at position 3243 and 5539.
 Both are (Reference: A and Alternative:G)
-![](assets/BIO326-genome/Slide55.png)
-Let's take a close look on column five and six.
 ![](assets/BIO326-genome/Slide56.png)
+Let's take a close look on column five and six.
 ![](assets/BIO326-genome/Slide57.png)
+![](assets/BIO326-genome/Slide58.png)
 Q: Allele frequency of variants in Mother and Child
 
 Posision 3243
