@@ -408,7 +408,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -417,7 +417,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -426,10 +426,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-02-01
+<strong>Last updated:</strong> 2021-02-03
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>Bio326/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -445,28 +445,28 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treeaebc2f1871caf5f09fee48742cac0b404ec24e12targetblankaebc2f1a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/aebc2f1871caf5f09fee48742cac0b404ec24e12" target="_blank">aebc2f1</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treee424b04258656756e17017b45151a28fd764373ctargetblanke424b04a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/e424b04258656756e17017b45151a28fd764373c" target="_blank">e424b04</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treeaebc2f1871caf5f09fee48742cac0b404ec24e12targetblankaebc2f1a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treee424b04258656756e17017b45151a28fd764373ctargetblanke424b04a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/aebc2f1871caf5f09fee48742cac0b404ec24e12" target="_blank">aebc2f1</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/e424b04258656756e17017b45151a28fd764373c" target="_blank">e424b04</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -476,10 +476,15 @@ Ignored files:
     Ignored:    .DS_Store
 
 Untracked files:
+    Untracked:  BIO326-RNAseq.pptx
     Untracked:  BIO326-genome.pptx
     Untracked:  Bio326.genome.html
+    Untracked:  RNAseq.Rplot.pdf
     Untracked:  workflowR.bio326.R
     Untracked:  ~$BIO326-genome.pptx
+
+Unstaged changes:
+    Modified:   analysis/Bio326.genome.Rmd
 
 </code></pre>
 <p>
@@ -518,6 +523,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/e424b04258656756e17017b45151a28fd764373c/docs/Bio326.genome.html" target="_blank">e424b04</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2021-02-01
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -828,15 +850,16 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/Bio326.genome.Rmd”))
 <p><a href="https://zenodo.org/record/1251112/files/raw_mother-ds-2.fq" class="uri">https://zenodo.org/record/1251112/files/raw_mother-ds-2.fq</a></p>
 <p>Rename the data for to manage them. <img src="assets/BIO326-genome/Slide25.png" /></p>
 <p>Let’s have a look… <img src="assets/BIO326-genome/Slide26.png" /></p>
-<p>What is written in the FastQ files <img src="assets/BIO326-genome/Slide27.png" /> <img src="assets/BIO326-genome/Slide28.png" /></p>
+<p>What is written in the FastQ files: <img src="assets/BIO326-genome/Slide27.png" /> Quality scores are recorded as “ASCII” symbol. The code is different in each platform. For example, “B” is quality score “32”, which means more than 30 = “Probability of incorrect base call” is less than “1 in 1000” (accuracy &gt; 99.9%).</p>
+<p><img src="assets/BIO326-genome/Slide28.png" /></p>
 </div>
 <div id="quality-control-with-fastqc" class="section level2">
 <h2>2-2. Quality control with fastQC</h2>
 <p><a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">fastQC</a> (go to the website for details)</p>
 <p><img src="assets/BIO326-genome/Slide29.png" /></p>
-<p>Taking too long? Download the data from here: (Will be uploaded)</p>
-<p>Let’s see the result of quality check <img src="assets/BIO326-genome/Slide30.png" /> Example results “Per base sequence quality”: X-axis is the base position, Y-axis is the read quality. Green is good, yellow is okay, red is not good. <img src="assets/BIO326-genome/Slide31.png" /></p>
-<p>Our results: We see that the ending part ot our reads shows not good quality. -&gt; Trimming. <img src="assets/BIO326-genome/Slide32.png" /> Per sequence quality score. X-axis is the quality score, Y-axis is the observed count. We see that most of the reads show good quality, but still there are some low-quality reads. <img src="assets/BIO326-genome/Slide33.png" /></p>
+<p>Let’s see the result of quality check. <img src="assets/BIO326-genome/Slide30.png" /> Example results “Per base sequence quality”: X-axis is the base position, Y-axis is the read quality. Green is good, yellow is okay, red is not good. <img src="assets/BIO326-genome/Slide31.png" /></p>
+<p>Our results: We see that the ending part ot our reads shows not good quality. -&gt; Trimming. <img src="assets/BIO326-genome/Slide32.png" /> Per sequence quality score. X-axis is the quality score, Y-axis is the observed count. We see that most of the reads show good quality, but still there are some low-quality reads.</p>
+<p><img src="assets/BIO326-genome/Slide33.png" /></p>
 <p>Sequence duplication levels. There are some duplication (small peak) due to enrichment bias. These read will be removed in the further step. <img src="assets/BIO326-genome/Slide34.png" /></p>
 </div>
 <div id="trimming-with-fastp" class="section level2">
@@ -847,10 +870,11 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/Bio326.genome.Rmd”))
 </div>
 <div id="mapping" class="section level1">
 <h1>3. Mapping</h1>
-<p>Now, we are going to map reads to the reference genome (human genome) <img src="assets/BIO326-genome/Slide37.png" /></p>
+<p>Now, we are going to map reads to the reference genome (human genome) FastQ format -&gt; BAM format</p>
+<p><img src="assets/BIO326-genome/Slide37.png" /></p>
 <div id="mapping-with-bwa-mem" class="section level2">
 <h2>3-1. Mapping with BWA-MEM</h2>
-<p><img src="assets/BIO326-genome/Slide38.png" /> Taking too long? Here are the bam files:<a href="assets/BIO326-genome/mother.bam">mogher</a> and <a href="assets/BIO326-genome/child.bam">child</a></p>
+<p><img src="assets/BIO326-genome/Slide38.png" /> Taking too long? Here are the bam files: <a href="assets/BIO326-genome/mother.bam">mother</a> and <a href="assets/BIO326-genome/child.bam">child</a></p>
 </div>
 <div id="merge-the-two-bam-files" class="section level2">
 <h2>3-2. Merge the two BAM files</h2>
@@ -862,38 +886,39 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/Bio326.genome.Rmd”))
 </div>
 <div id="left-aligning-insertiondeletion-variants" class="section level2">
 <h2>3-4. Left-aligning insertion/deletion variants</h2>
-<p><img src="assets/BIO326-genome/Slide42.png" /></p>
-<p>Left-aligning insertion/deletion variants with "BamLeftAlign. <img src="assets/BIO326-genome/Slide43.png" /></p>
+<p><img src="assets/BIO326-genome/Slide42.png" /> he same insertion/deletion can often be placed at multiple positions. To prevent this, we will conduct “Left-aligning” of insertion/deletion variants with "BamLeftAlign. <img src="assets/BIO326-genome/Slide43.png" /></p>
 </div>
 <div id="bam-file-filtering" class="section level2">
 <h2>3-5. BAM file filtering:</h2>
-<p><img src="assets/BIO326-genome/Slide44.png" /></p>
-<p><img src="assets/BIO326-genome/Slide45.png" /></p>
+<p><img src="assets/BIO326-genome/Slide44.png" /> We will filter the bam file with quality and genomic region. <img src="assets/BIO326-genome/Slide45.png" /></p>
 </div>
 </div>
 <div id="varitnt-calling" class="section level1">
 <h1>4. Varitnt Calling</h1>
 <div id="calling-variants-with-freebayes" class="section level2">
 <h2>4-1. Calling variants with FreeBayes</h2>
+<p>Let’s call variants from the BAM files and examine variants. BAM format -&gt; VCF (variant fall format)</p>
 <p><img src="assets/BIO326-genome/Slide46.png" /> <img src="assets/BIO326-genome/Slide47.png" /></p>
 <p><img src="assets/BIO326-genome/Slide48.png" /></p>
 <p><img src="assets/BIO326-genome/Slide49.png" /></p>
-<p>Taking too long? Here are the vcf <a href="file:%5BVCF%5D(assets/BIO326-genome/FreeBayes_mother_child.vcf" class="uri">file:[VCF](assets/BIO326-genome/FreeBayes_mother_child.vcf</a>)</p>
+<p>Taking too long? Here is the vcf file: <a href="assets/BIO326-genome/FreeBayes_mother_child.vcf">VCF</a></p>
 </div>
 <div id="filtering-variants" class="section level2">
 <h2>4-2. Filtering variants</h2>
-<p><img src="assets/BIO326-genome/Slide50.png" /></p>
+<p>Filter the variant based on the reliability. There are various “biases” and artifacts that can happen. <img src="assets/BIO326-genome/Slide50.png" /></p>
 <p><img src="assets/BIO326-genome/Slide51.png" /></p>
 <p><img src="assets/BIO326-genome/Slide52.png" /></p>
 </div>
 <div id="reformatting-the-vcf-file" class="section level2">
 <h2>4-3. Reformatting the VCF file</h2>
-<p><img src="assets/BIO326-genome/Slide53.png" /> <img src="assets/BIO326-genome/Slide54.png" /></p>
+<p>Just reformat VCF file so that human eye can easily read it. <img src="assets/BIO326-genome/Slide53.png" /> <img src="assets/BIO326-genome/Slide54.png" /></p>
 </div>
 </div>
 <div id="examine-the-variants." class="section level1">
 <h1>5. Examine the variants.</h1>
-<p><img src="assets/BIO326-genome/Slide55.png" /> <img src="assets/BIO326-genome/Slide56.png" /> <img src="assets/BIO326-genome/Slide57.png" /></p>
+<p>We see two variants at position 3243 and 5539. Both are (Reference: A and Alternative:G) <img src="assets/BIO326-genome/Slide55.png" /> Let’s take a close look on column five and six. <img src="assets/BIO326-genome/Slide56.png" /> <img src="assets/BIO326-genome/Slide57.png" /> Q: Allele frequency of variants in Mother and Child</p>
+<p>Posision 3243 Child : G = 0.67 Mother : G = ???</p>
+<p>Posision 5538 Child : G = ??? Mother : G = ???</p>
 </div>
 
 

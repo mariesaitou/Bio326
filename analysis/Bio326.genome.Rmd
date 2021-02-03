@@ -91,8 +91,11 @@ Rename the data for to manage them.
 Let's have a look...
 ![](assets/BIO326-genome/Slide26.png)
 
-What is written in the FastQ files
+What is written in the FastQ files:
 ![](assets/BIO326-genome/Slide27.png)
+Quality scores are recorded as "ASCII" symbol. The code is different in each platform.
+For example, "B" is quality score "32", which means more than 30 = "Probability of incorrect base call" is less than "1 in 1000" (accuracy > 99.9%).
+
 ![](assets/BIO326-genome/Slide28.png)
 
 
@@ -102,10 +105,9 @@ What is written in the FastQ files
 
 ![](assets/BIO326-genome/Slide29.png)
 
-Taking too long? Download the data from here:
-(Will be uploaded)
 
-Let's see the result of quality check
+
+Let's see the result of quality check.
 ![](assets/BIO326-genome/Slide30.png)
 Example results "Per base sequence quality":
 X-axis is the base position, Y-axis is the read quality.
@@ -118,6 +120,7 @@ We see that the ending part ot our reads shows not good quality. -> Trimming.
 Per sequence quality score. 
 X-axis is the quality score, Y-axis is the observed count.
 We see that most of the reads show good quality, but still there are some low-quality reads.
+
 ![](assets/BIO326-genome/Slide33.png)
 
 Sequence duplication levels.
@@ -136,13 +139,17 @@ Let's see how many low-quality reads are removed:
 # 3. Mapping
 
 Now, we are going to map reads to the reference genome (human genome)
+FastQ format -> BAM format
+
 ![](assets/BIO326-genome/Slide37.png)
 
 ## 3-1. Mapping with BWA-MEM
 
 ![](assets/BIO326-genome/Slide38.png)
 Taking too long?
-Here are the bam files:[mogher](assets/BIO326-genome/mother.bam) and [child](assets/BIO326-genome/child.bam)
+Here are the bam files:
+[mother](assets/BIO326-genome/mother.bam) and 
+[child](assets/BIO326-genome/child.bam)
 
 ## 3-2. Merge the two BAM files
 We will merge the mother and child BAM files into one file so that we can handle it easily.
@@ -155,20 +162,22 @@ We will merge the mother and child BAM files into one file so that we can handle
 ## 3-4. Left-aligning insertion/deletion variants
 
 ![](assets/BIO326-genome/Slide42.png)
-
-Left-aligning insertion/deletion variants with "BamLeftAlign.
+he same insertion/deletion can often be placed at multiple positions. To prevent this, we will conduct "Left-aligning" of insertion/deletion variants with "BamLeftAlign.
 ![](assets/BIO326-genome/Slide43.png)
 
 ## 3-5. BAM file filtering:
 
 ![](assets/BIO326-genome/Slide44.png)
-
+ We will filter the bam file with quality and genomic region.
 ![](assets/BIO326-genome/Slide45.png)
 
 
 # 4. Varitnt Calling
 
 ## 4-1. Calling variants with FreeBayes
+
+Let's call variants from the BAM files and examine variants.
+BAM format -> VCF (variant fall format)
 
 ![](assets/BIO326-genome/Slide46.png)
 ![](assets/BIO326-genome/Slide47.png)
@@ -178,10 +187,12 @@ Left-aligning insertion/deletion variants with "BamLeftAlign.
 ![](assets/BIO326-genome/Slide49.png)
 
 Taking too long?
-Here are the vcf file:[VCF](assets/BIO326-genome/FreeBayes_mother_child.vcf)
+Here is the vcf file:
+[VCF](assets/BIO326-genome/FreeBayes_mother_child.vcf)
+
 
 ## 4-2. Filtering variants
-
+Filter the variant based on the reliability. There are various "biases" and artifacts that can happen.
 ![](assets/BIO326-genome/Slide50.png)
 
 ![](assets/BIO326-genome/Slide51.png)
@@ -189,13 +200,28 @@ Here are the vcf file:[VCF](assets/BIO326-genome/FreeBayes_mother_child.vcf)
 ![](assets/BIO326-genome/Slide52.png)
 
 ## 4-3. Reformatting the VCF file
-
+Just reformat VCF file so that human eye can easily read it. 
 ![](assets/BIO326-genome/Slide53.png)
 ![](assets/BIO326-genome/Slide54.png)
 
 # 5. Examine the variants.
 
+We see two variants at position 3243 and 5539.
+Both are (Reference: A and Alternative:G)
 ![](assets/BIO326-genome/Slide55.png)
+Let's take a close look on column five and six.
 ![](assets/BIO326-genome/Slide56.png)
 ![](assets/BIO326-genome/Slide57.png)
+Q: Allele frequency of variants in Mother and Child
+
+Posision 3243
+Child : G = 0.67
+Mother : G = ???
+
+Posision 5538
+Child : G = ???
+Mother : G = ???
+
+ 
+
 
