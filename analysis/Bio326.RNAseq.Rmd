@@ -10,6 +10,8 @@ output: html_document
 
 This workflow is based on Galaxy Training materials aimed for the two-hour courses in [Bio326](https://www.nmbu.no/course/BIO326), NMBU 2021.
 
+Previous Lesson 
+* [1.Genome Analysis](Bio326.genome.html)
 
 The workflow is based on the following material but modified for Galaxy.no 2021. 
 
