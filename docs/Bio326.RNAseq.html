@@ -517,16 +517,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree18ed399dedd1809bad3084bb43d7c6c2daefceb3targetblank18ed399a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/18ed399dedd1809bad3084bb43d7c6c2daefceb3" target="_blank">18ed399</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree47dfe7670f0bfe5ea846db673d70f20b47d51160targetblank47dfe76a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/47dfe7670f0bfe5ea846db673d70f20b47d51160" target="_blank">47dfe76</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree18ed399dedd1809bad3084bb43d7c6c2daefceb3targetblank18ed399a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree47dfe7670f0bfe5ea846db673d70f20b47d51160targetblank47dfe76a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/18ed399dedd1809bad3084bb43d7c6c2daefceb3" target="_blank">18ed399</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/47dfe7670f0bfe5ea846db673d70f20b47d51160" target="_blank">47dfe76</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -583,6 +583,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/47dfe7670f0bfe5ea846db673d70f20b47d51160/analysis/Bio326.RNAseq.Rmd" target="_blank">47dfe76</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2021-02-04
+</td>
+<td>
+Add my first analysis
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/3b17d7aa51f2b1bb493bd172db242601c400d6a1/docs/Bio326.RNAseq.html" target="_blank">3b17d7a</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2021-02-04
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -703,7 +737,7 @@ Add my first analysis
 https://zenodo.org/record/1185122/files/GSM461177_2.fastqsanger 
 https://zenodo.org/record/1185122/files/GSM461178_1.fastqsanger
 https://zenodo.org/record/1185122/files/GSM461178_2.fastqsanger</code></pre>
-<p>—- PE_treated (you don;t have to use the following files for now)</p>
+<p>—- PE_treated (you don’t have to use the following files for now)</p>
 <pre class="r"><code>https://zenodo.org/record/1185122/files/GSM461180_1.fastqsanger
 https://zenodo.org/record/1185122/files/GSM461180_2.fastqsanger
 https://zenodo.org/record/1185122/files/GSM461181_1.fastqsanger
@@ -718,8 +752,7 @@ https://zenodo.org/record/1185122/files/GSM461182.fastqsanger</code></pre>
 <h2>1-3. Filter the bad-quality reads with fastp like the previous genome analysis.</h2>
 <p>Conduct fastp to each file. When your input used paired-end sequencing (you input two files), fastp will give you back two files, “Read 1 output” and “Read 2 output”.</p>
 <p>OK, next step is new! We will quantify abundances of transcripts using the reference transcriptome.</p>
-<p>We will use the latest (2021) fly reference transctiptome.</p>
-<pre class="r"><code>assets/BIO326-transcriptome/Drosophila_melanogaster.BDGP6.28.cdna.all.fa</code></pre>
+<p>We will use the latest (2021) fly reference transctiptome. Please find and import .all.fa file from here. <a href="https://github.com/mariesaitou/Bio326/tree/master/docs/assets/BIO326-transcriptome" class="uri">https://github.com/mariesaitou/Bio326/tree/master/docs/assets/BIO326-transcriptome</a></p>
 </div>
 <div id="quantify-abundances-of-transcripts-with-kallisto" class="section level2">
 <h2>1-4. Quantify abundances of transcripts with Kallisto</h2>
@@ -730,7 +763,7 @@ https://zenodo.org/record/1185122/files/GSM461182.fastqsanger</code></pre>
 <div id="summarize-transcripts-into-genes-with-tximport." class="section level2">
 <h2>1-5. Summarize transcripts into genes with tximport.</h2>
 <p>We will use a file contains gene/transcript information for the conversion:</p>
-<pre class="r"><code>assets/BIO326-transcriptome/Drosophila_melanogaster.BDGP6.28.102.gff3</code></pre>
+<p>Find the .gff3 file and upload it to your workplace. <a href="https://github.com/mariesaitou/Bio326/tree/master/docs/assets/BIO326-transcriptome" class="uri">https://github.com/mariesaitou/Bio326/tree/master/docs/assets/BIO326-transcriptome</a></p>
 <p>Let’s briefly have a look on the gff3 file. More info: <a href="http://gmod.org/wiki/GFF3" class="uri">http://gmod.org/wiki/GFF3</a></p>
 <p><img src="assets/BIO326-transcriptome/Slide5.png" /> Run tximport with the Kallisto output (two files for two individuals, for each) with the GFF3 file. <img src="assets/BIO326-transcriptome/Slide6.png" /></p>
 <p>You can see gene names and gene abundance in the output file. <img src="assets/BIO326-transcriptome/Slide7.png" /></p>
@@ -745,15 +778,9 @@ https://zenodo.org/record/1185122/files/GSM461182.fastqsanger</code></pre>
 <li>paired end sequencing, RNAi-treated</li>
 <li>single end sequencing, RNAi-treated</li>
 <li>paired end sequencing, not treated</li>
-<li>single end sequencing, nottreated</li>
+<li>single end sequencing, not treated</li>
 </ul>
-<pre class="r"><code>assets/BIO326-transcriptome/PE_treated_GSM461180.tsv
-assets/BIO326-transcriptome/PE_treated_GSM461181.tsv
-assets/BIO326-transcriptome/PE_untreated_GSM461177.tsv
-assets/BIO326-transcriptome/PE_untreated_GSM461178.tsv
-assets/BIO326-transcriptome/SE_untreated_GSM461182.tsv
-assets/BIO326-transcriptome/SE_treated_GSM461179.tsv
-assets/BIO326-transcriptome/SE_untreated_GSM461176.tsv</code></pre>
+<p>Download all the .tsv files (seven) here: <a href="https://github.com/mariesaitou/Bio326/tree/master/docs/assets/BIO326-transcriptome" class="uri">https://github.com/mariesaitou/Bio326/tree/master/docs/assets/BIO326-transcriptome</a></p>
 <p>You may need to make sure that the data format is “tabular”. <img src="assets/BIO326-transcriptome/Slide8.png" /></p>
 </div>
 <div id="deseq" class="section level2">
@@ -814,8 +841,7 @@ param-files “Counts file(s)”: the 3 gene count files with single in their na
 <div id="gene-ontology-analysis" class="section level2">
 <h2>2-8. Gene Ontology analysis</h2>
 <p>Let’s examine the function of differencially expressed genes. Go to <a href="http://cbl-gorilla.cs.technion.ac.il/" class="uri">http://cbl-gorilla.cs.technion.ac.il/</a></p>
-<p><img src="assets/BIO326-transcriptome/Slide20.png" /> Download the “background” file. (All the genes are described).</p>
-<pre class="r"><code>assets/BIO326-transcriptome/GO_background_fly.csv</code></pre>
+<p><img src="assets/BIO326-transcriptome/Slide20.png" /> Download the “GO_background” file. (All the genes are described). <a href="https://github.com/mariesaitou/Bio326/tree/master/docs/assets/BIO326-transcriptome" class="uri">https://github.com/mariesaitou/Bio326/tree/master/docs/assets/BIO326-transcriptome</a></p>
 <p>Input the differencially expressed gene names and background gene file. <img src="assets/BIO326-transcriptome/Slide21.png" /></p>
 <p>Explore the website and examine the potenfial function of the target gene that are interferred by RNAi.</p>
 <br>
