@@ -1,0 +1,246 @@
+---
+title: "Bio326.RNAseq"
+author: "Marie Saitou"
+date: "2/4/2021"
+output: html_document
+---
+
+
+
+
+This workflow is based on Galaxy Training materials aimed for the two-hour courses in [Bio326](https://www.nmbu.no/course/BIO326), NMBU 2021.
+
+
+The workflow is based on the following material but modified for Galaxy.no 2021. 
+
+[RNAseq](https://training.galaxyproject.org/training-material/topics/transcriptomics/tutorials/ref-based/tutorial.html#functional-enrichment-analysis-of-the-de-genes)
+[gene extraction](https://training.galaxyproject.org/training-material/topics/transcriptomics/tutorials/rna-seq-viz-with-heatmap2/tutorial.html)
+[vidualization](https://training.galaxyproject.org/training-material/topics/transcriptomics/tutorials/rna-seq-viz-with-volcanoplot/tutorial.html)
+
+![](assets/BIO326-transcriptome/Slide1.png)
+
+
+# 0. Goal of this workflow
+
+Objective: Compare the gene expression pattern of fruit fly with and without RNA interference treatment of Pasilla gene.
+
+We will learn: A.How to prepare gene expression matrix from raw sequencing reads, B. How to conduct downstream analyses on deferentially expressed genes
+
+
+
+
+# 1. From raw reads to gene expression matrix
+## 1-1. Review the RNA-seq analysis workflow
+![](assets/BIO326-transcriptome/Slide2.png)
+## 1-2. Get the Data
+
+There are four groups and seven individuals in total.
+
+- paired end sequencing, RNAi-treated
+- single end sequencing, RNAi-treated
+- paired end sequencing, not treated
+- single end sequencing, nottreated
+
+However, since each data is huge and takes long time to upload all, let's use the PE_untreated files to learn the initial analysis. I will provide you all the processed data sets later.
+
+
+# PE_untreated (please use this).
+Please make a new history and import the data four files. You can always go back to the previous material to review the process. Rename the files as you like.
+
+```{r, eval = FALSE}
+https://zenodo.org/record/1185122/files/GSM461177_1.fastqsanger
+https://zenodo.org/record/1185122/files/GSM461177_2.fastqsanger 
+https://zenodo.org/record/1185122/files/GSM461178_1.fastqsanger
+https://zenodo.org/record/1185122/files/GSM461178_2.fastqsanger
+
+```
+
+# PE_treated (you don;t have to use the following files for now)
+```{r, eval = FALSE}
+https://zenodo.org/record/1185122/files/GSM461180_1.fastqsanger
+https://zenodo.org/record/1185122/files/GSM461180_2.fastqsanger
+https://zenodo.org/record/1185122/files/GSM461181_1.fastqsanger
+https://zenodo.org/record/1185122/files/GSM461181_2.fastqsanger
+```
+
+# SE_untreated
+```{r, eval = FALSE}
+https://zenodo.org/record/1185122/files/GSM461176.fastqsanger
+https://zenodo.org/record/1185122/files/GSM461182.fastqsanger
+```
+
+# SE_treated
+```{r, eval = FALSE}
+https://zenodo.org/record/1185122/files/GSM461179.fastqsanger
+```
+
+
+
+## 1-3. Filter the bad-quality reads with fastp like the previous genome analysis. 
+Conduct fastp to each file. When your input used paired-end sequencing (you input two files), fastp will give you back two files, "Read 1 output" and "Read 2 output".
+
+OK, next step is new! We will quantify abundances of transcripts using the reference transcriptome. 
+
+We will use the latest (2021) fly reference transctiptome.
+```{r, eval = FALSE}
+assets/BIO326-transcriptome/Drosophila_melanogaster.BDGP6.28.cdna.all.fa
+```
+
+
+## 1-4. Quantify abundances of transcripts with Kallisto 
+https://pachterlab.github.io/kallisto/manual
+
+![](assets/BIO326-transcriptome/Slide3.png)
+Let's briefly have a look on the data with the eye icon.
+
+![](assets/BIO326-transcriptome/Slide4.png)
+
+## 1-5. Summarize transcripts into genes with tximport.
+
+We will use a file contains gene/transcript information for the conversion:
+```{r, eval = FALSE}
+assets/BIO326-transcriptome/Drosophila_melanogaster.BDGP6.28.102.gff3
+```
+
+Let's briefly have a look on the gff3 file.
+More info: http://gmod.org/wiki/GFF3
+
+![](assets/BIO326-transcriptome/Slide5.png)
+Run tximport with the Kallisto output (two files for two individuals, for each) with the GFF3 file.
+![](assets/BIO326-transcriptome/Slide6.png)
+
+You can see gene names and gene abundance in the output file.
+![](assets/BIO326-transcriptome/Slide7.png)
+
+
+# 2. Differencially expressed gene analysis
+## 2-1. Prepare the data
+Now, I pre-made the gene abundance table of seven individuals.
+Remember that there are four groups and seven individuals in total.
+
+- paired end sequencing, RNAi-treated
+- single end sequencing, RNAi-treated
+- paired end sequencing, not treated
+- single end sequencing, nottreated
+
+```{r, eval = FALSE}
+assets/BIO326-transcriptome/PE_treated_GSM461180.tsv
+assets/BIO326-transcriptome/PE_treated_GSM461181.tsv
+assets/BIO326-transcriptome/PE_untreated_GSM461177.tsv
+assets/BIO326-transcriptome/PE_untreated_GSM461178.tsv
+assets/BIO326-transcriptome/SE_untreated_GSM461182.tsv
+assets/BIO326-transcriptome/SE_treated_GSM461179.tsv
+assets/BIO326-transcriptome/SE_untreated_GSM461176.tsv
+```
+
+
+You may need to make sure that the data format is "tabular".
+![](assets/BIO326-transcriptome/Slide8.png)
+
+## 2-2. DeSeq
+Deseq runs various analyses on RNA-sequencing data. We need to input what condition we want to compare. Here, our main perpose is to know the effect of RNAi. Additionally, the sequencing platform (single-end or paired-end) may have affected.
+
+
+```{r, eval = FALSE}
+DESeq2  parameters:
+“how”: Select datasets per level
+In “1: Factor”
+“Specify a factor name”: Treatment
+In “1: Factor level”:
+“Specify a factor level”: treated
+param-files “Counts file(s)”: the 3 gene count files with treat in their name
+In “2: Factor level”:
+“Specify a factor level”: untreated
+param-files “Counts file(s)”: the 4 gene count files with untreat in their name
+Click on param-repeat “Insert Factor” (not on “Insert Factor level”)
+In “2: Factor”
+“Specify a factor name” to Sequencing
+In “1: Factor level”:
+“Specify a factor level”: PE
+param-files “Counts file(s)”: the 4 gene count files with paired in their name
+In “2: Factor level”:
+“Specify a factor level”: SE
+param-files “Counts file(s)”: the 3 gene count files with single in their name
+“Files have header?”: No
+“Visualising the analysis results”: Yes
+```
+
+![](assets/BIO326-transcriptome/Slide9.png)
+
+## 2-3. Examine the results.
+First, take a look on the DESeq "result file". It contains the result of differencially expressed gene analysis for the RNAi reatment.
+![](assets/BIO326-transcriptome/Slide10.png)
+
+
+Next, take a look on the DESeq "plots". They will tell you the overall trend. 
+
+Let's examine the transcriptome difference/smilarlity between samples/conditions.
+
+
+
+![](assets/BIO326-transcriptome/Slide11.png)
+
+![](assets/BIO326-transcriptome/Slide12.png)
+
+What is a p-value?
+In statistics, the p-value is  the probability of obtaining results as "extreme" as the observed results of a statistical hypothesis test, assuming that the null hypothesis is correct.
+We will discuss this later as well.
+
+![](assets/BIO326-transcriptome/Slide13.png)
+
+## 2-4. Volcano plot
+Visualize the log2 fold change and adjusted p-value simultaniously. 
+
+![](assets/BIO326-transcriptome/Slide14.png)
+
+![](assets/BIO326-transcriptome/Slide15.png)
+## 2-6. Examine gene functions
+Pick up a couple of genes with color (top differenciated)), and search for the genes in this database to investigate their known function.
+(top-right, junp to gene)
+https://flybase.org/
+
+
+
+## 2-7. Extract differencially expressed genes
+
+Reformat the DESeq2 result. What we will do is very simple but the Galaxy operation may be tricky.
+
+Clock the top-left "Download from URL ..." icon.
+
+Copy and paste 
+"GeneID	Basemean	log2(FC)	StdErr	Wald-Stats	P-value	P-adj"
+You may need to change the datatype to tabular.
+
+![](assets/BIO326-transcriptome/Slide16.png)
+
+Concatenate the header you made above with the DESeq result.
+
+![](assets/BIO326-transcriptome/Slide17.png)
+
+Extract the genes with adjusted p-value less than 0.01.
+![](assets/BIO326-transcriptome/Slide18.png)
+
+Convert the datatype of extracted gene file to tsv. By doing so, you can download the file and examine it with Microsoft Excel etc.
+
+![](assets/BIO326-transcriptome/Slide19.png)
+
+Let's have a look on genes in the downloaded files. How many genes did you get? Is it same as your teammates?
+
+## 2-8. Gene Ontology analysis
+
+Let's examine the function of differencially expressed genes.
+Go to http://cbl-gorilla.cs.technion.ac.il/ 
+
+![](assets/BIO326-transcriptome/Slide20.png)
+Download the "background" file. (All the genes are described).
+```{r, eval = FALSE}
+assets/BIO326-transcriptome/GO_background_fly.csv
+```
+
+
+Input the differencially expressed gene names and background gene file.
+![](assets/BIO326-transcriptome/Slide21.png)
+
+Explore the website and examine the potenfial function of the target gene that are interferred by RNAi.
+
+
