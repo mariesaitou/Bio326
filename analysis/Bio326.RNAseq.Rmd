@@ -44,7 +44,7 @@ There are four groups and seven individuals in total.
 However, since each data is huge and takes long time to upload all, let's use the PE_untreated files to learn the initial analysis. I will provide you all the processed data sets later.
 
 
-# PE_untreated (please use this).
+---- PE_untreated (please use this) ----
 Please make a new history and import the data four files. You can always go back to the previous material to review the process. Rename the files as you like.
 
 ```{r, eval = FALSE}
@@ -55,7 +55,7 @@ https://zenodo.org/record/1185122/files/GSM461178_2.fastqsanger
 
 ```
 
-# PE_treated (you don;t have to use the following files for now)
+---- PE_treated (you don;t have to use the following files for now)
 ```{r, eval = FALSE}
 https://zenodo.org/record/1185122/files/GSM461180_1.fastqsanger
 https://zenodo.org/record/1185122/files/GSM461180_2.fastqsanger
@@ -63,13 +63,13 @@ https://zenodo.org/record/1185122/files/GSM461181_1.fastqsanger
 https://zenodo.org/record/1185122/files/GSM461181_2.fastqsanger
 ```
 
-# SE_untreated
+---- SE_untreated
 ```{r, eval = FALSE}
 https://zenodo.org/record/1185122/files/GSM461176.fastqsanger
 https://zenodo.org/record/1185122/files/GSM461182.fastqsanger
 ```
 
-# SE_treated
+---- SE_treated
 ```{r, eval = FALSE}
 https://zenodo.org/record/1185122/files/GSM461179.fastqsanger
 ```
