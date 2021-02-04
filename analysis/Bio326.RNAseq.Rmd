@@ -57,7 +57,7 @@ https://zenodo.org/record/1185122/files/GSM461178_2.fastqsanger
 
 ```
 
----- PE_treated (you don;t have to use the following files for now)
+---- PE_treated (you don't have to use the following files for now)
 ```{r, eval = FALSE}
 https://zenodo.org/record/1185122/files/GSM461180_1.fastqsanger
 https://zenodo.org/record/1185122/files/GSM461180_2.fastqsanger
@@ -84,9 +84,10 @@ Conduct fastp to each file. When your input used paired-end sequencing (you inpu
 OK, next step is new! We will quantify abundances of transcripts using the reference transcriptome. 
 
 We will use the latest (2021) fly reference transctiptome.
-```{r, eval = FALSE}
-assets/BIO326-transcriptome/Drosophila_melanogaster.BDGP6.28.cdna.all.fa
-```
+Please find and import .all.fa file from here.
+https://github.com/mariesaitou/Bio326/tree/master/docs/assets/BIO326-transcriptome
+
+
 
 
 ## 1-4. Quantify abundances of transcripts with Kallisto 
@@ -100,9 +101,10 @@ Let's briefly have a look on the data with the eye icon.
 ## 1-5. Summarize transcripts into genes with tximport.
 
 We will use a file contains gene/transcript information for the conversion:
-```{r, eval = FALSE}
-assets/BIO326-transcriptome/Drosophila_melanogaster.BDGP6.28.102.gff3
-```
+
+Find the .gff3 file and upload it to your workplace.
+https://github.com/mariesaitou/Bio326/tree/master/docs/assets/BIO326-transcriptome
+
 
 Let's briefly have a look on the gff3 file.
 More info: http://gmod.org/wiki/GFF3
@@ -123,17 +125,10 @@ Remember that there are four groups and seven individuals in total.
 - paired end sequencing, RNAi-treated
 - single end sequencing, RNAi-treated
 - paired end sequencing, not treated
-- single end sequencing, nottreated
+- single end sequencing, not treated
 
-```{r, eval = FALSE}
-assets/BIO326-transcriptome/PE_treated_GSM461180.tsv
-assets/BIO326-transcriptome/PE_treated_GSM461181.tsv
-assets/BIO326-transcriptome/PE_untreated_GSM461177.tsv
-assets/BIO326-transcriptome/PE_untreated_GSM461178.tsv
-assets/BIO326-transcriptome/SE_untreated_GSM461182.tsv
-assets/BIO326-transcriptome/SE_treated_GSM461179.tsv
-assets/BIO326-transcriptome/SE_untreated_GSM461176.tsv
-```
+Download all the .tsv files (seven) here:
+https://github.com/mariesaitou/Bio326/tree/master/docs/assets/BIO326-transcriptome
 
 
 You may need to make sure that the data format is "tabular".
@@ -234,10 +229,8 @@ Let's examine the function of differencially expressed genes.
 Go to http://cbl-gorilla.cs.technion.ac.il/ 
 
 ![](assets/BIO326-transcriptome/Slide20.png)
-Download the "background" file. (All the genes are described).
-```{r, eval = FALSE}
-assets/BIO326-transcriptome/GO_background_fly.csv
-```
+Download the "GO_background" file. (All the genes are described).
+https://github.com/mariesaitou/Bio326/tree/master/docs/assets/BIO326-transcriptome
 
 
 Input the differencially expressed gene names and background gene file.
