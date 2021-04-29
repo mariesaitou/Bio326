@@ -1,0 +1,199 @@
+---
+title: "Bio326.misc"
+author: "Marie Saitou"
+date: "4/29/2021"
+output: html_document
+---
+
+
+
+
+This workflow is based on Galaxy Training materials aimed for the two-hour courses in [Bio326](https://www.nmbu.no/course/BIO326), NMBU 2021.
+
+# 0. Goal of this workflow
+Explore useful tips for genome analysis
+
+We will learn:
+How to find relevant data sets from the public repository
+How to obtain gene function/evolution data (mostly for vertebrates)
+The overview of population genetics concept with R
+
+
+
+# 1. Ensembl 
+## 1.1 Variant analysis within species with our data
+
+### Ensembl Variant Effect Predictor (VEP)
+VEP determines the effect variants on genes, transcripts, and protein sequence, as well as regulatory regions.
+We will use sample B variant file to see where we observed variants in the functional genomics context.
+
+VEP(Ensembl): https://www.ensembl.org/info/docs/tools/vep/index.html
+
+Reference tutorial: https://www.youtube.com/watch?v=rSIG_OVzyLU&t=157s
+
+![](assets/BIO326-misc/Slide6.png)
+Launch VEP web interface
+![](assets/BIO326-misc/Slide7.png)
+Specify reference
+![](assets/BIO326-misc/Slide8.png)
+Specify input data
+![](assets/BIO326-misc/Slide9.png)
+
+The input data is available at:
+
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/sampleB.chr18.QUAL800.vcf
+
+Explore results
+![](assets/BIO326-misc/Slide10.png)
+
+## 1.2 Evolutionary analysis of tumore-suppressor genes between species
+![](assets/BIO326-misc/Slide11.png)
+
+![](assets/BIO326-misc/Slide12.png)
+Go to https://www.ensembl.org/index.html
+
+Reference tutorial: https://www.youtube.com/watch?v=bTBLg0bIi98&t=250s
+
+
+![](assets/BIO326-misc/Slide13.png)
+
+![](assets/BIO326-misc/Slide14.png)
+
+
+![](assets/BIO326-misc/Slide15.png)
+![](assets/BIO326-misc/Slide16.png)
+
+![](assets/BIO326-misc/Slide17.png)
+
+![](assets/BIO326-misc/Slide18.png)
+
+# 2. Raw sequence data repositories 
+
+
+![](assets/BIO326-misc/Slide20.png)
+
+Find data sets from a paper
+![](assets/BIO326-misc/Slide21.png)
+
+
+Firt, go to https://www.ncbi.nlm.nih.gov/
+![](assets/BIO326-misc/Slide22.png)
+![](assets/BIO326-misc/Slide23.png)
+
+The same data is also available at ENA.
+
+https://www.ebi.ac.uk/ena/browser/home
+
+![](assets/BIO326-misc/Slide24.png)
+
+We can search data in ENA as well 
+![](assets/BIO326-misc/Slide25.png)
+
+![](assets/BIO326-misc/Slide26.png)
+
+Study accession number and raw data.
+![](assets/BIO326-misc/Slide27.png)
+
+We can search for the original paper with the accession number to read the study detail.
+![](assets/BIO326-misc/Slide28.png)
+
+
+# 3. GTEx portal - Human Gene expression/splicing/eQTL database
+![](assets/BIO326-misc/Slide30.png)
+
+Review of transcriptome analysis
+Reference video (StatQuest): https://www.youtube.com/watch?v=TTUrtCY2k-w&t=7s
+
+![](assets/BIO326-misc/Slide31.png)
+
+![](assets/BIO326-misc/Slide32.png)
+
+![](assets/BIO326-misc/Slide33.png)
+
+![](assets/BIO326-misc/Slide34.png)
+
+GTEx Portal 
+https://www.gtexportal.org/home/
+
+![](assets/BIO326-misc/Slide35.png)
+
+Example: highly expressed genes in muscle
+![](assets/BIO326-misc/Slide36.png)
+Example: expression of CKM gene in various tissues
+![](assets/BIO326-misc/Slide37.png)
+
+eQTL data sets: What is eQTL? 
+
+![](assets/BIO326-misc/Slide38.png)
+![](assets/BIO326-misc/Slide39.png)
+![](assets/BIO326-misc/Slide40.png)
+
+Example: CKMT1A gene expression and a variant at chr5:43504700
+![](assets/BIO326-misc/Slide41.png)
+Splicing data sets
+![](assets/BIO326-misc/Slide42.png)
+
+Example: CKMT1A splicing variants and their expression in various tissues
+![](assets/BIO326-misc/Slide43.png)
+# 4. Rstudio (on Orion)
+## 4.0 Accessible color design
+![](assets/BIO326-misc/Slide44.png)
+
+Color-blind barrier-free color pallet - Color Universal Design Organization (CUDO), Kei Ito (University of Tokyo)
+
+Use in R: http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/
+
+Simulator: https://www.color-blindness.com/coblis-color-blindness-simulator/
+
+![](assets/BIO326-misc/Slide45.png)
+
+
+
+##	4.1 Simulating of evolution/Visualization with ggplot2
+
+![](assets/BIO326-misc/Slide46.png)
+![](assets/BIO326-misc/Slide47.png)
+![](assets/BIO326-misc/Slide48.png)
+![](assets/BIO326-misc/Slide49.png)
+![](assets/BIO326-misc/Slide50.png)
+The file is also available:
+[as Rmarkdown](https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.Rmd) and [as html](https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.html)
+
+
+![](assets/BIO326-misc/Slide51.png)
+
+Case studies:
+```{r, eval = FALSE}
+The balance between selection and random drift
+sBB<-0.02
+
+Balancing selection (clasic case - sickle cell anemia against malaria parasites)
+sAB<-0.02, sAA<-0.01
+
+Admixture
+n_AA <-50, n_AB<-0, n_BB<-50, sAA, sAB, sBB <-0
+
+How about in larger populations?
+(edit n_gen and n_AA, n_AB, n_BB. n_gen = sum of (n_AA, n_AB, n_BB))
+
+```
+
+R + ggplot info:
+https://www.nmbu.no/course/STIN300
+
+"Hands-on programming with R”
+
+https://rstudio-education.github.io/hopr/
+
+"R for data science" 
+
+https://r4ds.had.co.nz
+
+ggplot2 Quickref
+
+http://r-statistics.co/ggplot2-cheatsheet.html
+
+
+##	4.2 Make a shareble script
+![](assets/BIO326-misc/Slide55.png)
+
