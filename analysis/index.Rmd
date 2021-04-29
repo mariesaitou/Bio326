@@ -8,7 +8,8 @@ editor_options:
   chunk_output_type: console
 ---
 
-### ** Welcome to Bio326. **
+
+### ** Welcome to Bio326 **
 BIO326 Genome sequencing; tools and analysis (2021)
 This is the repository of MS's part (Bioinformatics Analysis) of BIO326 at NMBU. https://www.nmbu.no/course/BIO326
 
