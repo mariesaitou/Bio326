@@ -13,8 +13,7 @@ BIO326 Genome sequencing; tools and analysis (2021)
 This is the repository of MS's part (Bioinformatics Analysis) of BIO326 at NMBU. https://www.nmbu.no/course/BIO326
 
 
-
-### **Procedure**
+### **Index**
 * [1.Genome Analysis](Bio326.genome.html)
 * [2.RNAseq Analysis](Bio326.RNAseq.html)
 * [3.Misc Analysis](Bio326.misc.html)
