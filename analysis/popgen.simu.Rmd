@@ -5,12 +5,23 @@ date: "4/26/2021"
 output: html_document
 ---
 
+# Simulating of evolution/Visualization with ggplot2
+
+[as Rmarkdown](https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.Rmd)
+
 # Get started
 Go to:
 https://orion.nmbu.no/ -> JupyterHub, select 4Gb -> rstudio-4.0.2
 
+
+
+```{bash, eval=FALSE}
+
 copy the file from /net/fs-1/home01/mariesai/BIO326/popgen.simu.Rmd
 cp /net/fs-1/home01/mariesai/BIO326/popgen.simu.Rmd .
+```
+
+
 # Data Preparation 
 ```{r prep}
 
