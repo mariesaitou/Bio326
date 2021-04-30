@@ -135,7 +135,10 @@ Splicing data sets
 
 Example: CKMT1A splicing variants and their expression in various tissues
 ![](assets/BIO326-misc/Slide43.png)
+
+
 # 4. Rstudio (on Orion)
+
 ## 4.0 Accessible color design
 ![](assets/BIO326-misc/Slide44.png)
 
@@ -157,7 +160,7 @@ Simulator: https://www.color-blindness.com/coblis-color-blindness-simulator/
 ![](assets/BIO326-misc/Slide49.png)
 ![](assets/BIO326-misc/Slide50.png)
 The file is also available:
-[as Rmarkdown](https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.Rmd) and [as html](https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.html)
+[as Rmarkdown](https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.Rmd) and [as html](popgen.simu.html)
 
 
 ![](assets/BIO326-misc/Slide51.png)
