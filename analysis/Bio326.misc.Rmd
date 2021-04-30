@@ -160,7 +160,7 @@ Simulator: https://www.color-blindness.com/coblis-color-blindness-simulator/
 ![](assets/BIO326-misc/Slide49.png)
 ![](assets/BIO326-misc/Slide50.png)
 The file is also available:
-[as Rmarkdown](https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.Rmd) and [as html](popgen.simu.html)
+[as Rmarkdown](https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.Rmd) and [as html](popgen_simu.html)
 
 
 ![](assets/BIO326-misc/Slide51.png)
