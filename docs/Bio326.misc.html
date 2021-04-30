@@ -425,7 +425,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-04-29
+<strong>Last updated:</strong> 2021-04-30
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -516,16 +516,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treefeb95d37dcf1c07acdadc2afb4a67448a2aa0f57targetblankfeb95d3a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/feb95d37dcf1c07acdadc2afb4a67448a2aa0f57" target="_blank">feb95d3</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treee24d222f7699121a0fbc5c71f61557f1dd6b487ftargetblanke24d222a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/e24d222f7699121a0fbc5c71f61557f1dd6b487f" target="_blank">e24d222</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treefeb95d37dcf1c07acdadc2afb4a67448a2aa0f57targetblankfeb95d3a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treee24d222f7699121a0fbc5c71f61557f1dd6b487ftargetblanke24d222a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/feb95d37dcf1c07acdadc2afb4a67448a2aa0f57" target="_blank">feb95d3</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/e24d222f7699121a0fbc5c71f61557f1dd6b487f" target="_blank">e24d222</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -533,6 +533,8 @@ Note that you need to be careful to ensure that all relevant files for the analy
 <pre><code>
 Ignored files:
     Ignored:    .DS_Store
+    Ignored:    .RData
+    Ignored:    .Rhistory
 
 Untracked files:
     Untracked:  BIO326 URL genome annotatin computer lab_24_MAR_2021.docx
@@ -549,10 +551,11 @@ Untracked files:
     Untracked:  Pig_mutation_hist.csv
     Untracked:  RNAseq.Rplot.pdf
     Untracked:  Untitled.R
+    Untracked:  analysis/popgen.simu.Rmd
+    Untracked:  analysis/popgen_sim.Rmd
     Untracked:  samples.xlsx
     Untracked:  vis.xlsx
     Untracked:  workflowR.bio326.R
-    Untracked:  ~$BIO326_visual_30_APR_2021.pptx
 
 </code></pre>
 <p>
@@ -591,6 +594,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/e24d222f7699121a0fbc5c71f61557f1dd6b487f/analysis/Bio326.misc.Rmd" target="_blank">e24d222</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2021-04-30
+</td>
+<td>
+Add my first analysis
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/fcc43b0e675dcccb78e71b8c59c9175e8034a821/docs/Bio326.misc.html" target="_blank">fcc43b0</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2021-04-29
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -692,14 +729,21 @@ Add my first analysis
 <p>eQTL data sets: What is eQTL?</p>
 <p><img src="assets/BIO326-misc/Slide38.png" /> <img src="assets/BIO326-misc/Slide39.png" /> <img src="assets/BIO326-misc/Slide40.png" /></p>
 <p>Example: CKMT1A gene expression and a variant at chr5:43504700 <img src="assets/BIO326-misc/Slide41.png" /> Splicing data sets <img src="assets/BIO326-misc/Slide42.png" /></p>
-<p>Example: CKMT1A splicing variants and their expression in various tissues <img src="assets/BIO326-misc/Slide43.png" /> # 4. Rstudio (on Orion) ## 4.0 Accessible color design <img src="assets/BIO326-misc/Slide44.png" /></p>
+<p>Example: CKMT1A splicing variants and their expression in various tissues <img src="assets/BIO326-misc/Slide43.png" /></p>
+</div>
+<div id="rstudio-on-orion" class="section level1">
+<h1>4. Rstudio (on Orion)</h1>
+<div id="accessible-color-design" class="section level2">
+<h2>4.0 Accessible color design</h2>
+<p><img src="assets/BIO326-misc/Slide44.png" /></p>
 <p>Color-blind barrier-free color pallet - Color Universal Design Organization (CUDO), Kei Ito (University of Tokyo)</p>
 <p>Use in R: <a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" class="uri">http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</a></p>
 <p>Simulator: <a href="https://www.color-blindness.com/coblis-color-blindness-simulator/" class="uri">https://www.color-blindness.com/coblis-color-blindness-simulator/</a></p>
 <p><img src="assets/BIO326-misc/Slide45.png" /></p>
+</div>
 <div id="simulating-of-evolutionvisualization-with-ggplot2" class="section level2">
 <h2>4.1 Simulating of evolution/Visualization with ggplot2</h2>
-<p><img src="assets/BIO326-misc/Slide46.png" /> <img src="assets/BIO326-misc/Slide47.png" /> <img src="assets/BIO326-misc/Slide48.png" /> <img src="assets/BIO326-misc/Slide49.png" /> <img src="assets/BIO326-misc/Slide50.png" /> The file is also available: <a href="https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.Rmd">as Rmarkdown</a> and <a href="https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.html">as html</a></p>
+<p><img src="assets/BIO326-misc/Slide46.png" /> <img src="assets/BIO326-misc/Slide47.png" /> <img src="assets/BIO326-misc/Slide48.png" /> <img src="assets/BIO326-misc/Slide49.png" /> <img src="assets/BIO326-misc/Slide50.png" /> The file is also available: <a href="https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.Rmd">as Rmarkdown</a> and <a href="popgen.simu.html">as html</a></p>
 <p><img src="assets/BIO326-misc/Slide51.png" /></p>
 <p>Case studies:</p>
 <pre class="r"><code>The balance between selection and random drift
