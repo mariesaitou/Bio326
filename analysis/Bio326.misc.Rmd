@@ -155,12 +155,21 @@ Simulator: https://www.color-blindness.com/coblis-color-blindness-simulator/
 ##	4.1 Simulating of evolution/Visualization with ggplot2
 
 ![](assets/BIO326-misc/Slide46.png)
+https://cooplab.github.io/popgen-notes/#allele-frequencies
+
+
+
 ![](assets/BIO326-misc/Slide47.png)
 ![](assets/BIO326-misc/Slide48.png)
+https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/wright-fisher-model
+
+
+
+
 ![](assets/BIO326-misc/Slide49.png)
 ![](assets/BIO326-misc/Slide50.png)
 The file is also available:
-[as Rmarkdown](https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.Rmd) and [as html](popgen_simu.html)
+[as Rmarkdown](https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.Rmd) and [as html](popgen.simu.html)
 
 
 ![](assets/BIO326-misc/Slide51.png)
