@@ -516,16 +516,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree9688b444900eebb47eb8e5805cb6babe8d2918c2targetblank9688b44a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/9688b444900eebb47eb8e5805cb6babe8d2918c2" target="_blank">9688b44</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treefe68bb4e819cfb1babc52122460a51b93a8ab1c5targetblankfe68bb4a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/fe68bb4e819cfb1babc52122460a51b93a8ab1c5" target="_blank">fe68bb4</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree9688b444900eebb47eb8e5805cb6babe8d2918c2targetblank9688b44a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treefe68bb4e819cfb1babc52122460a51b93a8ab1c5targetblankfe68bb4a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/9688b444900eebb47eb8e5805cb6babe8d2918c2" target="_blank">9688b44</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/fe68bb4e819cfb1babc52122460a51b93a8ab1c5" target="_blank">fe68bb4</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -602,6 +602,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/mariesaitou/Bio326/blob/fe68bb4e819cfb1babc52122460a51b93a8ab1c5/analysis/popgen.simu.Rmd" target="_blank">fe68bb4</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2021-04-30
+</td>
+<td>
+wflow_publish(c(“analysis/popgen.simu.Rmd”), )
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/c6338ae9498ccc19e24e10916229fc8f2f5334de/docs/popgen.simu.html" target="_blank">c6338ae</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2021-04-30
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/mariesaitou/Bio326/blob/9688b444900eebb47eb8e5805cb6babe8d2918c2/analysis/popgen.simu.Rmd" target="_blank">9688b44</a>
 </td>
 <td>
@@ -621,10 +655,19 @@ wflow_publish(c(“analysis/popgen.simu.Rmd”), )
 </div>
 </div>
 </div>
+<div id="simulating-of-evolutionvisualization-with-ggplot2" class="section level1">
+<h1>Simulating of evolution/Visualization with ggplot2</h1>
+<p><a href="https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.Rmd">as Rmarkdown</a></p>
+</div>
 <div id="get-started" class="section level1">
 <h1>Get started</h1>
 <p>Go to: <a href="https://orion.nmbu.no/" class="uri">https://orion.nmbu.no/</a> -&gt; JupyterHub, select 4Gb -&gt; rstudio-4.0.2</p>
-<p>copy the file from /net/fs-1/home01/mariesai/BIO326/popgen.simu.Rmd cp /net/fs-1/home01/mariesai/BIO326/popgen.simu.Rmd . # Data Preparation</p>
+<pre class="bash"><code>
+copy the file from /net/fs-1/home01/mariesai/BIO326/popgen.simu.Rmd
+cp /net/fs-1/home01/mariesai/BIO326/popgen.simu.Rmd .</code></pre>
+</div>
+<div id="data-preparation" class="section level1">
+<h1>Data Preparation</h1>
 <pre class="r"><code>rep=50  # number of simulations
 n_gen=100 # number of generations
 
@@ -699,6 +742,43 @@ x dplyr::lag()    masks stats::lag()</code></pre>
 # color=group, if the last freqA is 0 or 1, highlight them.
 ggplot(results, aes(gen, freqB, group = rep)) + geom_line()+theme_bw()</code></pre>
 <p><img src="figure/popgen.simu.Rmd/plot1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plot1-1">
+Past versions of plot1-1.png
+</button>
+</p>
+<div id="fig-plot1-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/c6338ae9498ccc19e24e10916229fc8f2f5334de/docs/figure/popgen.simu.Rmd/plot1-1.png" target="_blank">c6338ae</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2021-04-30
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="view-the-final-genotype-frequency" class="section level1">
 <h1>View the final genotype frequency</h1>
@@ -714,6 +794,43 @@ results_sum &lt;- pivot_longer(results[results$gen == n_gen,c(&quot;rep&quot;, &
 ggplot(results_sum, aes(x=rep, y=count, fill=genotype)) +
   geom_col() +theme_bw()</code></pre>
 <p><img src="figure/popgen.simu.Rmd/plot2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plot2-1">
+Past versions of plot2-1.png
+</button>
+</p>
+<div id="fig-plot2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/c6338ae9498ccc19e24e10916229fc8f2f5334de/docs/figure/popgen.simu.Rmd/plot2-1.png" target="_blank">c6338ae</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2021-04-30
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
