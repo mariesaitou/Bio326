@@ -14,13 +14,22 @@
 
 <title>Bio326.popgen</title>
 
-<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -30,7 +39,7 @@
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
-<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
 <style type="text/css">
 div.section {
@@ -50,11 +59,6 @@ div.section {
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -67,32 +71,6 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
 
@@ -103,10 +81,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -123,40 +97,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -184,7 +131,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -196,7 +143,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -207,10 +154,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -222,7 +182,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -348,7 +307,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -384,7 +343,7 @@ div.tocify {
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/mariesaitou/Bio326">
-    <span class="fas fa-github"></span>
+    <span class="fab fa-github"></span>
      
     Source code
   </a>
@@ -394,7 +353,7 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -407,7 +366,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -416,7 +375,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -425,17 +384,17 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-04-30
+<strong>Last updated:</strong> 2022-02-21
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>Bio326/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
 </p>
 <p>
-This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version 1.7.0). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
@@ -444,12 +403,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -516,16 +475,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treefe68bb4e819cfb1babc52122460a51b93a8ab1c5targetblankfe68bb4a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/fe68bb4e819cfb1babc52122460a51b93a8ab1c5" target="_blank">fe68bb4</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treee042fad370ea9d5f04d4658755f25991f564c54ftargetblanke042fada"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/e042fad370ea9d5f04d4658755f25991f564c54f" target="_blank">e042fad</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treefe68bb4e819cfb1babc52122460a51b93a8ab1c5targetblankfe68bb4a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treee042fad370ea9d5f04d4658755f25991f564c54ftargetblanke042fada" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/fe68bb4e819cfb1babc52122460a51b93a8ab1c5" target="_blank">fe68bb4</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/e042fad370ea9d5f04d4658755f25991f564c54f" target="_blank">e042fad</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -536,9 +495,11 @@ Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    analysis/.DS_Store
+    Ignored:    analysis/popgen.simu.nb.html
 
 Untracked files:
     Untracked:  BIO326 URL genome annotatin computer lab_24_MAR_2021.docx
+    Untracked:  BIO326-121VGenomesequencingBIO326-121VGenomsekvensering;verktøyoganalyser-BIO326-121VGenomesequencing_PhillipByronPope.pdf
     Untracked:  BIO326-RNAseq.pptx
     Untracked:  BIO326-genome/
     Untracked:  BIO326.MS.10th_FEB_2021function.pptx
@@ -547,17 +508,27 @@ Untracked files:
     Untracked:  BIO326_RNAseq_5th_FEB_2021.pptx
     Untracked:  BIO326_SQK-RAD004 DNA challenge.docx
     Untracked:  BIO326_visual_30_APR_2021.pptx
+    Untracked:  Bio326.2022.1.Rmd
     Untracked:  Bio326.genome.html
+    Untracked:  Nanopore_SumStatQC_Tutorial.Rmd
     Untracked:  PCRdemo.R
     Untracked:  Pig_mutation_hist.csv
+    Untracked:  PopGenBio326.322/
     Untracked:  RNAseq.Rplot.pdf
     Untracked:  Untitled.R
+    Untracked:  [eng]BIO326-121VGenomesequencingBIO326-121VGenomsekvensering;verktøyoganalyser-BIO326-121VGenomesequencing_PhillipByronPope.mht
+    Untracked:  [eng]BIO326-121VGenomesequencingBIO326-121VGenomsekvensering;verktøyoganalyser-BIO326-121VGenomesequencing_PhillipByronPope.pdf
+    Untracked:  analysis/AnimalGenomics.Rmd
+    Untracked:  analysis/AnimalGenomics2022.Rmd
+    Untracked:  prepare.txt
     Untracked:  samples.xlsx
+    Untracked:  test/
+    Untracked:  trial/
     Untracked:  vis.xlsx
     Untracked:  workflowR.bio326.R
-    Untracked:  ~$BIO326_visual_30_APR_2021.pptx
 
 Unstaged changes:
+    Modified:   analysis/popgen.simu.Rmd
     Deleted:    analysis/popgen_sim.Rmd
 
 </code></pre>
@@ -597,6 +568,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/ea32b452e64ab615fd963dfad7507dda61230609/docs/popgen.simu.html" target="_blank">ea32b45</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2021-04-30
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -657,13 +645,16 @@ wflow_publish(c(“analysis/popgen.simu.Rmd”), )
 </div>
 <div id="simulating-of-evolutionvisualization-with-ggplot2" class="section level1">
 <h1>Simulating of evolution/Visualization with ggplot2</h1>
+</div>
+<div id="httpsbookdown.orgyihuirmarkdownnotebook.htmlusing-notebooks" class="section level1">
+<h1><a href="https://bookdown.org/yihui/rmarkdown/notebook.html#using-notebooks" class="uri">https://bookdown.org/yihui/rmarkdown/notebook.html#using-notebooks</a></h1>
 <p><a href="https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.Rmd">as Rmarkdown</a></p>
 </div>
 <div id="get-started" class="section level1">
 <h1>Get started</h1>
 <p>Go to: <a href="https://orion.nmbu.no/" class="uri">https://orion.nmbu.no/</a> -&gt; JupyterHub, select 4Gb -&gt; rstudio-4.0.2</p>
 <pre class="bash"><code>
-copy the file from /net/fs-1/home01/mariesai/BIO326/popgen.simu.Rmd
+#copy the file from /net/fs-1/home01/mariesai/BIO326/popgen.simu.Rmd
 cp /net/fs-1/home01/mariesai/BIO326/popgen.simu.Rmd .</code></pre>
 </div>
 <div id="data-preparation" class="section level1">
@@ -729,11 +720,11 @@ names(results) &lt;- c(&quot;rep&quot;, &quot;gen&quot;, &quot;AA&quot;, &quot;A
 <h1>View the allele frequency change in generations</h1>
 <pre class="r"><code># plot two figures
 library(tidyverse)</code></pre>
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
-<pre><code>✓ ggplot2 3.3.3     ✓ purrr   0.3.4
-✓ tibble  3.1.1     ✓ dplyr   1.0.5
-✓ tidyr   1.1.3     ✓ stringr 1.4.0
-✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+✓ tibble  3.1.6     ✓ dplyr   1.0.7
+✓ tidyr   1.2.0     ✓ stringr 1.4.0
+✓ readr   2.1.2     ✓ forcats 0.5.1</code></pre>
 <pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 x dplyr::filter() masks stats::filter()
 x dplyr::lag()    masks stats::lag()</code></pre>
@@ -839,13 +830,13 @@ mariesaitou
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.0.2 (2020-06-22)
+<pre><code>R version 4.1.2 (2021-11-01)
 Platform: x86_64-apple-darwin17.0 (64-bit)
-Running under: macOS  10.16
+Running under: macOS Big Sur 10.16
 
 Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
 
 locale:
 [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
@@ -854,33 +845,35 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.5     purrr_0.3.4    
- [5] readr_1.4.0     tidyr_1.1.3     tibble_3.1.1    ggplot2_3.3.3  
- [9] tidyverse_1.3.0 workflowr_1.6.2
+ [1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.7     purrr_0.3.4    
+ [5] readr_2.1.2     tidyr_1.2.0     tibble_3.1.6    ggplot2_3.3.5  
+ [9] tidyverse_1.3.1 workflowr_1.7.0
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.6        lubridate_1.7.9.2 assertthat_0.2.1  rprojroot_2.0.2  
- [5] digest_0.6.27     utf8_1.2.1        R6_2.5.0          cellranger_1.1.0 
- [9] backports_1.2.1   reprex_1.0.0      evaluate_0.14     httr_1.4.2       
-[13] highr_0.8         pillar_1.6.0      rlang_0.4.10      readxl_1.3.1     
-[17] rstudioapi_0.13   whisker_0.4       rmarkdown_2.6     labeling_0.4.2   
-[21] munsell_0.5.0     broom_0.7.4       compiler_4.0.2    httpuv_1.6.0     
-[25] modelr_0.1.8      xfun_0.21         pkgconfig_2.0.3   htmltools_0.5.1.1
-[29] tidyselect_1.1.0  fansi_0.4.2       crayon_1.4.1      dbplyr_2.1.0     
-[33] withr_2.4.2       later_1.2.0       grid_4.0.2        jsonlite_1.7.2   
-[37] gtable_0.3.0      lifecycle_1.0.0   DBI_1.1.1         git2r_0.28.0     
-[41] magrittr_2.0.1    scales_1.1.1      cli_2.5.0         stringi_1.5.3    
-[45] farver_2.1.0      fs_1.5.0          promises_1.2.0.1  xml2_1.3.2       
-[49] ellipsis_0.3.1    generics_0.1.0    vctrs_0.3.7       tools_4.0.2      
-[53] glue_1.4.2        hms_1.0.0         yaml_2.2.1        colorspace_2.0-0 
-[57] rvest_0.3.6       knitr_1.31        haven_2.3.1      </code></pre>
+ [1] Rcpp_1.0.8       lubridate_1.8.0  getPass_0.2-2    ps_1.6.0        
+ [5] assertthat_0.2.1 rprojroot_2.0.2  digest_0.6.29    utf8_1.2.2      
+ [9] R6_2.5.1         cellranger_1.1.0 backports_1.4.1  reprex_2.0.1    
+[13] evaluate_0.14    highr_0.9        httr_1.4.2       pillar_1.7.0    
+[17] rlang_1.0.1      readxl_1.3.1     rstudioapi_0.13  whisker_0.4     
+[21] callr_3.7.0      jquerylib_0.1.4  rmarkdown_2.11   labeling_0.4.2  
+[25] munsell_0.5.0    broom_0.7.12     compiler_4.1.2   httpuv_1.6.5    
+[29] modelr_0.1.8     xfun_0.29        pkgconfig_2.0.3  htmltools_0.5.2 
+[33] tidyselect_1.1.1 fansi_1.0.2      withr_2.4.3      crayon_1.4.2    
+[37] tzdb_0.2.0       dbplyr_2.1.1     later_1.3.0      grid_4.1.2      
+[41] jsonlite_1.7.3   gtable_0.3.0     lifecycle_1.0.1  DBI_1.1.2       
+[45] git2r_0.29.0     magrittr_2.0.2   scales_1.1.1     cli_3.1.1       
+[49] stringi_1.7.6    farver_2.1.0     fs_1.5.2         promises_1.2.0.1
+[53] xml2_1.3.3       bslib_0.3.1      ellipsis_0.3.2   generics_0.1.2  
+[57] vctrs_0.3.8      tools_4.1.2      glue_1.6.1       hms_1.1.1       
+[61] processx_3.5.2   fastmap_1.1.0    yaml_2.2.2       colorspace_2.0-2
+[65] rvest_1.0.2      knitr_1.37       haven_2.4.3      sass_0.4.0      </code></pre>
 </div>
 </div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
-http://docs.mathjax.org/en/latest/configuration.html.  This will make
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
 the presentation more consistent at the cost of the webpage sometimes
 taking slightly longer to load. Note that this only works because the
 footer is added to webpages before the MathJax javascript. -->
@@ -920,7 +913,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -929,6 +922,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

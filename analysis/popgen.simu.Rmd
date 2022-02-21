@@ -2,10 +2,11 @@
 title: "Bio326.popgen"
 author: "Marie Saitou"
 date: "4/26/2021"
-output: html_document
+output: html_notebook
 ---
 
 # Simulating of evolution/Visualization with ggplot2
+# https://bookdown.org/yihui/rmarkdown/notebook.html#using-notebooks
 
 [as Rmarkdown](https://github.com/mariesaitou/Bio326/blob/master/docs/assets/BIO326-misc/popgen.simu.Rmd)
 
@@ -17,7 +18,7 @@ https://orion.nmbu.no/ -> JupyterHub, select 4Gb -> rstudio-4.0.2
 
 ```{bash, eval=FALSE}
 
-copy the file from /net/fs-1/home01/mariesai/BIO326/popgen.simu.Rmd
+#copy the file from /net/fs-1/home01/mariesai/BIO326/popgen.simu.Rmd
 cp /net/fs-1/home01/mariesai/BIO326/popgen.simu.Rmd .
 ```
 
