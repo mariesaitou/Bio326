@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Marie Saitou" />
+
+
+<title>AnimalGenomics2022</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Bio326</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/mariesaitou/Bio326">
+    <span class="fab fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">AnimalGenomics2022</h1>
+<h4 class="author">Marie Saitou</h4>
+<h4 class="date">2/20/2022</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2022-02-21
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>Bio326/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version 1.7.0). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20210128code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20210128)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20210128code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20210128)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treec7c789ac6cfabc2e87b947f4811c5b6b9cfa4489targetblankc7c789aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/c7c789ac6cfabc2e87b947f4811c5b6b9cfa4489" target="_blank">c7c789a</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treec7c789ac6cfabc2e87b947f4811c5b6b9cfa4489targetblankc7c789aa" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/c7c789ac6cfabc2e87b947f4811c5b6b9cfa4489" target="_blank">c7c789a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .DS_Store
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    analysis/.DS_Store
+    Ignored:    analysis/popgen.simu.nb.html
+
+Untracked files:
+    Untracked:  BIO326 URL genome annotatin computer lab_24_MAR_2021.docx
+    Untracked:  BIO326-121VGenomesequencingBIO326-121VGenomsekvensering;verktøyoganalyser-BIO326-121VGenomesequencing_PhillipByronPope.pdf
+    Untracked:  BIO326-RNAseq.pptx
+    Untracked:  BIO326-genome/
+    Untracked:  BIO326.MS.10th_FEB_2021function.pptx
+    Untracked:  BIO326_Introduction to sequence technology and protocols_3rd_FEB_2021.pdf
+    Untracked:  BIO326_Introduction to sequence technology and protocols_3rd_FEB_2021.pptx
+    Untracked:  BIO326_RNAseq_5th_FEB_2021.pptx
+    Untracked:  BIO326_SQK-RAD004 DNA challenge.docx
+    Untracked:  BIO326_visual_30_APR_2021.pptx
+    Untracked:  Bio326.2022.1.Rmd
+    Untracked:  Bio326.genome.html
+    Untracked:  Nanopore_SumStatQC_Tutorial.Rmd
+    Untracked:  PCRdemo.R
+    Untracked:  Pig_mutation_hist.csv
+    Untracked:  PopGenBio326.322/
+    Untracked:  RNAseq.Rplot.pdf
+    Untracked:  Untitled.R
+    Untracked:  [eng]BIO326-121VGenomesequencingBIO326-121VGenomsekvensering;verktøyoganalyser-BIO326-121VGenomesequencing_PhillipByronPope.mht
+    Untracked:  [eng]BIO326-121VGenomesequencingBIO326-121VGenomsekvensering;verktøyoganalyser-BIO326-121VGenomesequencing_PhillipByronPope.pdf
+    Untracked:  analysis/AnimalGenomics.Rmd
+    Untracked:  prepare.txt
+    Untracked:  samples.xlsx
+    Untracked:  test/
+    Untracked:  trial/
+    Untracked:  vis.xlsx
+    Untracked:  workflowR.bio326.R
+
+Unstaged changes:
+    Modified:   analysis/popgen.simu.Rmd
+    Deleted:    analysis/popgen_sim.Rmd
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/AnimalGenomics2022.Rmd</code>) and HTML (<code>docs/AnimalGenomics2022.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/c7c789ac6cfabc2e87b947f4811c5b6b9cfa4489/analysis/AnimalGenomics2022.Rmd" target="_blank">c7c789a</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-02-21
+</td>
+<td>
+wflow_publish(c(“analysis/AnimalGenomics2022.Rmd”))
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="connect-to-orion" class="section level2">
+<h2>Connect to Orion</h2>
+<p>Go to <a href="https://orion.nmbu.no/" class="uri">https://orion.nmbu.no/</a> at NMBU or with VPN.</p>
+<p><img src="assets/Bio326-2022/prep1.png" style="width:80.0%" /></p>
+<p>Click “Rstudio”</p>
+<p><img src="assets/Bio326-2022/prep2.png" style="width:80.0%" /></p>
+<p>Click “2 hours”</p>
+<p><img src="assets/Bio326-2022/prep3.png" style="width:40.0%" /></p>
+<p>Click “Rstudio-4.1.0”</p>
+</div>
+<div id="preparation" class="section level1">
+<h1>0. Preparation</h1>
+<div id="where-is-your-personal-directory" class="section level3">
+<h3>Where is your personal directory?</h3>
+<p>Set your working directory there by “setwd”. <img src="assets/Bio326-2022/prep4.png" style="width:80.0%" /></p>
+<pre class="r"><code>## You have to CHANGE &quot;working directory&quot; to your directory (bio326-22-XX)
+setwd(&quot;/net/cn-1/mnt/SCRATCH/bio326-22-XX/&quot;) 
+#setwd(&quot;/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/QCTutorial/&quot;)
+
+## Install necessary libraries
+install.packages(&quot;dplyr&quot;,&quot;emojifont&quot;,&quot;extrafont&quot;,&quot;ggplot2&quot;,&quot;RColorBrewer&quot;,&quot;tufte&quot;,&quot;caTools&quot;,&quot;fastmatch&quot;)
+
+## Load libraries
+library(dplyr)
+library(emojifont)
+library(extrafont)
+library(ggplot2)
+library(RColorBrewer)
+library(tufte)
+library(caTools)
+library(fastmatch)  
+
+# Make a result directory
+dir.create(&quot;Results&quot;, showWarnings = FALSE)</code></pre>
+</div>
+<div id="set-parameters" class="section level3">
+<h3>Set Parameters</h3>
+<pre class="r"><code>qcThreshold &lt;- 7
+binFilter &lt;- 5
+scaling &lt;- 1
+reportDPI &lt;- 300
+
+slurpContent &lt;- function(filename) {
+  setup = as.logical(tutorialText)
+  if (setup) {
+    paste(readLines(filename),collapse=&quot;\n&quot;)
+  }
+}</code></pre>
+</div>
+<div id="executive-summary" class="section level3">
+<h3>Executive summary</h3>
+</div>
+<div id="you-have-to-change-input-file-and-other-info" class="section level3">
+<h3>You have to CHANGE “input file” and other info</h3>
+<p>When you analyze another data.</p>
+<pre class="r"><code>## inputFile. You can select your file.
+inputFile      &lt;- &quot;/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing_summary_92.txt&quot;
+sequencedata &lt;- data.table::fread(inputFile, stringsAsFactors=FALSE)
+
+# You may want to change them.
+flowcellId     &lt;- &quot;FAK41706&quot; # example  &quot;FAK41706&quot;
+basecaller     &lt;-  &quot;Guppy&quot; # example &quot;Guppy 2.1.3&quot;</code></pre>
+</div>
+</div>
+<div id="question1" class="section level1">
+<h1>Question1</h1>
+</div>
+<div id="result1" class="section level1">
+<h1>Result1</h1>
+<details>
+<summary>
+<strong>Matthew’s hint</strong>
+</summary>
+<p>This is a hint!</p>
+</details>
+<p>The summary dataset contains too much information. We will calculate and extract core info. (You can take a look the summary file by putting the follwing path in “Terminal” tub).</p>
+<pre class="bash"><code>more /net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing.summary_92.txt</code></pre>
+<p><img src="assets/Bio326-2022/prep5.png" style="width:80.0%" /></p>
+<div id="extract-and-organize-the-information" class="section level3">
+<h3>Extract and organize the information</h3>
+<pre class="r"><code># remove the redundant headers from merged files
+if (length(which(sequencedata[,1]==&quot;filename&quot;)) &gt; 0) {
+  sequencedata &lt;- sequencedata[-which(sequencedata[,1]==&quot;filename&quot;),]
+}
+# coerce the columns used in analytics into more appropriate data-types 
+sequencedata$channel&lt;-as.numeric(sequencedata$channel)
+sequencedata$start_time&lt;-as.numeric(sequencedata$start_time)
+sequencedata$duration&lt;-as.numeric(sequencedata$duration)
+sequencedata$num_events&lt;-as.numeric(sequencedata$num_events)
+sequencedata$sequence_length_template&lt;-as.numeric(sequencedata$sequence_length_template)
+sequencedata$mean_qscore_template&lt;-as.numeric(sequencedata$mean_qscore_template)
+
+# passes_filtering is a useful flag; but there are examples of sequencing_summary.txt where this 
+# is not present - https://github.com/a-slide/pycoQC/blob/master/pycoQC/data/sequencing_summary_1D_DNA_Albacore_1.2.1.txt
+if (! &quot;passes_filtering&quot; %in% colnames(sequencedata)) {
+  # set all of the reads to pass? apply a cutoff?
+  sequencedata$passes_filtering &lt;- TRUE
+} else {
+  sequencedata$passes_filtering &lt;- as.logical(sequencedata$passes_filtering)
+}
+
+# create a separation of pass and fail sequences...
+passedSeqs &lt;- sequencedata[which(sequencedata$passes_filtering), ]
+failedSeqs &lt;- sequencedata[which(!sequencedata$passes_filtering), ]
+
+#####################
+
+# calculate key metrics
+readCount &lt;- formatC(nrow(sequencedata), big.mark=&quot;,&quot;)
+totalBases = sum(sequencedata$sequence_length_template,na.rm=T)/10^9
+passedBases = sum(passedSeqs$sequence_length_template,na.rm=T)/10^9
+gigabases &lt;- round(totalBases,2)
+
+# prepare a data object to render a summary graphic
+figures &lt;- 3
+df &lt;- data.frame(
+  x = cumsum(c(2, rep(6.5, figures-1))),
+  y = rep(2, figures),
+  h = rep(4, figures),
+  w = rep(6, figures))
+
+df$info &lt;- c(&quot;flowcell&quot;, readCount, gigabases)
+df$key &lt;- c(flowcellId,&quot;Reads produced&quot;, &quot;gigabases called&quot;)
+df$icon &lt;- fontawesome(c(&#39;fa-qrcode&#39;, &#39;fa-filter&#39;, &#39;fa-file-text-o&#39;))
+df$colour &lt;- rep(&quot;steelblue&quot;, figures)</code></pre>
+</div>
+</div>
+<div id="generate-a-summary-figure" class="section level1">
+<h1>1. Generate a summary figure</h1>
+<pre class="r"><code># and display the plot
+ExecutiveSummaryValueBoxes &lt;- ggplot(df, aes(x, y, height = h, width = w, label = key, fill = colour)) +
+  geom_tile(fill = brewer.pal(9,&quot;Blues&quot;)[7]) +
+  geom_text(color = brewer.pal(9,&quot;Blues&quot;)[3], hjust=&quot;left&quot;, nudge_y=-1.5, nudge_x=-2.6, size=5) +
+  geom_text(label=df$info, size=10, color = brewer.pal(9,&quot;Blues&quot;)[2], fontface = &quot;bold&quot;, nudge_x=-2.6, hjust=&quot;left&quot;) +
+  geom_text(label=df$icon, family=&#39;fontawesome-webfont&#39;, colour=brewer.pal(9,&quot;Blues&quot;)[5], size=23, hjust=&quot;right&quot;, nudge_x=2.85, nudge_y=0.8) +
+  coord_fixed() + 
+  theme_void() +
+  guides(fill = F)
+
+# save
+ggsave(file.path(&quot;Results&quot;, &quot;Figure1.Summary.png&quot;), plot=ExecutiveSummaryValueBoxes, device=&quot;png&quot;, units=&quot;cm&quot;, width=15, height=3, dpi=reportDPI)</code></pre>
+</div>
+<div id="generate-a-flowcell-channel-figure" class="section level1">
+<h1>2. Generate a flowcell channel figure</h1>
+<pre class="r"><code># create an empty read count container ... MinION or PromethION??
+
+# https://gist.github.com/roblanf/df47b9748c3aae00809cc675aca79989
+# build the map for R9.5 flowcell, as a long-form dataframe that translates
+# channels into rows and columns on the flowcell. Good for plotting in R.
+p1 = data.frame(channel=33:64, row=rep(1:4, each=8), col=rep(1:8, 4))
+p2 = data.frame(channel=481:512, row=rep(5:8, each=8), col=rep(1:8, 4))
+p3 = data.frame(channel=417:448, row=rep(9:12, each=8), col=rep(1:8, 4))
+p4 = data.frame(channel=353:384, row=rep(13:16, each=8), col=rep(1:8, 4))
+p5 = data.frame(channel=289:320, row=rep(17:20, each=8), col=rep(1:8, 4))
+p6 = data.frame(channel=225:256, row=rep(21:24, each=8), col=rep(1:8, 4))
+p7 = data.frame(channel=161:192, row=rep(25:28, each=8), col=rep(1:8, 4))
+p8 = data.frame(channel=97:128, row=rep(29:32, each=8), col=rep(1:8, 4))
+
+q1 = data.frame(channel=1:32, row=rep(1:4, each=8), col=rep(16:9, 4))
+q2 = data.frame(channel=449:480, row=rep(5:8, each=8), col=rep(16:9, 4))
+q3 = data.frame(channel=385:416, row=rep(9:12, each=8), col=rep(16:9, 4))
+q4 = data.frame(channel=321:352, row=rep(13:16, each=8), col=rep(16:9, 4))
+q5 = data.frame(channel=257:288, row=rep(17:20, each=8), col=rep(16:9, 4))
+q6 = data.frame(channel=193:224, row=rep(21:24, each=8), col=rep(16:9, 4))
+q7 = data.frame(channel=129:160, row=rep(25:28, each=8), col=rep(16:9, 4))
+q8 = data.frame(channel=65:96, row=rep(29:32, each=8), col=rep(16:9, 4))
+
+# long form as a data frame, i.e. map$channel[[1]] returns 33
+channelMap = rbind(p1, p2, p3, p4, p5, p6, p7, p8, q1, q2, q3, q4, q5, q6, q7, q8)
+
+hm.palette &lt;- colorRampPalette(brewer.pal(9, &#39;Blues&#39;), space=&#39;Lab&#39;) #RdPu, Oranges, Greens, YlOrRd, Purples
+
+channelCounts &lt;- as.data.frame(matrix(rep(0, 512), ncol=1))
+channelCountRaw &lt;- as.data.frame(table(unlist(sequencedata[, &quot;channel&quot;])), row.names=1)
+channelCounts[row.names(channelCountRaw),] &lt;- channelCountRaw[,1]
+#channelMap &lt;- cbind(channelMap[channelMap$channel,], frequency=channelCounts[channelMap$channel,])
+channelMap &lt;- merge(channelMap, channelCounts, by.x=&quot;channel&quot;, by.y=0)
+colnames(channelMap)[4]&lt;-&quot;count&quot;
+channelMapMatrix &lt;- reshape2::acast(channelMap, col ~ row, value.var = &quot;count&quot;)
+
+theme_update(plot.title = element_text(hjust = 0.5))
+
+channel&lt;-ggplot(channelMap, aes(x = row, y = col, fill = count)) +
+  geom_tile() +
+  geom_text(data=channelMap,aes(x=row, y=col,label=count,color=count),show.legend = F, size=4) +
+  scale_x_discrete(breaks=NULL) +
+  scale_y_discrete(breaks=NULL) +
+  coord_equal() +
+  scale_fill_gradientn(colours = hm.palette(100)) +
+  scale_color_gradient2(low = hm.palette(100), high = hm.palette(1)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title=&quot;Channel activity plot showing number of reads per flowcell channel&quot;) +
+  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position=&quot;bottom&quot;,
+        legend.key.width=unit(5.6,&quot;cm&quot;))
+
+ggsave(file.path(&quot;Results&quot;, &quot;Figure2.channel.png&quot;), plot=channel, device=&quot;png&quot;, units=&quot;cm&quot;, width=15, height=12, dpi=reportDPI)</code></pre>
+</div>
+<div id="generate-a-read-length-figure" class="section level1">
+<h1>3. generate a read-length figure</h1>
+<pre class="r"><code>lenSorted &lt;- rev(sort(passedSeqs$sequence_length_template))
+passedMeanLength = round(mean(lenSorted), digits = 0)
+N50 &lt;- lenSorted[cumsum(lenSorted) &gt;= sum(lenSorted)*0.5][1]
+passedMeanQ = round(mean(passedSeqs$mean_qscore_template), digits = 1)
+failedMeanQ = round(mean(failedSeqs$mean_qscore_template), digits = 1)
+
+figures &lt;- 5
+
+df &lt;- data.frame(
+  x = cumsum(c(2, rep(6.5, figures-1))),
+  y = rep(2, figures),
+  h = rep(4, figures),
+  w = rep(6, figures))
+
+df$info &lt;- c(passedMeanLength, N50, passedMeanQ, failedMeanQ, prettyNum(max(passedSeqs$sequence_length_template), big.mark=&quot;,&quot;))
+df$key &lt;- c(&quot;Mean Read Length (nt)&quot;,&quot;N50&quot;,&quot;Mean Read Quality (QV)&quot;,&quot;Mean Failed QV&quot;,&quot;Longest Read&quot;)
+df$icon &lt;- fontawesome(c(&quot;fa-bar-chart&quot;, &quot;fa-play&quot;, &quot;fa-area-chart&quot;, &quot;fa-bug&quot;, &quot;fa-sort&quot;))
+
+df$colour &lt;- rep(&quot;steelblue&quot;, figures)
+
+ReadCharacteristicsValueBoxes &lt;- ggplot(df, aes(x, y, height = h, width = w, label = key, fill = colour)) +
+  geom_tile(fill = brewer.pal(9,&quot;Blues&quot;)[7]) +
+  geom_text(color = brewer.pal(9,&quot;Blues&quot;)[3], hjust=&quot;left&quot;, nudge_y=-1.5, nudge_x=-2.6, size=3.5) +
+  geom_text(label=df$info, size=5.5, color = brewer.pal(9,&quot;Blues&quot;)[2], fontface = &quot;bold&quot;, nudge_x=-2.6, hjust=&quot;left&quot;) +
+  geom_text(label=df$icon, family=&#39;fontawesome-webfont&#39;, colour=brewer.pal(9,&quot;Blues&quot;)[5], size=13.3, hjust=&quot;right&quot;, nudge_x=2.85, nudge_y=0.8) +
+  coord_fixed() + 
+  scale_fill_brewer(type = &quot;qual&quot;,palette = &quot;Dark2&quot;) +
+  theme_void() +
+  guides(fill = F)
+
+roundUpNice &lt;- function(x, nice=seq(from=1, to=10, by=0.25)) {
+  if(length(x) != 1) stop(&quot;&#39;x&#39; must be of length 1&quot;)
+  10^floor(log10(x)) * nice[[which(x &lt;= 10^floor(log10(x)) * nice)[[1]]]]
+}
+
+upperLimit &lt;- roundUpNice(as.numeric(quantile(x=sequencedata$sequence_length_template, probs=c(0.975))))
+
+histogramBinCount &lt;- 40
+breakVal = roundUpNice(upperLimit / histogramBinCount)
+breaks &lt;- seq(0, to=upperLimit, by=breakVal)
+binAssignments &lt;- cut(sequencedata$sequence_length_template, breaks, eval.lowest=TRUE, right=FALSE)
+
+scrapeBinnedBases &lt;- function(level, qcpass) {
+  sum(subset(sequencedata[which(binAssignments == level), ], passes_filtering==qcpass)$sequence_length_template)
+}
+
+passedBinnedBases &lt;- unlist(lapply(levels(binAssignments), scrapeBinnedBases, qcpass=TRUE))
+failedBinnedBases &lt;- unlist(lapply(levels(binAssignments), scrapeBinnedBases, qcpass=FALSE))
+binnedBaseDist &lt;- data.frame(length=head(breaks, -1), pass=passedBinnedBases, fail=failedBinnedBases)
+binnedBaseMelt &lt;- reshape2::melt(binnedBaseDist, id.vars=c(&quot;length&quot;))
+
+length&lt;-ggplot(binnedBaseMelt, aes(x=length, fill=variable, y=value)) +
+  geom_bar(stat=&quot;identity&quot;) +
+  xlab(&quot;Read length\n&quot;) + ylab(&quot;Number of bases sequenced\n&quot;) +
+  scale_fill_manual(&quot;QC&quot;, values=c(&quot;fail&quot;=brewer.pal(6, &quot;Paired&quot;)[1], &quot;pass&quot;=brewer.pal(6, &quot;Paired&quot;)[2])) +
+  scale_x_continuous(limits=c(-breakVal,upperLimit), breaks=pretty(passedSeqs$sequence_length_template,n=40)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title=&quot;Histogram showing the number of sequenced bases against sequence length&quot;, fill=&quot;QV filter&quot;)+
+  geom_vline(xintercept = N50, size = 1) +
+  annotate(&quot;text&quot;, x=N50, y=max(passedBinnedBases + failedBinnedBases), label = &quot; N50&quot;, hjust=0, colour=&quot;SteelBlue&quot;) +
+  geom_vline(xintercept = passedMeanLength, size = 1) +
+  annotate(&quot;text&quot;, x=passedMeanLength, y=max(passedBinnedBases + failedBinnedBases), label = &quot; Mean&quot;, hjust=0, colour=&quot;SteelBlue&quot;)
+
+ggsave(file.path(&quot;Results&quot;, &quot;Figure3.length.png&quot;), plot=length, device=&quot;png&quot;, units=&quot;cm&quot;, width=12, height=8, dpi=reportDPI)</code></pre>
+</div>
+<div id="generate-a-sequence-time-figure" class="section level1">
+<h1>4. generate a sequence-time figure</h1>
+<pre class="r"><code>sequencedata$start_time &lt;- sequencedata$start_time - min(sequencedata$start_time)
+sequencedata$start_time &lt;- sequencedata$start_time / scaling
+
+# a 48 hour run, 5 minute intervals
+sampleHours = 48
+sampleIntervalMinutes = 60
+
+breaks = seq(0, sampleHours*60*60, by=60*sampleIntervalMinutes)
+binass &lt;- findInterval(sequencedata$start_time, breaks)
+
+mergeItPerHour &lt;- function(interval, binnedAssignments, filter) {
+  totalbases = 0
+  if (length(which(binnedAssignments==interval))&gt;0) {
+    subset &lt;- sequencedata[which(binnedAssignments==interval), ]
+    if (length(which(subset$passes_filtering == filter)) &gt; 0) {
+      totalbases = sum(subset[which(subset$passes_filtering == filter), &quot;sequence_length_template&quot;])
+    }
+  }
+  # need to scale what is being returned - totalbases value is total bases within an interval (sampleIntervalMinutes)
+  return(totalbases / 1e9 / sampleIntervalMinutes * 60)
+}
+
+binnedTemporalDataPerHour &lt;- data.frame(
+  cbind(
+    time=breaks,
+    pass=unlist(lapply(seq(breaks), mergeItPerHour, binnedAssignments=binass,filter=TRUE)),
+    fail=unlist(lapply(seq(breaks), mergeItPerHour, binnedAssignments=binass, filter=FALSE))
+  )
+)
+
+binnedTemporalDataPerHour$time &lt;- binnedTemporalDataPerHour$time / 60 / 60
+
+time&lt;-ggplot(binnedTemporalDataPerHour, aes(time)) +
+  geom_line(aes(y = fail, colour = &quot;fail&quot;), size=1) + 
+  geom_line(aes(y = pass, colour = &quot;pass&quot;), size=1) +
+  scale_color_manual(name=&quot;QV&quot;, values=c(&quot;fail&quot;=brewer.pal(6, &quot;Paired&quot;)[1], &quot;pass&quot;=brewer.pal(6, &quot;Paired&quot;)[2])) +
+  xlab(&quot;Time (hours)&quot;) + 
+  ylab(&quot;Gigabases sequenced per hour&quot;) + 
+  labs(title=&quot;Plot showing sequence throughput against time&quot;)
+
+ggsave(file.path(&quot;Results&quot;, &quot;Figure4.time.png&quot;), plot=time, device=&quot;png&quot;, units=&quot;cm&quot;, width=12, height=8, dpi=reportDPI)</code></pre>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.1.2 (2021-11-01)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Big Sur 10.16
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.7.0
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.8       bslib_0.3.1      compiler_4.1.2   pillar_1.7.0    
+ [5] later_1.3.0      git2r_0.29.0     jquerylib_0.1.4  tools_4.1.2     
+ [9] getPass_0.2-2    digest_0.6.29    jsonlite_1.7.3   evaluate_0.14   
+[13] tibble_3.1.6     lifecycle_1.0.1  pkgconfig_2.0.3  rlang_1.0.1     
+[17] cli_3.1.1        rstudioapi_0.13  yaml_2.2.2       xfun_0.29       
+[21] fastmap_1.1.0    httr_1.4.2       stringr_1.4.0    knitr_1.37      
+[25] sass_0.4.0       fs_1.5.2         vctrs_0.3.8      rprojroot_2.0.2 
+[29] glue_1.6.1       R6_2.5.1         processx_3.5.2   fansi_1.0.2     
+[33] rmarkdown_2.11   callr_3.7.0      magrittr_2.0.2   whisker_0.4     
+[37] ps_1.6.0         promises_1.2.0.1 htmltools_0.5.2  ellipsis_0.3.2  
+[41] httpuv_1.6.5     utf8_1.2.2       stringi_1.7.6    crayon_1.4.2    </code></pre>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
