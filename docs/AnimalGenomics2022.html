@@ -475,16 +475,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treec7c789ac6cfabc2e87b947f4811c5b6b9cfa4489targetblankc7c789aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/c7c789ac6cfabc2e87b947f4811c5b6b9cfa4489" target="_blank">c7c789a</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree2a745f9e6bee185b93e779b943433ee654e536b4targetblank2a745f9a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/2a745f9e6bee185b93e779b943433ee654e536b4" target="_blank">2a745f9</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treec7c789ac6cfabc2e87b947f4811c5b6b9cfa4489targetblankc7c789aa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree2a745f9e6bee185b93e779b943433ee654e536b4targetblank2a745f9a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/c7c789ac6cfabc2e87b947f4811c5b6b9cfa4489" target="_blank">c7c789a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/2a745f9e6bee185b93e779b943433ee654e536b4" target="_blank">2a745f9</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -526,10 +526,6 @@ Untracked files:
     Untracked:  vis.xlsx
     Untracked:  workflowR.bio326.R
 
-Unstaged changes:
-    Modified:   analysis/popgen.simu.Rmd
-    Deleted:    analysis/popgen_sim.Rmd
-
 </code></pre>
 <p>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
@@ -567,6 +563,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/2a745f9e6bee185b93e779b943433ee654e536b4/analysis/AnimalGenomics2022.Rmd" target="_blank">2a745f9</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-02-21
+</td>
+<td>
+wflow_publish(c(“analysis/AnimalGenomics2022.Rmd”))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/76d68527ddb9e19f6bfcc78076859f87f3cd05f6/docs/AnimalGenomics2022.html" target="_blank">76d6852</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-02-21
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -653,22 +683,10 @@ sequencedata &lt;- data.table::fread(inputFile, stringsAsFactors=FALSE)
 # You may want to change them.
 flowcellId     &lt;- &quot;FAK41706&quot; # example  &quot;FAK41706&quot;
 basecaller     &lt;-  &quot;Guppy&quot; # example &quot;Guppy 2.1.3&quot;</code></pre>
-</div>
-</div>
-<div id="question1" class="section level1">
-<h1>Question1</h1>
-</div>
-<div id="result1" class="section level1">
-<h1>Result1</h1>
-<details>
-<summary>
-<strong>Matthew’s hint</strong>
-</summary>
-<p>This is a hint!</p>
-</details>
 <p>The summary dataset contains too much information. We will calculate and extract core info. (You can take a look the summary file by putting the follwing path in “Terminal” tub).</p>
 <pre class="bash"><code>more /net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing.summary_92.txt</code></pre>
 <p><img src="assets/Bio326-2022/prep5.png" style="width:80.0%" /></p>
+</div>
 <div id="extract-and-organize-the-information" class="section level3">
 <h3>Extract and organize the information</h3>
 <pre class="r"><code># remove the redundant headers from merged files
@@ -732,6 +750,25 @@ ExecutiveSummaryValueBoxes &lt;- ggplot(df, aes(x, y, height = h, width = w, lab
 
 # save
 ggsave(file.path(&quot;Results&quot;, &quot;Figure1.Summary.png&quot;), plot=ExecutiveSummaryValueBoxes, device=&quot;png&quot;, units=&quot;cm&quot;, width=15, height=3, dpi=reportDPI)</code></pre>
+<div id="result1" class="section level3">
+<h3>Result1</h3>
+<details>
+<summary>
+<strong>Click to display</strong>
+</summary>
+<p><img src="assets/Bio326-2022/Figure1.Summary.png" /></p>
+</details>
+</div>
+</div>
+<div id="question1" class="section level1">
+<h1>Question1</h1>
+<p>This sequence data is from a pig sample. Approximately how much coverage do you estimate you have gained? If it were Fruit fly sample, how much coverage is it then?</p>
+<details>
+<summary>
+** Hint1**
+</summary>
+<p>Coverage = (Obtained sequenced bases) / (genome size)</p>
+</details>
 </div>
 <div id="generate-a-flowcell-channel-figure" class="section level1">
 <h1>2. Generate a flowcell channel figure</h1>
@@ -791,6 +828,25 @@ channel&lt;-ggplot(channelMap, aes(x = row, y = col, fill = count)) +
         legend.key.width=unit(5.6,&quot;cm&quot;))
 
 ggsave(file.path(&quot;Results&quot;, &quot;Figure2.channel.png&quot;), plot=channel, device=&quot;png&quot;, units=&quot;cm&quot;, width=15, height=12, dpi=reportDPI)</code></pre>
+<div id="result2" class="section level3">
+<h3>Result2</h3>
+<details>
+<summary>
+<strong>Click to display</strong>
+</summary>
+<p><img src="assets/Bio326-2022/Figure2.Channel.png" /></p>
+</details>
+</div>
+</div>
+<div id="question2" class="section level1">
+<h1>Question2</h1>
+QQQ
+<details>
+<summary>
+** Hint2**
+</summary>
+HHH
+</details>
 </div>
 <div id="generate-a-read-length-figure" class="section level1">
 <h1>3. generate a read-length figure</h1>
@@ -858,6 +914,25 @@ length&lt;-ggplot(binnedBaseMelt, aes(x=length, fill=variable, y=value)) +
   annotate(&quot;text&quot;, x=passedMeanLength, y=max(passedBinnedBases + failedBinnedBases), label = &quot; Mean&quot;, hjust=0, colour=&quot;SteelBlue&quot;)
 
 ggsave(file.path(&quot;Results&quot;, &quot;Figure3.length.png&quot;), plot=length, device=&quot;png&quot;, units=&quot;cm&quot;, width=12, height=8, dpi=reportDPI)</code></pre>
+<div id="result3" class="section level3">
+<h3>Result3</h3>
+<details>
+<summary>
+<strong>Click to display</strong>
+</summary>
+<p><img src="assets/Bio326-2022/Figure3.length.png" /></p>
+</details>
+</div>
+</div>
+<div id="question3" class="section level1">
+<h1>Question3</h1>
+QQQ
+<details>
+<summary>
+** Hint3**
+</summary>
+HHH
+</details>
 </div>
 <div id="generate-a-sequence-time-figure" class="section level1">
 <h1>4. generate a sequence-time figure</h1>
@@ -902,6 +977,25 @@ time&lt;-ggplot(binnedTemporalDataPerHour, aes(time)) +
   labs(title=&quot;Plot showing sequence throughput against time&quot;)
 
 ggsave(file.path(&quot;Results&quot;, &quot;Figure4.time.png&quot;), plot=time, device=&quot;png&quot;, units=&quot;cm&quot;, width=12, height=8, dpi=reportDPI)</code></pre>
+<div id="result4" class="section level3">
+<h3>Result4</h3>
+<details>
+<summary>
+<strong>Click to display</strong>
+</summary>
+<p><img src="assets/Bio326-2022/Figure4.time.png" /></p>
+</details>
+</div>
+</div>
+<div id="question4" class="section level1">
+<h1>Question4</h1>
+QQQ
+<details>
+<summary>
+** Hint4**
+</summary>
+<p>HHH</p>
+</details>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
