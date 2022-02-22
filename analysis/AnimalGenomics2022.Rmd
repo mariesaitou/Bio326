@@ -7,7 +7,8 @@ output:
   html_document: default
 ---
 
-The tutorial is adapted from Nanopore Material (registration required) for educational purpose only.
+The tutorial is adapted from [Nanopore Community](https://community.nanoporetech.com/knowledge/bioinformatics/nanopore-summary-statistic/tutorial
+) (registration required) for educational purpose only.
 
 ## Connect to Orion
 Go to https://orion.nmbu.no/ at NMBU or with VPN.
