@@ -384,7 +384,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-02-21
+<strong>Last updated:</strong> 2022-02-22
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -475,16 +475,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree2a745f9e6bee185b93e779b943433ee654e536b4targetblank2a745f9a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/2a745f9e6bee185b93e779b943433ee654e536b4" target="_blank">2a745f9</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree8abd3b8d5c3d37a502b2b4397d9361b09694ba18targetblank8abd3b8a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/8abd3b8d5c3d37a502b2b4397d9361b09694ba18" target="_blank">8abd3b8</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree2a745f9e6bee185b93e779b943433ee654e536b4targetblank2a745f9a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree8abd3b8d5c3d37a502b2b4397d9361b09694ba18targetblank8abd3b8a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/2a745f9e6bee185b93e779b943433ee654e536b4" target="_blank">2a745f9</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/8abd3b8d5c3d37a502b2b4397d9361b09694ba18" target="_blank">8abd3b8</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -568,6 +568,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/mariesaitou/Bio326/blob/8abd3b8d5c3d37a502b2b4397d9361b09694ba18/analysis/AnimalGenomics2022.Rmd" target="_blank">8abd3b8</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-02-22
+</td>
+<td>
+wflow_publish(c(“analysis/AnimalGenomics2022.Rmd”))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/9e344fb7d944e3064e2f2c60fa4484c7791191b0/docs/AnimalGenomics2022.html" target="_blank">9e344fb</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-02-21
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/mariesaitou/Bio326/blob/2a745f9e6bee185b93e779b943433ee654e536b4/analysis/AnimalGenomics2022.Rmd" target="_blank">2a745f9</a>
 </td>
 <td>
@@ -621,6 +655,7 @@ wflow_publish(c(“analysis/AnimalGenomics2022.Rmd”))
 </div>
 </div>
 </div>
+<p>The tutorial is adapted from Nanopore Material (registration required) for educational purpose only.</p>
 <div id="connect-to-orion" class="section level2">
 <h2>Connect to Orion</h2>
 <p>Go to <a href="https://orion.nmbu.no/" class="uri">https://orion.nmbu.no/</a> at NMBU or with VPN.</p>
@@ -635,9 +670,9 @@ wflow_publish(c(“analysis/AnimalGenomics2022.Rmd”))
 <h1>0. Preparation</h1>
 <div id="where-is-your-personal-directory" class="section level3">
 <h3>Where is your personal directory?</h3>
-<p>Set your working directory there by “setwd”. <img src="assets/Bio326-2022/prep4.png" style="width:80.0%" /></p>
-<pre class="r"><code>## You have to CHANGE &quot;working directory&quot; to your directory (bio326-22-XX)
-setwd(&quot;/net/cn-1/mnt/SCRATCH/bio326-22-XX/&quot;) 
+<p>You have to <strong>change</strong> “working directory” to your directory (bio326-22-XX) <img src="assets/Bio326-2022/prep4.png" style="width:80.0%" /></p>
+<pre class="r"><code>setwd(&quot;/net/cn-1/mnt/SCRATCH/bio326-22-XX/&quot;) 
+
 #setwd(&quot;/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/QCTutorial/&quot;)
 
 ## Install necessary libraries
@@ -672,17 +707,17 @@ slurpContent &lt;- function(filename) {
 </div>
 <div id="executive-summary" class="section level3">
 <h3>Executive summary</h3>
-</div>
-<div id="you-have-to-change-input-file-and-other-info" class="section level3">
-<h3>You have to CHANGE “input file” and other info</h3>
-<p>When you analyze another data.</p>
+<p>You have to <strong>change</strong> “input file” and other info When you analyze another data.</p>
 <pre class="r"><code>## inputFile. You can select your file.
+## If you are ambitious, there is another data 
+## /net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing_summary_17.txt
+
 inputFile      &lt;- &quot;/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing_summary_92.txt&quot;
 sequencedata &lt;- data.table::fread(inputFile, stringsAsFactors=FALSE)
 
 # You may want to change them.
-flowcellId     &lt;- &quot;FAK41706&quot; # example  &quot;FAK41706&quot;
-basecaller     &lt;-  &quot;Guppy&quot; # example &quot;Guppy 2.1.3&quot;</code></pre>
+flowcellId     &lt;- &quot;FAK41706&quot; # example  &quot;FAK41706&quot;. Please adjust it according to your data.
+basecaller     &lt;-  &quot;Guppy&quot; # example &quot;Guppy 2.1.3&quot;. Please adjust it according to your data.</code></pre>
 <p>The summary dataset contains too much information. We will calculate and extract core info. (You can take a look the summary file by putting the follwing path in “Terminal” tub).</p>
 <pre class="bash"><code>more /net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing.summary_92.txt</code></pre>
 <p><img src="assets/Bio326-2022/prep5.png" style="width:80.0%" /></p>
@@ -746,9 +781,9 @@ ExecutiveSummaryValueBoxes &lt;- ggplot(df, aes(x, y, height = h, width = w, lab
   geom_text(label=df$icon, family=&#39;fontawesome-webfont&#39;, colour=brewer.pal(9,&quot;Blues&quot;)[5], size=23, hjust=&quot;right&quot;, nudge_x=2.85, nudge_y=0.8) +
   coord_fixed() + 
   theme_void() +
-  guides(fill = F)
-
-# save
+  guides(fill = F)</code></pre>
+<p>You have to <strong>change</strong> “output file name” if you work with multiple dataset not to overwrite previous output.</p>
+<pre class="r"><code># save ... &quot;Figure1.Summary.png&quot; is the output file name.
 ggsave(file.path(&quot;Results&quot;, &quot;Figure1.Summary.png&quot;), plot=ExecutiveSummaryValueBoxes, device=&quot;png&quot;, units=&quot;cm&quot;, width=15, height=3, dpi=reportDPI)</code></pre>
 <div id="result1" class="section level3">
 <h3>Result1</h3>
@@ -759,20 +794,25 @@ ggsave(file.path(&quot;Results&quot;, &quot;Figure1.Summary.png&quot;), plot=Exe
 <p><img src="assets/Bio326-2022/Figure1.Summary.png" /></p>
 </details>
 </div>
+<div id="how-to-download-files-from-orion-to-your-laptop" class="section level3">
+<h3>How to download files from Orion to your laptop…?</h3>
+<pre class="bash"><code>scp yourID@login.orion.nmbu.no:/file.png your/local/file.png </code></pre>
+</div>
 </div>
 <div id="question1" class="section level1">
 <h1>Question1</h1>
-<p>This sequence data is from a pig sample. Approximately how much coverage do you estimate you have gained? If it were Fruit fly sample, how much coverage is it then?</p>
+<p>This sequence data is from a pig sample. Approximately how much coverage do you estimate you have gained? If it were a fruit fly sample, how much coverage is it then?</p>
 <details>
 <summary>
-** Hint1**
+<strong>Hint</strong>
 </summary>
 <p>Coverage = (Obtained sequenced bases) / (genome size)</p>
 </details>
 </div>
 <div id="generate-a-flowcell-channel-figure" class="section level1">
 <h1>2. Generate a flowcell channel figure</h1>
-<pre class="r"><code># create an empty read count container ... MinION or PromethION??
+<pre class="r"><code>## Data formatting and preparation
+# create an empty read count container ... MinION or PromethION??
 
 # https://gist.github.com/roblanf/df47b9748c3aae00809cc675aca79989
 # build the map for R9.5 flowcell, as a long-form dataframe that translates
@@ -808,8 +848,8 @@ channelMap &lt;- merge(channelMap, channelCounts, by.x=&quot;channel&quot;, by.y
 colnames(channelMap)[4]&lt;-&quot;count&quot;
 channelMapMatrix &lt;- reshape2::acast(channelMap, col ~ row, value.var = &quot;count&quot;)
 
-theme_update(plot.title = element_text(hjust = 0.5))
-
+theme_update(plot.title = element_text(hjust = 0.5))</code></pre>
+<pre class="r"><code>## Actual figure generation
 channel&lt;-ggplot(channelMap, aes(x = row, y = col, fill = count)) +
   geom_tile() +
   geom_text(data=channelMap,aes(x=row, y=col,label=count,color=count),show.legend = F, size=4) +
@@ -825,9 +865,9 @@ channel&lt;-ggplot(channelMap, aes(x = row, y = col, fill = count)) +
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
         legend.position=&quot;bottom&quot;,
-        legend.key.width=unit(5.6,&quot;cm&quot;))
-
-ggsave(file.path(&quot;Results&quot;, &quot;Figure2.channel.png&quot;), plot=channel, device=&quot;png&quot;, units=&quot;cm&quot;, width=15, height=12, dpi=reportDPI)</code></pre>
+        legend.key.width=unit(5.6,&quot;cm&quot;))</code></pre>
+<p>You have to <strong>change</strong> “output file name” if you work with multiple dataset not to overwrite previous output.</p>
+<pre class="r"><code>ggsave(file.path(&quot;Results&quot;, &quot;Figure2.channel.png&quot;), plot=channel, device=&quot;png&quot;, units=&quot;cm&quot;, width=15, height=12, dpi=reportDPI)</code></pre>
 <div id="result2" class="section level3">
 <h3>Result2</h3>
 <details>
@@ -843,14 +883,16 @@ ggsave(file.path(&quot;Results&quot;, &quot;Figure2.channel.png&quot;), plot=cha
 QQQ
 <details>
 <summary>
-** Hint2**
+<strong>Hint</strong>
 </summary>
 HHH
 </details>
 </div>
 <div id="generate-a-read-length-figure" class="section level1">
 <h1>3. generate a read-length figure</h1>
-<pre class="r"><code>lenSorted &lt;- rev(sort(passedSeqs$sequence_length_template))
+<pre class="r"><code>## Data formatting and preparation
+
+lenSorted &lt;- rev(sort(passedSeqs$sequence_length_template))
 passedMeanLength = round(mean(lenSorted), digits = 0)
 N50 &lt;- lenSorted[cumsum(lenSorted) &gt;= sum(lenSorted)*0.5][1]
 passedMeanQ = round(mean(passedSeqs$mean_qscore_template), digits = 1)
@@ -899,8 +941,8 @@ scrapeBinnedBases &lt;- function(level, qcpass) {
 passedBinnedBases &lt;- unlist(lapply(levels(binAssignments), scrapeBinnedBases, qcpass=TRUE))
 failedBinnedBases &lt;- unlist(lapply(levels(binAssignments), scrapeBinnedBases, qcpass=FALSE))
 binnedBaseDist &lt;- data.frame(length=head(breaks, -1), pass=passedBinnedBases, fail=failedBinnedBases)
-binnedBaseMelt &lt;- reshape2::melt(binnedBaseDist, id.vars=c(&quot;length&quot;))
-
+binnedBaseMelt &lt;- reshape2::melt(binnedBaseDist, id.vars=c(&quot;length&quot;))</code></pre>
+<pre class="r"><code>## Actual figure generation
 length&lt;-ggplot(binnedBaseMelt, aes(x=length, fill=variable, y=value)) +
   geom_bar(stat=&quot;identity&quot;) +
   xlab(&quot;Read length\n&quot;) + ylab(&quot;Number of bases sequenced\n&quot;) +
@@ -911,9 +953,9 @@ length&lt;-ggplot(binnedBaseMelt, aes(x=length, fill=variable, y=value)) +
   geom_vline(xintercept = N50, size = 1) +
   annotate(&quot;text&quot;, x=N50, y=max(passedBinnedBases + failedBinnedBases), label = &quot; N50&quot;, hjust=0, colour=&quot;SteelBlue&quot;) +
   geom_vline(xintercept = passedMeanLength, size = 1) +
-  annotate(&quot;text&quot;, x=passedMeanLength, y=max(passedBinnedBases + failedBinnedBases), label = &quot; Mean&quot;, hjust=0, colour=&quot;SteelBlue&quot;)
-
-ggsave(file.path(&quot;Results&quot;, &quot;Figure3.length.png&quot;), plot=length, device=&quot;png&quot;, units=&quot;cm&quot;, width=12, height=8, dpi=reportDPI)</code></pre>
+  annotate(&quot;text&quot;, x=passedMeanLength, y=max(passedBinnedBases + failedBinnedBases), label = &quot; Mean&quot;, hjust=0, colour=&quot;SteelBlue&quot;)</code></pre>
+<p>You have to <strong>change</strong> “output file name” if you work with multiple dataset not to overwrite previous output.</p>
+<pre class="r"><code>ggsave(file.path(&quot;Results&quot;, &quot;Figure3.length.png&quot;), plot=length, device=&quot;png&quot;, units=&quot;cm&quot;, width=12, height=8, dpi=reportDPI)</code></pre>
 <div id="result3" class="section level3">
 <h3>Result3</h3>
 <details>
@@ -929,14 +971,15 @@ ggsave(file.path(&quot;Results&quot;, &quot;Figure3.length.png&quot;), plot=leng
 QQQ
 <details>
 <summary>
-** Hint3**
+<strong>Hint</strong>
 </summary>
 HHH
 </details>
 </div>
 <div id="generate-a-sequence-time-figure" class="section level1">
 <h1>4. generate a sequence-time figure</h1>
-<pre class="r"><code>sequencedata$start_time &lt;- sequencedata$start_time - min(sequencedata$start_time)
+<pre class="r"><code>## Data formatting and preparation
+sequencedata$start_time &lt;- sequencedata$start_time - min(sequencedata$start_time)
 sequencedata$start_time &lt;- sequencedata$start_time / scaling
 
 # a 48 hour run, 5 minute intervals
@@ -966,17 +1009,17 @@ binnedTemporalDataPerHour &lt;- data.frame(
   )
 )
 
-binnedTemporalDataPerHour$time &lt;- binnedTemporalDataPerHour$time / 60 / 60
-
+binnedTemporalDataPerHour$time &lt;- binnedTemporalDataPerHour$time / 60 / 60</code></pre>
+<pre class="r"><code>## Actual figure generation
 time&lt;-ggplot(binnedTemporalDataPerHour, aes(time)) +
   geom_line(aes(y = fail, colour = &quot;fail&quot;), size=1) + 
   geom_line(aes(y = pass, colour = &quot;pass&quot;), size=1) +
   scale_color_manual(name=&quot;QV&quot;, values=c(&quot;fail&quot;=brewer.pal(6, &quot;Paired&quot;)[1], &quot;pass&quot;=brewer.pal(6, &quot;Paired&quot;)[2])) +
   xlab(&quot;Time (hours)&quot;) + 
   ylab(&quot;Gigabases sequenced per hour&quot;) + 
-  labs(title=&quot;Plot showing sequence throughput against time&quot;)
-
-ggsave(file.path(&quot;Results&quot;, &quot;Figure4.time.png&quot;), plot=time, device=&quot;png&quot;, units=&quot;cm&quot;, width=12, height=8, dpi=reportDPI)</code></pre>
+  labs(title=&quot;Plot showing sequence throughput against time&quot;)</code></pre>
+<p>You have to <strong>change</strong> “output file name” if you work with multiple dataset not to overwrite previous output.</p>
+<pre class="r"><code>ggsave(file.path(&quot;Results&quot;, &quot;Figure4.time.png&quot;), plot=time, device=&quot;png&quot;, units=&quot;cm&quot;, width=12, height=8, dpi=reportDPI)</code></pre>
 <div id="result4" class="section level3">
 <h3>Result4</h3>
 <details>
@@ -992,10 +1035,14 @@ ggsave(file.path(&quot;Results&quot;, &quot;Figure4.time.png&quot;), plot=time, 
 QQQ
 <details>
 <summary>
-** Hint4**
+<strong>Hint</strong>
 </summary>
 <p>HHH</p>
 </details>
+</div>
+<div id="time-to-explore" class="section level1">
+<h1>Time to explore</h1>
+<p>Now you have investigated one sample. You can investigate another sample, and your own three flowcells. To do so, <strong>change</strong> input file name, flowcell info, and output file names.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
