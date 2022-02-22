@@ -7,6 +7,8 @@ output:
   html_document: default
 ---
 
+The tutorial is adapted from Nanopore Material (registration required) for educational purpose only.
+
 ## Connect to Orion
 Go to https://orion.nmbu.no/ at NMBU or with VPN.
 
@@ -25,11 +27,11 @@ Click "Rstudio-4.1.0"
 
 # 0. Preparation
 ### Where is your personal directory? 
-Set your working directory there by "setwd".
+You have to **change** "working directory" to your directory (bio326-22-XX)
 ![](assets/Bio326-2022/prep4.png){width=80%}
 ```{r,eval=FALSE}
-## You have to CHANGE "working directory" to your directory (bio326-22-XX)
 setwd("/net/cn-1/mnt/SCRATCH/bio326-22-XX/") 
+
 #setwd("/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/QCTutorial/")
 
 ## Install necessary libraries
@@ -65,16 +67,18 @@ slurpContent <- function(filename) {
 ```
 
 ### Executive summary 
-### You have to CHANGE "input file" and other info 
-When you analyze another data.
+You have to **change** "input file" and other info When you analyze another data.
 ```{r, eval=FALSE}
 ## inputFile. You can select your file.
+## If you are ambitious, there is another data 
+## /net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing_summary_17.txt
+
 inputFile      <- "/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing_summary_92.txt"
 sequencedata <- data.table::fread(inputFile, stringsAsFactors=FALSE)
 
 # You may want to change them.
-flowcellId     <- "FAK41706" # example  "FAK41706"
-basecaller     <-  "Guppy" # example "Guppy 2.1.3"
+flowcellId     <- "FAK41706" # example  "FAK41706". Please adjust it according to your data.
+basecaller     <-  "Guppy" # example "Guppy 2.1.3". Please adjust it according to your data.
 ```
 
 
@@ -150,8 +154,11 @@ ExecutiveSummaryValueBoxes <- ggplot(df, aes(x, y, height = h, width = w, label 
   coord_fixed() + 
   theme_void() +
   guides(fill = F)
+```
 
-# save
+You have to **change** "output file name" if you work with multiple dataset not to overwrite previous output.
+```{r, eval=FALSE}
+# save ... "Figure1.Summary.png" is the output file name.
 ggsave(file.path("Results", "Figure1.Summary.png"), plot=ExecutiveSummaryValueBoxes, device="png", units="cm", width=15, height=3, dpi=reportDPI)
 
 ```
@@ -164,19 +171,27 @@ ggsave(file.path("Results", "Figure1.Summary.png"), plot=ExecutiveSummaryValueBo
 
 </details> 
 
+### How to download files from Orion to your laptop...? 
+```{bash, eval=FALSE}
+scp yourID@login.orion.nmbu.no:/file.png your/local/file.png 
+```
+
+
 # Question1
 This sequence data is from a pig sample. Approximately how much coverage do you estimate you have gained?
-If it were Fruit fly sample, how much coverage is it then?
+If it were a fruit fly sample, how much coverage is it then?
 
 <details>
-  <summary> ** Hint1**</summary>      
+  <summary> **Hint** </summary>      
  Coverage =	(Obtained sequenced bases) / (genome size)
 
 </details> 
 
 
+
 # 2. Generate a flowcell channel figure
 ```{r, eval=FALSE}
+## Data formatting and preparation
 # create an empty read count container ... MinION or PromethION??
 
 # https://gist.github.com/roblanf/df47b9748c3aae00809cc675aca79989
@@ -214,7 +229,11 @@ colnames(channelMap)[4]<-"count"
 channelMapMatrix <- reshape2::acast(channelMap, col ~ row, value.var = "count")
 
 theme_update(plot.title = element_text(hjust = 0.5))
+```
 
+
+```{r,eval=FALSE}
+## Actual figure generation
 channel<-ggplot(channelMap, aes(x = row, y = col, fill = count)) +
   geom_tile() +
   geom_text(data=channelMap,aes(x=row, y=col,label=count,color=count),show.legend = F, size=4) +
@@ -231,7 +250,10 @@ channel<-ggplot(channelMap, aes(x = row, y = col, fill = count)) +
         axis.title.y = element_blank(),
         legend.position="bottom",
         legend.key.width=unit(5.6,"cm"))
+```
 
+You have to **change** "output file name" if you work with multiple dataset not to overwrite previous output.
+```{r,eval=FALSE}
 ggsave(file.path("Results", "Figure2.channel.png"), plot=channel, device="png", units="cm", width=15, height=12, dpi=reportDPI)
 
 ```
@@ -247,13 +269,15 @@ ggsave(file.path("Results", "Figure2.channel.png"), plot=channel, device="png", 
 # Question2
 QQQ
 <details>
-  <summary> ** Hint2**</summary>      
+  <summary>  **Hint** </summary>      
 HHH
 </details> 
 
 
 # 3. generate a read-length figure
 ```{r,eval=FALSE}
+## Data formatting and preparation
+
 lenSorted <- rev(sort(passedSeqs$sequence_length_template))
 passedMeanLength = round(mean(lenSorted), digits = 0)
 N50 <- lenSorted[cumsum(lenSorted) >= sum(lenSorted)*0.5][1]
@@ -304,7 +328,11 @@ passedBinnedBases <- unlist(lapply(levels(binAssignments), scrapeBinnedBases, qc
 failedBinnedBases <- unlist(lapply(levels(binAssignments), scrapeBinnedBases, qcpass=FALSE))
 binnedBaseDist <- data.frame(length=head(breaks, -1), pass=passedBinnedBases, fail=failedBinnedBases)
 binnedBaseMelt <- reshape2::melt(binnedBaseDist, id.vars=c("length"))
+```
 
+
+```{r,eval=FALSE}
+## Actual figure generation
 length<-ggplot(binnedBaseMelt, aes(x=length, fill=variable, y=value)) +
   geom_bar(stat="identity") +
   xlab("Read length\n") + ylab("Number of bases sequenced\n") +
@@ -316,7 +344,10 @@ length<-ggplot(binnedBaseMelt, aes(x=length, fill=variable, y=value)) +
   annotate("text", x=N50, y=max(passedBinnedBases + failedBinnedBases), label = " N50", hjust=0, colour="SteelBlue") +
   geom_vline(xintercept = passedMeanLength, size = 1) +
   annotate("text", x=passedMeanLength, y=max(passedBinnedBases + failedBinnedBases), label = " Mean", hjust=0, colour="SteelBlue")
+```
 
+You have to **change** "output file name" if you work with multiple dataset not to overwrite previous output.
+```{r,eval=FALSE}
 ggsave(file.path("Results", "Figure3.length.png"), plot=length, device="png", units="cm", width=12, height=8, dpi=reportDPI)
 ```
 
@@ -331,13 +362,14 @@ ggsave(file.path("Results", "Figure3.length.png"), plot=length, device="png", un
 # Question3
 QQQ
 <details>
-  <summary> ** Hint3**</summary>      
+  <summary>  **Hint** </summary>      
 HHH
 </details> 
 
 
 # 4. generate a sequence-time figure
 ```{r,eval=FALSE}
+## Data formatting and preparation
 sequencedata$start_time <- sequencedata$start_time - min(sequencedata$start_time)
 sequencedata$start_time <- sequencedata$start_time / scaling
 
@@ -369,7 +401,11 @@ binnedTemporalDataPerHour <- data.frame(
 )
 
 binnedTemporalDataPerHour$time <- binnedTemporalDataPerHour$time / 60 / 60
+```
 
+
+```{r,eval=FALSE}
+## Actual figure generation
 time<-ggplot(binnedTemporalDataPerHour, aes(time)) +
   geom_line(aes(y = fail, colour = "fail"), size=1) + 
   geom_line(aes(y = pass, colour = "pass"), size=1) +
@@ -377,7 +413,10 @@ time<-ggplot(binnedTemporalDataPerHour, aes(time)) +
   xlab("Time (hours)") + 
   ylab("Gigabases sequenced per hour") + 
   labs(title="Plot showing sequence throughput against time")
+```
 
+You have to **change** "output file name" if you work with multiple dataset not to overwrite previous output.
+```{r,eval=FALSE}
 ggsave(file.path("Results", "Figure4.time.png"), plot=time, device="png", units="cm", width=12, height=8, dpi=reportDPI)
 ```
 
@@ -393,8 +432,14 @@ ggsave(file.path("Results", "Figure4.time.png"), plot=time, device="png", units=
 # Question4
 QQQ
 <details>
-  <summary> ** Hint4**</summary>      
+  <summary>  **Hint**  </summary>      
 HHH
 
 </details> 
+
+# Time to explore
+Now you have investigated one sample. 
+You can investigate another sample, and your own three flowcells. 
+To do so, **change** input file name, flowcell info, and output file names.
+
 
