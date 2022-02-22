@@ -179,8 +179,9 @@ scp yourID@login.orion.nmbu.no:/file.png your/local/file.png
 
 
 # Question1
-This sequence data is from a pig sample. Approximately how much coverage do you estimate you have gained?
-If it were a fruit fly sample, how much coverage is it then?
+- This sequence data is from a pig sample (Sus scrofa). Approximately what coverage do you estimate each of the three MinION runs has produced? 
+
+- If you had generated the same amount of data for a fruit fly (Drosophila melanogaster) or E.coli sample, how much coverage would you have?
 
 <details>
   <summary> **Hint** </summary>      
@@ -268,10 +269,12 @@ ggsave(file.path("Results", "Figure2.channel.png"), plot=channel, device="png", 
 </details> 
 
 # Question2
-QQQ
+- Within a Flowcell, what explanation(s) can there be for variation in channel activity. 
+- Comparing the three MinION runs is there (subjectively) similar variation in channel activity or does one run stand-out as superior or inferior to the others? Why might this be?
+
 <details>
-  <summary>  **Hint** </summary>      
-HHH
+  <summary>  ** Matthew's hint ** </summary>      
+Consider the flowcell design and the reason for the MUX scan.
 </details> 
 
 
@@ -361,10 +364,15 @@ ggsave(file.path("Results", "Figure3.length.png"), plot=length, device="png", un
 </details> 
 
 # Question3
-QQQ
+- What do Mean and N50 reflect? 
+- From the figure, explain how you could roughly estimate the number of sequenced DNA molecules represented in the 10Kb histogram bar. How does this compare to the number of sequenced DNA molecules represented in the 50Kb histogram bar?
+- What are “failed” reads?
+- When analysing your own pig data from the lab and compared to the gel image for the samples used in library preparation, are you surprised by the distribution of fragment lengths? Why?
+
 <details>
-  <summary>  **Hint** </summary>      
-HHH
+  <summary>  ** Matthew's hint** </summary>      
+Google!
+Look at Q-scores.
 </details> 
 
 
@@ -431,10 +439,13 @@ ggsave(file.path("Results", "Figure4.time.png"), plot=time, device="png", units=
 </details> 
 
 # Question4
-QQQ
+- You see a general trend that output drops with time, why? 
+- You might see spikes where output increases for short periods. What is the reason for this?
+
 <details>
   <summary>  **Hint**  </summary>      
-HHH
+- Nanopores are organic, energy-consuming proteins. 
+- MUX.
 
 </details> 
 
