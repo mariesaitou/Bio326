@@ -27,6 +27,11 @@ Click "2 hours"
 Click "Rstudio-4.1.0"
 
 # 0. Preparation
+You will be start typing/pasting the scripts to "Console" with some modifications.
+![](assets/Bio326-2022/Rconsole.png)
+
+
+
 ### Where is your personal directory? 
 You have to **change** "working directory" to your directory (bio326-22-XX)
 ![](assets/Bio326-2022/prep4.png){width=80%}
@@ -335,13 +340,15 @@ binnedBaseMelt <- reshape2::melt(binnedBaseDist, id.vars=c("length"))
 ```
 
 
+
 ```{r,eval=FALSE}
 ## Actual figure generation
+## You can adjust "upperLimit".
 length<-ggplot(binnedBaseMelt, aes(x=length, fill=variable, y=value)) +
   geom_bar(stat="identity") +
   xlab("Read length\n") + ylab("Number of bases sequenced\n") +
   scale_fill_manual("QC", values=c("fail"=brewer.pal(6, "Paired")[1], "pass"=brewer.pal(6, "Paired")[2])) +
-  scale_x_continuous(limits=c(-breakVal,upperLimit), breaks=pretty(passedSeqs$sequence_length_template,n=40)) +
+  scale_x_continuous(limits=c(-breakVal,upperLimit),　 breaks=pretty(passedSeqs$sequence_length_template,n=40)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   labs(title="Histogram showing the number of sequenced bases against sequence length", fill="QV filter")+
   geom_vline(xintercept = N50, size = 1) +
