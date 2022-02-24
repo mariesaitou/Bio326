@@ -475,16 +475,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree8c863076a41ac705adda8e87aa9f08e1bc2a33bdtargetblank8c86307a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/8c863076a41ac705adda8e87aa9f08e1bc2a33bd" target="_blank">8c86307</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treee46455fb46b8d1f670397b06de247f49a67a1974targetblanke46455fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/e46455fb46b8d1f670397b06de247f49a67a1974" target="_blank">e46455f</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree8c863076a41ac705adda8e87aa9f08e1bc2a33bdtargetblank8c86307a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treee46455fb46b8d1f670397b06de247f49a67a1974targetblanke46455fa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/8c863076a41ac705adda8e87aa9f08e1bc2a33bd" target="_blank">8c86307</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/e46455fb46b8d1f670397b06de247f49a67a1974" target="_blank">e46455f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -564,6 +564,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/e46455fb46b8d1f670397b06de247f49a67a1974/analysis/AnimalGenomics2022.Rmd" target="_blank">e46455f</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-02-24
+</td>
+<td>
+wflow_publish(c(“analysis/AnimalGenomics2022.Rmd”))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/3388f172c195f265933c1837423b258212c2fb0e/docs/AnimalGenomics2022.html" target="_blank">3388f17</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-02-24
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -812,8 +846,14 @@ wflow_publish(c(“analysis/AnimalGenomics2022.Rmd”))
 <p>The tutorial is adapted from <a href="https://community.nanoporetech.com/knowledge/bioinformatics/nanopore-summary-statistic/tutorial">Nanopore Community</a> (registration required) for educational purpose only.</p>
 <div id="aim-of-the-tutorial." class="section level2">
 <h2>Aim of the tutorial.</h2>
-<p>Last time, you have started sequencing of pig genome using Nanopore MinION. Today, we will learn - How to use Rstudio on Orion to conduct analysis - How to interpret summary statistics of Nanopore sequence data - How to edit the tutorial and analyze your own data</p>
+<p>Last time, you have started sequencing of pig genome using Nanopore MinION. Today, we will learn:</p>
+<ul>
+<li><p>How to use Rstudio on Orion to conduct analysis</p></li>
+<li><p>How to interpret summary statistics of Nanopore sequence data</p></li>
+<li><p>How to edit the tutorial and analyze your own data</p></li>
+</ul>
 <p>In this tutorial, we will investigate a pre-made pig genome sequence. You can change parameters to investigate your data for the report. Also, Matthew and I prepared some questions in each section. Please discuss and try the quizzes to deepen your understandig on Nanopore data.</p>
+<p>You do not have to understand everything… the script is mainly separated in two parts, “extract the necessary data and organize it” and “data visualization”. If you are ambitious, or you are already farmiliar with <a href="https://www.r-graph-gallery.com/ggplot2-package.html"><strong>ggplot2</strong></a>, you can play around with the figures by adjusting parameters.</p>
 </div>
 <div id="connect-to-orion" class="section level2">
 <h2>Connect to Orion</h2>
