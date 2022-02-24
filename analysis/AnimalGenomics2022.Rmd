@@ -10,6 +10,20 @@ output:
 The tutorial is adapted from [Nanopore Community](https://community.nanoporetech.com/knowledge/bioinformatics/nanopore-summary-statistic/tutorial
 ) (registration required) for educational purpose only.
 
+## Aim of the tutorial.
+Last time, you have started sequencing of pig genome using Nanopore MinION. 
+Today, we will learn
+ - How to use Rstudio on Orion to conduct analysis
+ - How to interpret summary statistics of Nanopore sequence data
+ - How to edit the tutorial and analyze your own data
+
+In this tutorial, we will investigate a pre-made pig genome sequence.
+You can change parameters to investigate your data for the report.
+Also, Matthew and I prepared some questions in each section. 
+Please discuss and try the quizzes to deepen your understandig on Nanopore data.
+
+
+
 ## Connect to Orion
 Go to https://orion.nmbu.no/ at NMBU or with VPN.
 
@@ -37,11 +51,10 @@ You have to **change** "working directory" to your directory (bio326-22-XX)
 ![](assets/Bio326-2022/prep4.png){width=80%}
 ```{r,eval=FALSE}
 setwd("/net/cn-1/mnt/SCRATCH/bio326-22-XX/") 
-
 #setwd("/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/QCTutorial/")
 
 ## Install necessary libraries
-install.packages("dplyr","emojifont","extrafont","ggplot2","RColorBrewer","tufte","caTools","fastmatch")
+install.packages(c("dplyr","emojifont","extrafont","ggplot2","RColorBrewer","tufte","caTools","fastmatch"))
 
 ## Load libraries
 library(dplyr)
@@ -76,8 +89,8 @@ slurpContent <- function(filename) {
 You have to **change** "input file" and other info When you analyze another data.
 ```{r, eval=FALSE}
 ## inputFile. You can select your file.
-## If you are ambitious, there is another data 
-## /net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing_summary_17.txt
+## If you are ambitious, there is another data "pig17"
+## /net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/17/sequencing_summary_17.txt
 
 inputFile      <- "/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing_summary_92.txt"
 sequencedata <- data.table::fread(inputFile, stringsAsFactors=FALSE)
@@ -278,7 +291,7 @@ ggsave(file.path("Results", "Figure2.channel.png"), plot=channel, device="png", 
 - Comparing the three MinION runs is there (subjectively) similar variation in channel activity or does one run stand-out as superior or inferior to the others? Why might this be?
 
 <details>
-  <summary>  ** Matthew's hint ** </summary>      
+  <summary>  **Matthew's hint** </summary>      
 Consider the flowcell design and the reason for the MUX scan.
 </details> 
 
@@ -377,7 +390,7 @@ ggsave(file.path("Results", "Figure3.length.png"), plot=length, device="png", un
 - When analysing your own pig data from the lab and compared to the gel image for the samples used in library preparation, are you surprised by the distribution of fragment lengths? Why?
 
 <details>
-  <summary>  ** Matthew's hint** </summary>      
+  <summary>  **Matthew's hint** </summary>      
 Google!
 Look at Q-scores.
 </details> 
@@ -450,7 +463,7 @@ ggsave(file.path("Results", "Figure4.time.png"), plot=time, device="png", units=
 - You might see spikes where output increases for short periods. What is the reason for this?
 
 <details>
-  <summary>  **Hint**  </summary>      
+  <summary>  **Matthew's Hint**  </summary>      
 - Nanopores are organic, energy-consuming proteins. 
 - MUX.
 
