@@ -39,7 +39,7 @@
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
-<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
 <style type="text/css">
 div.section {
@@ -384,7 +384,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-02-24
+<strong>Last updated:</strong> 2022-02-25
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -393,8 +393,8 @@ div.tocify {
 <strong>Knit directory:</strong> <code>Bio326/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
 </p>
 <p>
-This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/workflowr/workflowr">workflowr</a> (version 1.7.0). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
@@ -475,16 +475,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treee46455fb46b8d1f670397b06de247f49a67a1974targetblanke46455fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/e46455fb46b8d1f670397b06de247f49a67a1974" target="_blank">e46455f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree9860c1d9840559e7e0d39392c497c698fc29e88atargetblank9860c1da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/9860c1d9840559e7e0d39392c497c698fc29e88a" target="_blank">9860c1d</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treee46455fb46b8d1f670397b06de247f49a67a1974targetblanke46455fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree9860c1d9840559e7e0d39392c497c698fc29e88atargetblank9860c1da" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/e46455fb46b8d1f670397b06de247f49a67a1974" target="_blank">e46455f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/9860c1d9840559e7e0d39392c497c698fc29e88a" target="_blank">9860c1d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -564,6 +564,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/9860c1d9840559e7e0d39392c497c698fc29e88a/analysis/AnimalGenomics2022.Rmd" target="_blank">9860c1d</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-02-25
+</td>
+<td>
+image data set
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/f011edc967575f7f44aaf069476563af2383b43a/docs/AnimalGenomics2022.html" target="_blank">f011edc</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-02-24
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -915,8 +949,10 @@ inputFile      &lt;- &quot;/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGen
 sequencedata &lt;- data.table::fread(inputFile, stringsAsFactors=FALSE)
 
 # You may want to change them.
-flowcellId     &lt;- &quot;FAK41706&quot; # example  &quot;FAK41706&quot;. Please adjust it according to your data.
-basecaller     &lt;-  &quot;Guppy&quot; # example &quot;Guppy 2.1.3&quot;. Please adjust it according to your data.</code></pre>
+flowcellId     &lt;- &quot;PAG06497&quot; # example  &quot;FAK41706&quot;. Please adjust it according to your data.
+basecaller     &lt;-  &quot;Guppy 4.0.11&quot; # example &quot;Guppy 2.1.3&quot;. Please adjust it according to your data.</code></pre>
+<p>Info:</p>
+<p>flowcellId = “PAG06497” (pig92), “PAG04717” (pig17) and you will have three flowcells from your experiments.</p>
 <p>The summary dataset contains too much information. We will calculate and extract core info. (You can take a look the summary file by putting the follwing path in “Terminal” tub).</p>
 <pre class="bash"><code>more /net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing.summary_92.txt</code></pre>
 <p><img src="assets/Bio326-2022/prep5.png" style="width:80.0%" /></p>
@@ -1094,7 +1130,7 @@ Consider the flowcell design and the reason for the MUX scan.
 </details>
 </div>
 <div id="generate-a-read-length-figure" class="section level1">
-<h1>3. generate a read-length figure</h1>
+<h1>3. Generate a read-length figure</h1>
 <pre class="r"><code>## Data formatting and preparation
 
 lenSorted &lt;- rev(sort(passedSeqs$sequence_length_template))
@@ -1132,7 +1168,7 @@ roundUpNice &lt;- function(x, nice=seq(from=1, to=10, by=0.25)) {
   10^floor(log10(x)) * nice[[which(x &lt;= 10^floor(log10(x)) * nice)[[1]]]]
 }
 
-upperLimit &lt;- roundUpNice(as.numeric(quantile(x=sequencedata$sequence_length_template, probs=c(0.975))))
+upperLimit &lt;- roundUpNice(as.numeric(quantile(x=sequencedata$sequence_length_template, probs=c(0.999))))
 
 histogramBinCount &lt;- 40
 breakVal = roundUpNice(upperLimit / histogramBinCount)
@@ -1161,7 +1197,7 @@ length&lt;-ggplot(binnedBaseMelt, aes(x=length, fill=variable, y=value)) +
   geom_vline(xintercept = passedMeanLength, size = 1) +
   annotate(&quot;text&quot;, x=passedMeanLength, y=max(passedBinnedBases + failedBinnedBases), label = &quot; Mean&quot;, hjust=0, colour=&quot;SteelBlue&quot;)</code></pre>
 <p>You have to <strong>change</strong> “output file name” if you work with multiple dataset not to overwrite previous output.</p>
-<pre class="r"><code>ggsave(file.path(&quot;Results&quot;, &quot;Figure3.length.png&quot;), plot=length, device=&quot;png&quot;, units=&quot;cm&quot;, width=12, height=8, dpi=reportDPI)</code></pre>
+<pre class="r"><code>ggsave(file.path(&quot;Results&quot;, &quot;Figure3.length.png&quot;), plot=length, device=&quot;png&quot;, units=&quot;cm&quot;, width=12, height=6, dpi=reportDPI)</code></pre>
 <div id="result3" class="section level3">
 <h3>Result3</h3>
 <details>
@@ -1188,7 +1224,7 @@ Google! Look at Q-scores.
 </details>
 </div>
 <div id="generate-a-sequence-time-figure" class="section level1">
-<h1>4. generate a sequence-time figure</h1>
+<h1>4. Generate a sequence-time figure</h1>
 <pre class="r"><code>## Data formatting and preparation
 sequencedata$start_time &lt;- sequencedata$start_time - min(sequencedata$start_time)
 sequencedata$start_time &lt;- sequencedata$start_time / scaling
@@ -1268,12 +1304,12 @@ time&lt;-ggplot(binnedTemporalDataPerHour, aes(time)) +
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.1.2 (2021-11-01)
+<pre><code>R version 4.1.0 (2021-05-18)
 Platform: x86_64-apple-darwin17.0 (64-bit)
 Running under: macOS Big Sur 10.16
 
 Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
+BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.dylib
 LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
 
 locale:
@@ -1283,27 +1319,25 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] workflowr_1.7.0
+[1] workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.8       bslib_0.3.1      compiler_4.1.2   pillar_1.7.0    
- [5] later_1.3.0      git2r_0.29.0     jquerylib_0.1.4  tools_4.1.2     
- [9] getPass_0.2-2    digest_0.6.29    jsonlite_1.7.3   evaluate_0.14   
-[13] tibble_3.1.6     lifecycle_1.0.1  pkgconfig_2.0.3  rlang_1.0.1     
-[17] cli_3.1.1        rstudioapi_0.13  yaml_2.2.2       xfun_0.29       
-[21] fastmap_1.1.0    httr_1.4.2       stringr_1.4.0    knitr_1.37      
-[25] sass_0.4.0       fs_1.5.2         vctrs_0.3.8      rprojroot_2.0.2 
-[29] glue_1.6.1       R6_2.5.1         processx_3.5.2   fansi_1.0.2     
-[33] rmarkdown_2.11   callr_3.7.0      magrittr_2.0.2   whisker_0.4     
-[37] ps_1.6.0         promises_1.2.0.1 htmltools_0.5.2  ellipsis_0.3.2  
-[41] httpuv_1.6.5     utf8_1.2.2       stringi_1.7.6    crayon_1.4.2    </code></pre>
+ [1] Rcpp_1.0.7        whisker_0.4       knitr_1.33        magrittr_2.0.1   
+ [5] R6_2.5.0          rlang_0.4.11      fansi_0.5.0       stringr_1.4.0    
+ [9] tools_4.1.0       xfun_0.24         utf8_1.2.2        git2r_0.28.0     
+[13] jquerylib_0.1.4   htmltools_0.5.1.1 ellipsis_0.3.2    rprojroot_2.0.2  
+[17] yaml_2.2.1        digest_0.6.27     tibble_3.1.3      lifecycle_1.0.0  
+[21] crayon_1.4.1      later_1.3.0       vctrs_0.3.8       promises_1.2.0.1 
+[25] fs_1.5.0          glue_1.4.2        evaluate_0.14     rmarkdown_2.11   
+[29] stringi_1.7.3     compiler_4.1.0    pillar_1.6.2      httpuv_1.6.2     
+[33] pkgconfig_2.0.3  </code></pre>
 </div>
 </div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
-https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
 the presentation more consistent at the cost of the webpage sometimes
 taking slightly longer to load. Note that this only works because the
 footer is added to webpages before the MathJax javascript. -->
