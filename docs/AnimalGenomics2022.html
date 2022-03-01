@@ -39,7 +39,7 @@
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
-<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
 <style type="text/css">
 div.section {
@@ -366,7 +366,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -375,7 +375,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -384,17 +384,17 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-02-25
+<strong>Last updated:</strong> 2022-03-01
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>Bio326/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
 </p>
 <p>
-This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version 1.7.0). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
@@ -403,12 +403,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -475,16 +475,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree9860c1d9840559e7e0d39392c497c698fc29e88atargetblank9860c1da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/9860c1d9840559e7e0d39392c497c698fc29e88a" target="_blank">9860c1d</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treed39d404ddbfd476ae3e9565e81087d86f5b25150targetblankd39d404a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/d39d404ddbfd476ae3e9565e81087d86f5b25150" target="_blank">d39d404</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree9860c1d9840559e7e0d39392c497c698fc29e88atargetblank9860c1da" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treed39d404ddbfd476ae3e9565e81087d86f5b25150targetblankd39d404a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/9860c1d9840559e7e0d39392c497c698fc29e88a" target="_blank">9860c1d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/d39d404ddbfd476ae3e9565e81087d86f5b25150" target="_blank">d39d404</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -527,6 +527,9 @@ Untracked files:
     Untracked:  vis.xlsx
     Untracked:  workflowR.bio326.R
 
+Unstaged changes:
+    Modified:   analysis/AnimalGenomics2022.Rmd
+
 </code></pre>
 <p>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
@@ -564,6 +567,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/d39d404ddbfd476ae3e9565e81087d86f5b25150/docs/AnimalGenomics2022.html" target="_blank">d39d404</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-02-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -904,14 +924,19 @@ wflow_publish(c(“analysis/AnimalGenomics2022.Rmd”))
 <p>You will be start typing/pasting the scripts to “Console” with some modifications. <img src="assets/Bio326-2022/Rconsole.png" /></p>
 <div id="where-is-your-personal-directory" class="section level3">
 <h3>Where is your personal directory?</h3>
-<p>You have to <strong>change</strong> “working directory” to your directory (bio326-22-XX) <img src="assets/Bio326-2022/prep4.png" style="width:80.0%" /></p>
-<pre class="r"><code>setwd(&quot;/net/cn-1/mnt/SCRATCH/bio326-22-XX/&quot;) 
-#setwd(&quot;/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/QCTutorial/&quot;)
+<p>You have to <strong>change</strong> “working directory” to your directory (bio326-22-XX), usually every time you log in. <img src="assets/Bio326-2022/prep4.png" style="width:80.0%" /></p>
+<pre class="r"><code>setwd(&quot;/net/cn-1/mnt/SCRATCH/bio326-22-XX/&quot;)  ## &lt;-change it to your number
+#setwd(&quot;/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/QCTutorial/&quot;) ... for Marie&#39;s trial
 
-## Install necessary libraries
+## Install necessary libraries ... only the first time you try the analysis
 install.packages(c(&quot;dplyr&quot;,&quot;emojifont&quot;,&quot;extrafont&quot;,&quot;ggplot2&quot;,&quot;RColorBrewer&quot;,&quot;tufte&quot;,&quot;caTools&quot;,&quot;fastmatch&quot;))
 
-## Load libraries
+## Load libraries ... usually every time you open the environment
+## but you can also save and load your working envidonment by
+## save.image(file=&#39;myEnvironment.RData&#39;)
+## and
+## load(&#39;myEnvironment.RData&#39;)
+
 library(dplyr)
 library(emojifont)
 library(extrafont)
@@ -921,7 +946,7 @@ library(tufte)
 library(caTools)
 library(fastmatch)  
 
-# Make a result directory
+# Make a result directory ... only the first time you try the analysis
 dir.create(&quot;Results&quot;, showWarnings = FALSE)</code></pre>
 </div>
 <div id="set-parameters" class="section level3">
@@ -941,18 +966,21 @@ slurpContent &lt;- function(filename) {
 <div id="executive-summary" class="section level3">
 <h3>Executive summary</h3>
 <p>You have to <strong>change</strong> “input file” and other info When you analyze another data.</p>
-<pre class="r"><code>## inputFile. You can select your file.
-## If you are ambitious, there is another data &quot;pig17&quot;
-## /net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/17/sequencing_summary_17.txt
-
+<pre class="r"><code>## inputFile. You can select your file. See below.
 inputFile      &lt;- &quot;/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing_summary_92.txt&quot;
 sequencedata &lt;- data.table::fread(inputFile, stringsAsFactors=FALSE)
 
 # You may want to change them.
-flowcellId     &lt;- &quot;PAG06497&quot; # example  &quot;FAK41706&quot;. Please adjust it according to your data.
-basecaller     &lt;-  &quot;Guppy 4.0.11&quot; # example &quot;Guppy 2.1.3&quot;. Please adjust it according to your data.</code></pre>
-<p>Info:</p>
-<p>flowcellId = “PAG06497” (pig92), “PAG04717” (pig17) and you will have three flowcells from your experiments.</p>
+flowcellId     &lt;- &quot;PAG06497&quot; # example 
+basecaller     &lt;-  &quot;Guppy 4.0.11&quot; </code></pre>
+<p><strong>inputFile:</strong></p>
+<p>From the turotial</p>
+<p>pig92 (flowcellId: PAG06497) “/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing_summary_92.txt”</p>
+<p>pig17 (flowcellId: PAG04717) “/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/17/sequencing_summary_17.txt”</p>
+<p>From the real experiments</p>
+<p>group4　(flowcellId: FAL92123) “/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/group4/sequencing_summary_FAL92123_033c66cb.txt”</p>
+<p>group6　(flowcellId: FAL90662) “/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/group6/sequencing_summary_FAL90662_502cb47c.txt”</p>
+<p>group1 (flowcellId: FAL92096) … which failed in basecalling. Only Figure2 can be properly generated. “/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/group1/sequencing_summary_FAL92096_12611e97.txt”</p>
 <p>The summary dataset contains too much information. We will calculate and extract core info. (You can take a look the summary file by putting the follwing path in “Terminal” tub).</p>
 <pre class="bash"><code>more /net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing.summary_92.txt</code></pre>
 <p><img src="assets/Bio326-2022/prep5.png" style="width:80.0%" /></p>
@@ -1304,12 +1332,12 @@ time&lt;-ggplot(binnedTemporalDataPerHour, aes(time)) +
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.1.0 (2021-05-18)
+<pre><code>R version 4.1.2 (2021-11-01)
 Platform: x86_64-apple-darwin17.0 (64-bit)
 Running under: macOS Big Sur 10.16
 
 Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.dylib
+BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
 LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
 
 locale:
@@ -1318,26 +1346,24 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
-other attached packages:
-[1] workflowr_1.6.2
-
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7        whisker_0.4       knitr_1.33        magrittr_2.0.1   
- [5] R6_2.5.0          rlang_0.4.11      fansi_0.5.0       stringr_1.4.0    
- [9] tools_4.1.0       xfun_0.24         utf8_1.2.2        git2r_0.28.0     
-[13] jquerylib_0.1.4   htmltools_0.5.1.1 ellipsis_0.3.2    rprojroot_2.0.2  
-[17] yaml_2.2.1        digest_0.6.27     tibble_3.1.3      lifecycle_1.0.0  
-[21] crayon_1.4.1      later_1.3.0       vctrs_0.3.8       promises_1.2.0.1 
-[25] fs_1.5.0          glue_1.4.2        evaluate_0.14     rmarkdown_2.11   
-[29] stringi_1.7.3     compiler_4.1.0    pillar_1.6.2      httpuv_1.6.2     
-[33] pkgconfig_2.0.3  </code></pre>
+ [1] Rcpp_1.0.8       rstudioapi_0.13  whisker_0.4      knitr_1.37      
+ [5] magrittr_2.0.2   workflowr_1.7.0  R6_2.5.1         rlang_1.0.1     
+ [9] fastmap_1.1.0    fansi_1.0.2      stringr_1.4.0    tools_4.1.2     
+[13] xfun_0.29        utf8_1.2.2       cli_3.2.0        git2r_0.29.0    
+[17] jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2   rprojroot_2.0.2 
+[21] yaml_2.3.5       digest_0.6.29    tibble_3.1.6     lifecycle_1.0.1 
+[25] crayon_1.5.0     later_1.3.0      sass_0.4.0       vctrs_0.3.8     
+[29] promises_1.2.0.1 fs_1.5.2         glue_1.6.2       evaluate_0.15   
+[33] rmarkdown_2.11   stringi_1.7.6    bslib_0.3.1      compiler_4.1.2  
+[37] pillar_1.7.0     jsonlite_1.8.0   httpuv_1.6.5     pkgconfig_2.0.3 </code></pre>
 </div>
 </div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
-http://docs.mathjax.org/en/latest/configuration.html.  This will make
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
 the presentation more consistent at the cost of the webpage sometimes
 taking slightly longer to load. Note that this only works because the
 footer is added to webpages before the MathJax javascript. -->

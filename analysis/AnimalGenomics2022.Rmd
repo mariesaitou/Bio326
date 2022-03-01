@@ -50,16 +50,21 @@ You will be start typing/pasting the scripts to "Console" with some modification
 
 
 ### Where is your personal directory? 
-You have to **change** "working directory" to your directory (bio326-22-XX)
+You have to **change** "working directory" to your directory (bio326-22-XX), usually every time you log in.
 ![](assets/Bio326-2022/prep4.png){width=80%}
 ```{r,eval=FALSE}
-setwd("/net/cn-1/mnt/SCRATCH/bio326-22-XX/") 
-#setwd("/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/QCTutorial/")
+setwd("/net/cn-1/mnt/SCRATCH/bio326-22-XX/")  ## <-change it to your number
+#setwd("/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/QCTutorial/") ... for Marie's trial
 
-## Install necessary libraries
+## Install necessary libraries ... only the first time you try the analysis
 install.packages(c("dplyr","emojifont","extrafont","ggplot2","RColorBrewer","tufte","caTools","fastmatch"))
 
-## Load libraries
+## Load libraries ... usually every time you open the environment
+## but you can also save and load your working envidonment by
+## save.image(file='myEnvironment.RData')
+## and
+## load('myEnvironment.RData')
+
 library(dplyr)
 library(emojifont)
 library(extrafont)
@@ -69,7 +74,7 @@ library(tufte)
 library(caTools)
 library(fastmatch)  
 
-# Make a result directory
+# Make a result directory ... only the first time you try the analysis
 dir.create("Results", showWarnings = FALSE)
 ```
 
@@ -91,21 +96,36 @@ slurpContent <- function(filename) {
 ### Executive summary 
 You have to **change** "input file" and other info When you analyze another data.
 ```{r, eval=FALSE}
-## inputFile. You can select your file.
-## If you are ambitious, there is another data "pig17"
-## /net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/17/sequencing_summary_17.txt
-
+## inputFile. You can select your file. See below.
 inputFile      <- "/net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing_summary_92.txt"
 sequencedata <- data.table::fread(inputFile, stringsAsFactors=FALSE)
 
 # You may want to change them.
-flowcellId     <- "PAG06497" # example  "FAK41706". Please adjust it according to your data.
-basecaller     <-  "Guppy 4.0.11" # example "Guppy 2.1.3". Please adjust it according to your data.
+flowcellId     <- "PAG06497" # example 
+basecaller     <-  "Guppy 4.0.11" 
 ```
 
-Info: 
+**inputFile:**
 
-flowcellId = "PAG06497" (pig92), "PAG04717" (pig17) and you will have three flowcells from your experiments.
+From the turotial
+
+pig92 (flowcellId: PAG06497)
+"/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing_summary_92.txt"
+
+pig17 (flowcellId: PAG04717)
+"/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/17/sequencing_summary_17.txt"
+
+From the real experiments
+
+
+group4　(flowcellId: FAL92123)
+"/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/group4/sequencing_summary_FAL92123_033c66cb.txt"
+
+group6　(flowcellId: FAL90662)
+"/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/group6/sequencing_summary_FAL90662_502cb47c.txt"
+
+group1 (flowcellId: FAL92096) ... which failed in basecalling. Only Figure2 can be properly generated.
+"/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/group1/sequencing_summary_FAL92096_12611e97.txt"
 
 
 The summary dataset contains too much information.
@@ -113,7 +133,7 @@ We will calculate and extract core info.
 (You can take a look the summary file by putting the follwing path in "Terminal" tub).
 
 ```{bash, eval=FALSE}
-more /net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing.summary_92.txt
+more /net/cn-1/mnt/SCRATCH/bio326-21/bio326_2022/AnimalGenomics/92/sequencing_summary_92.txt
 ```
 
 
