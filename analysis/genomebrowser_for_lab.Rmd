@@ -1,15 +1,71 @@
 ---
-title: "genomebrowser_for_lab"
-author: "mariesaitou"
-date: "2022-04-25"
-output: workflowr::wflow_html
-editor_options:
-  chunk_output_type: console
+title: "Genome Browser 2022"
+author: "Marie Saitou"
+date: "4/23/2022"
+output: html_document
 ---
 
-## Introduction
-
-```{r}
+```{bash}
 
 ```
+
+# 1 Primer Design
+
+Mission: You want to investigate if TP53 gene is expressed in a particular tissue of pig and want to design a primer set for its cDNA.
+ 
+## NCBI 
+
+Go to:[NCBI](https://www.ncbi.nlm.nih.gov/labs/gquery/)
+and search for "Sus scrofa  TP53".
+[](assets/2022_browser/image-04-23-20.01.35.png)
+
+Now you can see the gene information, exon-intron structure and gene/progein IDs.
+[](assets/2022_browser/image-04-23-20.01.13.png)
+
+Also when you scroll it down, you can see the expression pattern of this gene in varios tissues.
+[](assets/2022_browser/image-04-23-20.00.57.png)
+
+RPKM is a unit for [gene expression](https://www.reneshbedre.com/blog/expression_units.html#:~:text=RPKM%20is%20a%20gene%20length,the%20expression%20of%20that%20gene.)
+
+Furthere below, you can see relevant publications and expected function of this gene.
+
+
+Now let's design a primer set to amplify the cDNA.
+Put the mouse cursor on the gene image, and copy and note the mRNA ID (NM_21824.3)
+
+And go to:[NCBI primer blast](https://www.ncbi.nlm.nih.gov/tools/primer-blast/)
+
+
+
+
+
+
+
+
+
+## Ensembl 
+https://www.ensembl.org/Salmo_salar/Info/Index
+ 
+VEP.
+
+
+Variants.
+
+https://www.ensembl.org/Oryctolagus_cuniculus/Gene/Variation_Gene/Table?db=core;g=ENSOCUG00000015307;r=12:106859193-107318499;t=ENSOCUT00000015301
+
+Assume that you found a variant in your sequenced sample
+
+https://www.ensembl.org/Oryctolagus_cuniculus/Gene/Phenotype?db=core;g=ENSOCUG00000015307;r=12:106859193-107318499;t=ENSOCUT00000015301
+
+
+
+Graphically
+Friendly to Non-model species.
+
+
+## UCSC -  check tandem repeats, liftOver (convert genetic regions between species between genome versions), in-silico PCR, etc. Variants.
+https://genome-euro.ucsc.edu/cgi-bin/hgTracks?db=hub_51387_GCA_905237065.2&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=HG993260.1%3A143240818%2D143254033&hgsid=286603936_wMmBef9vkWmZKbnIKQ8k97LFAdv3
+
+
+https://genome-euro.ucsc.edu/cgi-bin/hgTracks?db=galGal6&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr5%3A22418650%2D22435035&hgsid=286782955_c9foS2olaWM8jALUbsP1WlLZC7Dt
 
