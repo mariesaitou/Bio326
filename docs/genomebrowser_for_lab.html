@@ -479,16 +479,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree173a1b49fb6b5bd7fe439f6ad9e058ac400869c6targetblank173a1b4a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/173a1b49fb6b5bd7fe439f6ad9e058ac400869c6" target="_blank">173a1b4</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treed01f497d625653bddb4b34e13244a17a33829b2etargetblankd01f497a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/d01f497d625653bddb4b34e13244a17a33829b2e" target="_blank">d01f497</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree173a1b49fb6b5bd7fe439f6ad9e058ac400869c6targetblank173a1b4a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treed01f497d625653bddb4b34e13244a17a33829b2etargetblankd01f497a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/173a1b49fb6b5bd7fe439f6ad9e058ac400869c6" target="_blank">173a1b4</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/d01f497d625653bddb4b34e13244a17a33829b2e" target="_blank">d01f497</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -569,6 +569,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/d01f497d625653bddb4b34e13244a17a33829b2e/analysis/genomebrowser_for_lab.Rmd" target="_blank">d01f497</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-04-25
+</td>
+<td>
+image data set
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/45eea6a9daeec6b117e409f110129c8e923035eb/docs/genomebrowser_for_lab.html" target="_blank">45eea6a</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-04-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -746,12 +780,11 @@ Add my first analysis
 </div>
 </div>
 </div>
-<pre class="bash"><code></code></pre>
-<div id="introduction" class="section level1">
-<h1>0 Introduction</h1>
+<div id="introduction---genome-browsers" class="section level1">
+<h1>0 Introduction - genome browsers</h1>
 <p><a href="https://www.ncbi.nlm.nih.gov/">NCBI</a></p>
 <p>National Center for Biotechnology Information. Good for primer design and litereture search.</p>
-<p><a href="https://genome.ucsc.edu/">UCSC Genome Browser</a></p>
+<p><a href="https://genome-euro.ucsc.edu/cgi-bin/hgGateway?redirect=manual&amp;source=genome.ucsc.edu">UCSC Genome Browser</a></p>
 <p>The grafical use intereface is light and helpful. Most non-model species genomes are not up-to-date, but you can send them a request.</p>
 <p><a href="https://www.ensembl.org/index.html">Ensembl</a></p>
 <p>Most non-model species friendly. Good for evolutionary and functional genetics analysis.</p>
@@ -793,8 +826,15 @@ Add my first analysis
 <p><img src="assets/2022_browser/image-04-23-20.45.15.png" /></p>
 <p>Go to primer blast, and input NM_21824.3, and range “from 1100 - to 1750”. Add your favorite species in the “organism” space.</p>
 <p><img src="assets/2022_browser/image-04-23-20.46.59.png" /></p>
+<p>There are cattle and sheep mRNA found. Dog may not have highly similar mRNA.</p>
+<p>Let’s look into the mRNA of sheep closely.</p>
 <p><img src="assets/2022_browser/image-04-23-20.47.52.png" /></p>
-<p>So probably we have to design new primer sets for these species…</p>
+<p>Query: 1100-1438 (pig TP53 mRNA) — the original region was 1100-1750, but of the sequence, only - 1438 showed the high similarity with the sheep mRNA.</p>
+<p>Subject: 1074-1436 (sheep TP53 mRNA)</p>
+<p><a href="https://www.ncbi.nlm.nih.gov/books/NBK62051/">Blast Glossery</a></p>
+<p>Bit score — can be used to compare alignment scores (similarity) from different searches. E-value (expect) — the number of different alignments expected to occur in a database search by chance. Identities — the number of identical nucleotids Gaps — the number of insertion/deletions in the alignment</p>
+<p>The alignment indicates… the starting part is similar between sheep and pig mRNA, but 1439-1750 th bases of the pig mRNA did not show high similarity in sheep mRNA.</p>
+<p>So probablly we have to design new primer sets for these species…</p>
 </div>
 </div>
 <div id="the-effect-of-genetic-variants" class="section level1">
@@ -804,45 +844,63 @@ Add my first analysis
 <h2>2-2 Variant effect predictor</h2>
 <p>Assume that you found the following deletion polymorphism at in a rabbit genome.</p>
 <p>12: 107,236,296-107,236,969</p>
-<p><a href="https://www.ensembl.org/Tools/VEP">Variant Effect Predictor</a> And input:</p>
+<p><img src="assets/2022_browser/image-04-23-20.47.52.png" /></p>
+<p><a href="https://www.ensembl.org/Tools/VEP">Variant Effect Predictor</a> Input the following information:</p>
 <p>Species - rabbit (Oryctolagus_cuniculus)</p>
 <p>Variant - 12 107236296 107236969 DEL + deletion1</p>
 <p>the variant format, left to rignt … chromosome, starting point, ending point, kind, strand, variant ID (you can name it as you like) Variants.</p>
+<p><img src="assets/2022_browser/image-04-25-18.48.31.png" /></p>
 <p>You can also find various acceptable input formats <a href="https://www.ensembl.org/info/docs/tools/vep/vep_formats.html">here</a></p>
-<p><img src="assets/2022_browser/image-04-23-20.47.52.png" /></p>
+<p><img src="assets/2022_browser/image-04-25-18.53.12.png" /></p>
+<p>The result shows that the deletion is affecting a gene, SLC35F1, by causing coding sequence variant, splice variant, feature truncation and intron variant. You can modify the result table by clicking “show/hide columns”</p>
 </div>
 <div id="what-is-this-gene-doing" class="section level2">
 <h2>2-2 What is this gene doing?</h2>
-<p><img src="assets/2022_browser/image-04-23-20.47.52.png" /></p>
-<p><img src="assets/2022_browser/image-04-23-20.47.52.png" /></p>
+<p>Click “ENSOCUG00000015307” to know more about this gene.</p>
+<p>In the gene page, you can investigate its evolutionary history and potential function.</p>
+<p><img src="assets/2022_browser/image-04-25-19.10.05.png" /></p>
+<p>Let’s explore “gene gain/loss tree” “Ontologies” and “Phenotypes”</p>
+<p>Gene gain/loss tree</p>
+<p><img src="assets/2022_browser/image-04-25-19.12.34.png" /></p>
+<p>Most of mammalian species have two copies of this gene.</p>
+<p><img src="assets/2022_browser/image-04-25-19.12.04.png" /></p>
+<p>See what is happening in fish!</p>
+<p>Gene Ontology <img src="assets/2022_browser/image-04-25-19.12.34.png" /> transmembrane transtport</p>
+<p><img src="assets/2022_browser/image-04-25-19.13.13.png" /></p>
+<p>Phenotypes There is no phenotype information for this gene in rabbits, but there are some reports in mouse and rat, such as leukocyte cell number etc.</p>
 </div>
 <div id="comparative-analysis" class="section level2">
 <h2>2-3 Comparative Analysis</h2>
-<p><img src="assets/2022_browser/image-04-23-20.47.52.png" /></p>
-<p><img src="assets/2022_browser/image-04-23-20.47.52.png" /></p>
-<p>Rabbit and Alpaca</p>
+<p>Go back to the gene page, and click <em>Orthologues</em> in the left pane.</p>
+<p>Find Alpaca… and let’s compare this gene in Rabbit and Alpaca.</p>
+<p><img src="assets/2022_browser/image-04-25-19.15.59.png" /> “Compare regions”</p>
+<p><img src="assets/2022_browser/image-04-25-19.15.44.png" /> In both rabbit (top) and alpaca (bottom), seemingly, SLC35F1 is on the upstream of the CEF85L gene.</p>
+<p><img src="assets/2022_browser/image-04-25-19.15.59.png" /></p>
+<p>“View Sequence Alignments – Protein”</p>
+<p><img src="assets/2022_browser/image-04-25-19.17.24.png" /></p>
+<p>This is the protein alignment of this gene in the two species. Seemingly, these two sequences are very conserved (similar) except for the first 60 amino acids. * indicates the identical sequence.</p>
 </div>
 </div>
 <div id="the-genomic-architecture" class="section level1">
-<h1>3 the genomic architecture</h1>
-<div id="section" class="section level2">
-<h2>3-1</h2>
-</div>
-<div id="section-1" class="section level2">
-<h2>3-2</h2>
-<p>genomic landscape genetic variants</p>
-</div>
-<div id="ucsc---check" class="section level2">
-<h2>UCSC - check</h2>
-<p>chr6:43,426,669-43,433,274</p>
-<p>Repeats.</p>
-<p>"" RepeatMasker Information</p>
-<p>Name: (GGAT)n</p>
+<h1>3 The genomic architecture</h1>
+<p>Mission: Investigate the genomic arfhitecture of a particular region in the zebrafish genome</p>
+<p>Go to <a href="https://genome-euro.ucsc.edu/cgi-bin/hgGateway?redirect=manual&amp;source=genome.ucsc.edu">UCSC Genome Browser</a></p>
+<p>Select Zebrafish Genome, and search for “chr6:43,426,669-43,433,274”.</p>
+<p><img src="assets/2022_browser/image-04-25-19.23.22.png" /></p>
+<p>Now we see a gene structure at this region from multiple data sources - Thin lines are the introns, thick boxes are exons.</p>
+<p><img src="assets/2022_browser/image-04-25-21.05.45.png" /></p>
+<p>If you click RepeatMasker, you can see various different tipes of repeats in this reagion. What does it mean…? Click the left black part of “simple”.</p>
+<p><img src="assets/2022_browser/image-04-25-21.06.35.png" /></p>
+<p>RepeatMasker Information Name: (GGAT)n (click this)</p>
 <pre class="bash"><code>&gt;danRer11_rmsk_(GGAT)n range=chr6:43428241-43428346 5&#39;pad=0 3&#39;pad=0 strand=+ repeatMasking=none
 GGATGGATGGATGGATGGATGGATGGATGGATGGATGGATGGATGGATGG
 ATGGATGGATCGATGGAAGGATGGATGGATGGAAGGATGGATGGACAGAT
 GGATGG</code></pre>
-<p>Variant.</p>
+<p>So, this means that in this region (chr6:43428241-43428346), there is repeats of “GGAT” sequences. This may happen during evolution - mostly by random or mechanistic mutations, and some are due to insertion og viral genetic sequences. Some of them could help a gene to gain a new function, and some can break a gene.</p>
+<p>If you click EVA SNP Release3, you can see a lot of known variants in this region. rsXXX are the IDs of genetic variants.</p>
+<p><img src="assets/2022_browser/image-04-25-21.05.45.png" /> <img src="assets/2022_browser/image-04-25-21.23.22.png" /></p>
+<p>If you click “rs179383132”, you can see more information about this variant.</p>
+<p><img src="assets/2022_browser/image-04-25-21.05.45.png" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -880,7 +938,6 @@ loaded via a namespace (and not attached):
 [33] rmarkdown_2.13   callr_3.7.0      magrittr_2.0.2   whisker_0.4     
 [37] ps_1.6.0         promises_1.2.0.1 htmltools_0.5.2  ellipsis_0.3.2  
 [41] httpuv_1.6.5     utf8_1.2.2       stringi_1.7.6    crayon_1.5.0    </code></pre>
-</div>
 </div>
 </div>
 
