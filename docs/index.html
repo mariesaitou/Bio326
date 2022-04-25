@@ -13,20 +13,29 @@
 
 <title>Home</title>
 
-<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
-<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
 <style type="text/css">
 div.section {
@@ -46,11 +55,6 @@ div.section {
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -63,32 +67,7 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 
 
@@ -99,10 +78,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -119,40 +94,16 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -180,7 +131,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -192,7 +143,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -203,10 +154,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -218,7 +182,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -285,7 +248,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -307,7 +270,7 @@ $(document).ready(function () {
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/mariesaitou/Bio326">
-    <span class="fas fa-github"></span>
+    <span class="fab fa-github"></span>
      
     Source code
   </a>
@@ -317,7 +280,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -346,7 +309,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-04-29
+<strong>Last updated:</strong> 2022-04-25
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -355,8 +318,8 @@ $(document).ready(function () {
 <strong>Knit directory:</strong> <code>Bio326/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
 </p>
 <p>
-This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version 1.7.0). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
@@ -377,16 +340,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree273fc86a62eec352c4e0d6d88b0db5f15d82353atargetblank273fc86a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/273fc86a62eec352c4e0d6d88b0db5f15d82353a" target="_blank">273fc86</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree537e3e4ed3b13e3e1eaea0adf15396ff439bd91ctargetblank537e3e4a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/537e3e4ed3b13e3e1eaea0adf15396ff439bd91c" target="_blank">537e3e4</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree273fc86a62eec352c4e0d6d88b0db5f15d82353atargetblank273fc86a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree537e3e4ed3b13e3e1eaea0adf15396ff439bd91ctargetblank537e3e4a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/273fc86a62eec352c4e0d6d88b0db5f15d82353a" target="_blank">273fc86</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/537e3e4ed3b13e3e1eaea0adf15396ff439bd91c" target="_blank">537e3e4</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -394,9 +357,14 @@ Note that you need to be careful to ensure that all relevant files for the analy
 <pre><code>
 Ignored files:
     Ignored:    .DS_Store
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    analysis/.DS_Store
+    Ignored:    analysis/popgen.simu.nb.html
 
 Untracked files:
     Untracked:  BIO326 URL genome annotatin computer lab_24_MAR_2021.docx
+    Untracked:  BIO326-121VGenomesequencingBIO326-121VGenomsekvensering;verktøyoganalyser-BIO326-121VGenomesequencing_PhillipByronPope.pdf
     Untracked:  BIO326-RNAseq.pptx
     Untracked:  BIO326-genome/
     Untracked:  BIO326.MS.10th_FEB_2021function.pptx
@@ -405,18 +373,25 @@ Untracked files:
     Untracked:  BIO326_RNAseq_5th_FEB_2021.pptx
     Untracked:  BIO326_SQK-RAD004 DNA challenge.docx
     Untracked:  BIO326_visual_30_APR_2021.pptx
+    Untracked:  Bio326.2022.1.Rmd
     Untracked:  Bio326.genome.html
+    Untracked:  Nanopore_SumStatQC_Tutorial.Rmd
     Untracked:  PCRdemo.R
     Untracked:  Pig_mutation_hist.csv
+    Untracked:  PopGenBio326.322/
     Untracked:  RNAseq.Rplot.pdf
     Untracked:  Untitled.R
+    Untracked:  [eng]BIO326-121VGenomesequencingBIO326-121VGenomsekvensering;verktøyoganalyser-BIO326-121VGenomesequencing_PhillipByronPope.mht
+    Untracked:  [eng]BIO326-121VGenomesequencingBIO326-121VGenomsekvensering;verktøyoganalyser-BIO326-121VGenomesequencing_PhillipByronPope.pdf
+    Untracked:  analysis/AnimalGenomics.Rmd
+    Untracked:  analysis/AnimalGenomicsVariant2022.Rmd
+    Untracked:  analysis/RNAseq_for_lab.Rmd
+    Untracked:  prepare.txt
     Untracked:  samples.xlsx
+    Untracked:  test/
+    Untracked:  trial/
     Untracked:  vis.xlsx
     Untracked:  workflowR.bio326.R
-    Untracked:  ~$BIO326_visual_30_APR_2021.pptx
-
-Unstaged changes:
-    Modified:   analysis/Bio326.misc.Rmd
 
 </code></pre>
 <p>
@@ -455,6 +430,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/537e3e4ed3b13e3e1eaea0adf15396ff439bd91c/analysis/index.Rmd" target="_blank">537e3e4</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-04-25
+</td>
+<td>
+wflow_publish(“analysis/index.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/d752f4a05f83700188f1cd6488169fc6895822a2/docs/index.html" target="_blank">d752f4a</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2021-04-29
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -825,17 +834,14 @@ Start workflowr project.
 </div>
 <div id="index" class="section level3">
 <h3><strong>Index</strong></h3>
-<ul>
-<li><a href="Bio326.genome.html">1.Genome Analysis</a></li>
-<li><a href="Bio326.RNAseq.html">2.RNAseq Analysis</a></li>
-<li><a href="Bio326.misc.html">3.Misc Analysis</a></li>
-</ul>
+<p>2022 * <a href="genomebrowser_for_lab.html">1.Genome Browsers</a></p>
+<p>2021 * <a href="Bio326.genome.html">1.Genome Analysis</a> * <a href="Bio326.RNAseq.html">2.RNAseq Analysis</a> * <a href="Bio326.misc.html">3.Misc Analysis</a></p>
 </div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
-http://docs.mathjax.org/en/latest/configuration.html.  This will make
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
 the presentation more consistent at the cost of the webpage sometimes
 taking slightly longer to load. Note that this only works because the
 footer is added to webpages before the MathJax javascript. -->
@@ -873,7 +879,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
