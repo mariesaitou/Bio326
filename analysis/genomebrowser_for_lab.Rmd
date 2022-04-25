@@ -9,6 +9,11 @@ output: html_document
 
 ```
 
+# 0 Introduction
+
+
+
+
 # 1 Primer Design
 
 Mission: You want to investigate if TP53 gene is expressed in a particular tissue of pig and want to design a primer set for its cDNA.
@@ -17,6 +22,7 @@ Mission: You want to investigate if TP53 gene is expressed in a particular tissu
 
 Go to:[NCBI](https://www.ncbi.nlm.nih.gov/labs/gquery/)
 and search for "Sus scrofa  TP53".
+
 [](assets/2022_browser/image-04-23-20.01.35.png)
 
 Now you can see the gene information, exon-intron structure and gene/progein IDs.
@@ -35,15 +41,16 @@ Put the mouse cursor on the gene image, and copy and note the mRNA ID (NM_21824.
 
 And go to:[NCBI primer blast](https://www.ncbi.nlm.nih.gov/tools/primer-blast/)
 
+Now you want to know if the primer sets can be used for other species. To do so, we can extract the target template sequence from the pig transcriptome data and compare it for those of other species.
 
 
 
 
 
-
-
-
+#2 The effect of genetic variant
 ## Ensembl 
+Mission: You found a genetic variant in your sequenced individual. You want to investigate the potential effect of the variants.
+
 https://www.ensembl.org/Salmo_salar/Info/Index
  
 VEP.
