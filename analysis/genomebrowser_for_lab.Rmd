@@ -5,17 +5,13 @@ date: "4/23/2022"
 output: html_document
 ---
 
-```{bash}
-
-```
-
-# 0 Introduction
+# 0 Introduction - genome browsers
 
 [NCBI](https://www.ncbi.nlm.nih.gov/) 
 
 National Center for Biotechnology Information. Good for primer design and litereture search.
 
-[UCSC Genome Browser](https://genome.ucsc.edu/)
+[UCSC Genome Browser](https://genome-euro.ucsc.edu/cgi-bin/hgGateway?redirect=manual&source=genome.ucsc.edu)
 
 The grafical use intereface is light and helpful.
 Most non-model species genomes are not up-to-date, but you can send them a request. 
@@ -101,17 +97,37 @@ Add your favorite species in the "organism" space.
 
 ![](assets/2022_browser/image-04-23-20.46.59.png)
 
+There are cattle and sheep mRNA found. Dog may not have highly similar mRNA.
+
+Let's look into the mRNA of sheep closely.
 
 
 ![](assets/2022_browser/image-04-23-20.47.52.png)
 
+Query: 1100-1438 (pig TP53 mRNA) --- the original region was 1100-1750, but of the sequence, only - 1438 showed the high similarity with the sheep mRNA.
 
-So probably we have to design new primer sets for these species...   
+
+Subject: 1074-1436 (sheep TP53 mRNA)
+
+
+[Blast Glossery](https://www.ncbi.nlm.nih.gov/books/NBK62051/)
+
+Bit score ---  can be used to compare alignment scores (similarity) from different searches.
+E-value (expect) --- the number of different alignments expected to occur in a database search by chance. 
+Identities --- the number of identical nucleotids
+Gaps --- the number of insertion/deletions in the alignment
+
+
+The alignment indicates... the starting part is similar between sheep and pig mRNA, but 1439-1750 th bases of the pig mRNA did not show high similarity in sheep mRNA.
+
+So probablly we have to design new primer sets for these species...   
+
 
 
 # 2 The effect of genetic variants
 
 Mission: You found a genetic variant in your sequenced individual. You want to investigate the potential effect of the variants.
+
 
 
 ## 2-2 Variant effect predictor
@@ -120,9 +136,10 @@ Assume that you found the following deletion polymorphism at in a rabbit genome.
 
 12: 107,236,296-107,236,969
 
+![](assets/2022_browser/image-04-23-20.47.52.png)
 
 [Variant Effect Predictor](https://www.ensembl.org/Tools/VEP)
-And input:
+Input the following information:
 
 Species - rabbit (Oryctolagus_cuniculus)
 
@@ -131,51 +148,103 @@ Variant - 12 107236296 107236969 DEL + deletion1
 the variant format, left to rignt ... chromosome, starting point, ending point, kind, strand, variant ID (you can name it as you like)
 Variants.
 
+![](assets/2022_browser/image-04-25-18.48.31.png)
+
+
+
 You can also find various acceptable input formats [here](https://www.ensembl.org/info/docs/tools/vep/vep_formats.html)
 
-![](assets/2022_browser/image-04-23-20.47.52.png)
+
+![](assets/2022_browser/image-04-25-18.53.12.png)
+
+The result shows that the deletion is affecting a gene, SLC35F1, by causing coding sequence variant, splice variant, feature truncation and intron variant.
+You can modify the result table by clicking "show/hide columns"
+
+
 
 
 ## 2-2 What is this gene doing?
 
-![](assets/2022_browser/image-04-23-20.47.52.png)
+Click "ENSOCUG00000015307" to know more about this gene.
 
-![](assets/2022_browser/image-04-23-20.47.52.png)
+In the gene page, you can investigate its evolutionary history and potential function.
+
+
+
+![](assets/2022_browser/image-04-25-19.10.05.png)
+
+Let's explore "gene gain/loss tree" "Ontologies" and "Phenotypes"
+
+Gene gain/loss tree
+
+![](assets/2022_browser/image-04-25-19.12.34.png)
+
+Most of mammalian species have two copies of this gene.
+
+
+![](assets/2022_browser/image-04-25-19.12.04.png)
+
+See what is happening in fish!
+
+
+Gene Ontology 
+![](assets/2022_browser/image-04-25-19.12.34.png)
+transmembrane transtport
+
+
+![](assets/2022_browser/image-04-25-19.13.13.png)
+
+Phenotypes
+There is no phenotype information for this gene in rabbits, but there are some reports in mouse and rat, such as leukocyte cell number etc.
+
 
 ## 2-3 Comparative Analysis
 
-![](assets/2022_browser/image-04-23-20.47.52.png)
 
-![](assets/2022_browser/image-04-23-20.47.52.png)
+Go back to the gene page, and click *Orthologues* in the left pane.
 
-Rabbit and Alpaca
+Find Alpaca... and let's compare this gene in Rabbit and Alpaca.
 
-# 3 the genomic architecture
-## 3-1
+![](assets/2022_browser/image-04-25-19.15.59.png)
+"Compare regions" 
 
+![](assets/2022_browser/image-04-25-19.15.44.png)
+In both rabbit (top) and alpaca (bottom), seemingly, SLC35F1 is on the upstream of the CEF85L gene. 
 
+![](assets/2022_browser/image-04-25-19.15.59.png)
 
-## 3-2
+"View Sequence Alignments -- Protein" 
 
-genomic landscape 
-genetic variants
+![](assets/2022_browser/image-04-25-19.17.24.png)
 
-## UCSC - check 
-
-
-
-
+This is the protein alignment of this gene in the two species.
+Seemingly, these two sequences are very conserved (similar) except for the first 60 amino acids. * indicates the identical sequence.
 
 
-chr6:43,426,669-43,433,274
 
-Repeats.
+# 3 The genomic architecture
+
+Mission: Investigate the genomic arfhitecture of a particular region in the zebrafish genome
+
+Go to [UCSC Genome Browser](https://genome-euro.ucsc.edu/cgi-bin/hgGateway?redirect=manual&source=genome.ucsc.edu)
+
+Select Zebrafish Genome, and search for "chr6:43,426,669-43,433,274".
+
+![](assets/2022_browser/image-04-25-19.23.22.png)
+
+Now we see a gene structure at this region from multiple data sources - Thin lines are the introns, thick boxes are exons.
 
 
-""
+![](assets/2022_browser/image-04-25-21.05.45.png)
+
+If you click RepeatMasker, you can see various different tipes of repeats in this reagion. What does it mean...? Click the left black part of "simple".
+
+![](assets/2022_browser/image-04-25-21.06.35.png)
+
+
 RepeatMasker Information
+Name: (GGAT)n (click this)
 
-Name: (GGAT)n
 ```{bash, eval=FALSE}
 >danRer11_rmsk_(GGAT)n range=chr6:43428241-43428346 5'pad=0 3'pad=0 strand=+ repeatMasking=none
 GGATGGATGGATGGATGGATGGATGGATGGATGGATGGATGGATGGATGG
@@ -183,8 +252,19 @@ ATGGATGGATCGATGGAAGGATGGATGGATGGAAGGATGGATGGACAGAT
 GGATGG
 ```
 
+So, this means that in this region (chr6:43428241-43428346), there is repeats of "GGAT" sequences. This may happen during evolution - mostly by random or mechanistic mutations, and some are due to insertion og viral genetic sequences. Some of them could help a gene to gain a new function, and some can break a gene.
 
-Variant.
 
+
+If you click EVA SNP Release3, you can see a lot of known variants in this region.
+rsXXX are the IDs of genetic variants.
+
+
+![](assets/2022_browser/image-04-25-21.05.45.png)
+![](assets/2022_browser/image-04-25-21.23.22.png)
+
+If you click "rs179383132", you can see more information about this variant.
+
+![](assets/2022_browser/image-04-25-21.05.45.png)
 
 
