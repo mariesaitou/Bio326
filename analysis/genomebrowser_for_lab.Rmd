@@ -23,13 +23,13 @@ Mission: You want to investigate if TP53 gene is expressed in a particular tissu
 Go to:[NCBI](https://www.ncbi.nlm.nih.gov/labs/gquery/)
 and search for "Sus scrofa  TP53".
 
-[](assets/2022_browser/image-04-23-20.01.35.png)
+![](assets/2022_browser/image-04-23-20.01.35.png)
 
 Now you can see the gene information, exon-intron structure and gene/progein IDs.
-[](assets/2022_browser/image-04-23-20.01.13.png)
+![](assets/2022_browser/image-04-23-20.01.13.png)
 
 Also when you scroll it down, you can see the expression pattern of this gene in varios tissues.
-[](assets/2022_browser/image-04-23-20.00.57.png)
+![](assets/2022_browser/image-04-23-20.00.57.png)
 
 RPKM is a unit for [gene expression](https://www.reneshbedre.com/blog/expression_units.html#:~:text=RPKM%20is%20a%20gene%20length,the%20expression%20of%20that%20gene.)
 
