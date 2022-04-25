@@ -260,8 +260,8 @@ If you click EVA SNP Release3, you can see a lot of known variants in this regio
 rsXXX are the IDs of genetic variants.
 
 
-![](assets/2022_browser/image-04-25-21.05.45.png)
 ![](assets/2022_browser/image-04-25-21.07.44.png)
+
 
 If you click "rs179383132", you can see more information about this variant.
 
