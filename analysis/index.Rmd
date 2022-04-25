@@ -15,6 +15,12 @@ This is the repository of MS's part (Bioinformatics Analysis) of BIO326 at NMBU.
 
 
 ### **Index**
+2022
+* [1.Genome Browsers](genomebrowser_for_lab.html)
+
+2021
 * [1.Genome Analysis](Bio326.genome.html)
 * [2.RNAseq Analysis](Bio326.RNAseq.html)
 * [3.Misc Analysis](Bio326.misc.html)
+
+
