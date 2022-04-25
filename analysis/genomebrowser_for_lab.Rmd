@@ -136,14 +136,14 @@ Assume that you found the following deletion polymorphism at in a rabbit genome.
 
 12: 107,236,296-107,236,969
 
-![](assets/2022_browser/image-04-23-20.47.52.png)
+
 
 [Variant Effect Predictor](https://www.ensembl.org/Tools/VEP)
 Input the following information:
 
-Species - rabbit (Oryctolagus_cuniculus)
+*Species - rabbit (Oryctolagus_cuniculus)*
 
-Variant - 12 107236296 107236969 DEL + deletion1
+*Variant - 12 107236296 107236969 DEL + deletion1*
 
 the variant format, left to rignt ... chromosome, starting point, ending point, kind, strand, variant ID (you can name it as you like)
 Variants.
