@@ -177,12 +177,12 @@ Let's explore "gene gain/loss tree" "Ontologies" and "Phenotypes"
 
 Gene gain/loss tree
 
-![](assets/2022_browser/image-04-25-19.12.34.png)
+![](assets/2022_browser/image-04-25-19.11.48.png){width=80%}
 
 Most of mammalian species have two copies of this gene.
 
 
-![](assets/2022_browser/image-04-25-19.12.04.png)
+![](assets/2022_browser/image-04-25-19.12.04.png){width=80%}
 
 See what is happening in fish!
 
@@ -206,14 +206,14 @@ Go back to the gene page, and click *Orthologues* in the left pane.
 Find Alpaca... and let's compare this gene in Rabbit and Alpaca.
 
 ![](assets/2022_browser/image-04-25-19.15.59.png)
-"Compare regions" 
+*"Compare regions"* 
 
 ![](assets/2022_browser/image-04-25-19.15.44.png)
 In both rabbit (top) and alpaca (bottom), seemingly, SLC35F1 is on the upstream of the CEF85L gene. 
 
 ![](assets/2022_browser/image-04-25-19.15.59.png)
 
-"View Sequence Alignments -- Protein" 
+*"View Sequence Alignments -- Protein"* 
 
 ![](assets/2022_browser/image-04-25-19.17.24.png)
 
@@ -230,20 +230,24 @@ Go to [UCSC Genome Browser](https://genome-euro.ucsc.edu/cgi-bin/hgGateway?redir
 
 Select Zebrafish Genome, and search for "chr6:43,426,669-43,433,274".
 
-![](assets/2022_browser/image-04-25-19.23.22.png)
+
 
 Now we see a gene structure at this region from multiple data sources - Thin lines are the introns, thick boxes are exons.
+
+![](assets/2022_browser/image-04-25-21.05.35.png)
+
 
 
 ![](assets/2022_browser/image-04-25-21.05.45.png)
 
 If you click RepeatMasker, you can see various different tipes of repeats in this reagion. What does it mean...? Click the left black part of "simple".
 
-![](assets/2022_browser/image-04-25-21.06.35.png)
+![](assets/2022_browser/image-04-25-21.06.35.png){width=80%}
 
 
 RepeatMasker Information
-Name: (GGAT)n (click this)
+
+Name: (GGAT)n (<-click this in your browser)
 
 ```{bash, eval=FALSE}
 >danRer11_rmsk_(GGAT)n range=chr6:43428241-43428346 5'pad=0 3'pad=0 strand=+ repeatMasking=none
@@ -261,6 +265,8 @@ rsXXX are the IDs of genetic variants.
 
 
 ![](assets/2022_browser/image-04-25-21.07.44.png)
+
+![](assets/2022_browser/image-04-25-19.23.22.png)
 
 
 If you click "rs179383132", you can see more information about this variant.
