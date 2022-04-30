@@ -1,0 +1,31 @@
+---
+title: "synchroeQTL 2022"
+author: "Marie Saitou"
+date: "4/30/2022"
+output: html_document
+---
+
+# 0. data prep
+
+[dataset](http://arken.nmbu.no/~srsand/share/synchrosmolt/) 
+
+# 1. basic cic/trans eQTL with QTLTools
+
+![](assets/synchroeQTL/slide3.png)
+
+
+![](assets/synchroeQTL/slide4.png)
+
+![](assets/synchroeQTL/slide5.png)
+
+
+![](assets/synchroeQTL/slide6.png)
+
+![](assets/synchroeQTL/slide7.png)
+
+![](assets/synchroeQTL/slide8.png)
+
+
+![](assets/synchroeQTL/slide9.png)
+
+!
