@@ -11,21 +11,23 @@ output: html_document
 
 # 1. basic cic/trans eQTL with QTLTools
 
-![](assets/synchroeQTL/slide3.png)
+![](assets/synchroeQTL/Slide3.png)
 
 
-![](assets/synchroeQTL/slide4.png)
+![](assets/synchroeQTL/Slide4.png)
 
-![](assets/synchroeQTL/slide5.png)
-
-
-![](assets/synchroeQTL/slide6.png)
-
-![](assets/synchroeQTL/slide7.png)
-
-![](assets/synchroeQTL/slide8.png)
+![](assets/synchroeQTL/Slide5.png)
 
 
-![](assets/synchroeQTL/slide9.png)
+![](assets/synchroeQTL/Slide6.png)
 
-!
+
+![](assets/synchroeQTL/Slide7.png)
+
+
+![](assets/synchroeQTL/Slide8.png)
+
+
+![](assets/synchroeQTL/Slide9.png)
+
+
