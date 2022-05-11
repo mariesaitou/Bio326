@@ -7,6 +7,8 @@ output: html_document
 
 # 0 Introduction - genome browsers
 
+Aim: To get familiar with multiple genome browsers and explore potential use of their functions for your work.
+
 [NCBI](https://www.ncbi.nlm.nih.gov/) 
 
 National Center for Biotechnology Information. Good for primer design and litereture search.
@@ -247,7 +249,7 @@ If you click RepeatMasker, you can see various different tipes of repeats in thi
 
 RepeatMasker Information
 
-Name: (GGAT)n (<-click this in your browser)
+*View table schema* (<-click this in your browser)
 
 ```{bash, eval=FALSE}
 >danRer11_rmsk_(GGAT)n range=chr6:43428241-43428346 5'pad=0 3'pad=0 strand=+ repeatMasking=none

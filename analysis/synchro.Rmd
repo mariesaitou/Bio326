@@ -30,7 +30,15 @@ Gene ontology of the eQTL genes of the hub variant
 ![](assets/synchroeQTL/Slide10.png)
 ![](assets/synchroeQTL/Slide11.png)
 
-New and old assembly of the hub variant region
-![](assets/synchroeQTL/Slide12.png)
+
 
 ![](assets/synchroeQTL/Slide9.png)
+
+
+
+
+![](assets/synchroeQTL/Slide13.png)
+
+
+
+
