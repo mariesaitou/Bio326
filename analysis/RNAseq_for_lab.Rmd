@@ -1,13 +1,15 @@
 ---
-title: "RNAseq tutorial for lab people"
+title: "RNAseq tutorial without coding"
 author: "Marie Saitou"
-date: "4/21/2022"
+date: "5/26/2022"
 output: html_document
 ---
 
 ## Lecture slides (currently dummy)
 Marie:  Overview of the RNAseq. What can RNAseq tell us/What should we do when we write a manuscript. [slides](assets/BIO326-genome/BIO326-genome.pdf)
+
 Matthew: RNAseq lab part mechanism, experimental design etc.[slides](assets/BIO326-genome/BIO326-genome.pdf)
+
 Domniki: How to upload data to ENA. [slides](assets/BIO326-genome/BIO326-genome.pdf)
 
 
@@ -16,21 +18,29 @@ Domniki: How to upload data to ENA. [slides](assets/BIO326-genome/BIO326-genome.
 Objective: Conduct comparative RNA sequencing analyis between fish brain and liver datasets
 
 We will learn: 
+
 A. How to conduct "cleaning" of the RNAseq data. 
+
 B. How to quantify the gene expression in each sample.
+
 C. How to conduct downstream analysis to gain biological insights.
 
 
 # 1. Galaxy introduction
 Useful materials:
+
 https://training.galaxyproject.org/training-material/topics/introduction/
 
 
 ## 1-1. Register and login to Galaxy
 Go to https://usegalaxy.no/ ,
+
 Galaxy is a web platform with various software for genome analyses.
+
 You should be able to log in with "Feide" information at galaxy.no (NMBU ID and password)
+
 If you are not NMBU employee, you can use these for free: https://usegalaxy.eu/ or https://usegalaxy.org/
+
 
 ## 1-2. Play around with Galaxy
 
@@ -41,7 +51,7 @@ If you are not NMBU employee, you can use these for free: https://usegalaxy.eu/ 
 ![](assets/BIO326-genome/Slide21.png)
 
 ## 1-3. Review the RNAseq analysis workflow
-
+```{bash, eval=FALSE}
 On Galaxy
 - Get RNAseq data (paired end, liver and brain, three samples each) 
 - Get reference transcriptome: Salmo salar version 3.1
@@ -55,6 +65,7 @@ On iDEP
 - Plot genes of interest 
 - Differentially expressed gene
 - Gene ontology analysis
+```
 
 
 # 2. Get the data
@@ -64,56 +75,61 @@ There are three major public repository for genomics data ENA (Europe), NCBI (Am
 
 This time, we will analyze brain and liver transcriptome datasets from the following study:
 "Multi-tissue transcriptome profiling of North American derived Atlantic salmon"
+
 Paper: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6146974/
+
 Dataset: https://www.ebi.ac.uk/ena/browser/view/PRJNA470665
 
 
+![](assets/RNAseq_for_lab_2022/get_data.png)
+Click "upload data" on the left top - and 
+
+Select Paste/Fetch data and copy/paste the URL of the datasets.
+
+Choose local files --- upload data from your computer.
 
 
+## 2-1. Get the liver and brain RNAseq data
 
-# 3. Quality Control
-## 2-0. Introduction
-https://www.ensembl.org/Salmo_salar/Info/Index
+As it takes hours to analyze the real (gigabytes) data, I made a miniature datasets for each samples. 
+```{bash, eval=FALSE}
 
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139945_1_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139945_2_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139950_1_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139950_2_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139969_1_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139969_2_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139971_1_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139971_2_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139973_1_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139973_2_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139947_1_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139947_2_mini.fastq.gz
+
+```
+
+
+## 2-2. Get the reference
+```{bash, eval=FALSE}
 http://ftp.ensembl.org/pub/release-106/fasta/salmo_salar/cdna/Salmo_salar.Ssal_v3.1.cdna.all.fa.gz
 
-
-
-Get the reference
-```{bash, eval=FALSE}
-
-
 ```
+(If it does not work well, download it on your computer and upload it to Galaxy afterword)
 
 
-Get the RNAseq data
-At it takes hours to analyze the real (gigabytes) data, I made a miniature datasets for each samples. 
-```{bash, eval=FALSE}
+If you need reference sequences of other species for your study, go to  https://www.ensembl.org/index.html
 
+and "select a species" in the all genomes tub.
 
-```
-
-GSM3138423	brain_rep1
-GSM3138424	brain_rep2
-GSM3138425	brain_rep3
-GSM3138435	liver_rep1
-GSM3138436	liver_rep2
-GSM3138437	liver_rep3
+Go to "Gene annotation", Download FASTA files and cDNA sequence.
 
 
 
-```{bash, eval=FALSE}
-# Real brain samples (two files per sample)
-
-
-# Real liver samoles (two files per sample)
-
-
-```
 
 
 <details>
-  <summary> **If you want to try with real data, click here**</summary>      
+  <summary> **If you want to try with real data later, click here**</summary>      
 ```{bash, eval=FALSE}
 # Real brain samples (two files per sample)
 ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR713/005/SRR7139945/SRR7139945_1.fastq.gz
@@ -146,27 +162,23 @@ for file in *.fastq.gz; do zcat < $file | head -100000 | gzip > {$file}_mini.fas
 </details> 
 
 
-## Galaxy
-
-# https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE114247
-
-Quality check
+# 3. Quality Control
 
 
+## 3-1. Pairing of the paired read data sets
 
-Trimming of bad quality data and adaptors
-Fastp
+[What is Paired-End Sequencing?](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/paired-end-vs-single-read.html)
 
-Kallisto
 
-![](assets/BIO326-genome/Slide18.png)
+As each sample has two files (paired-end), we make a "collection of paired datasets" to handle many files conveniently.
 
 ![](assets/RNAseq_for_lab_2022/pairing.png)
 
+## 3-2. Trimming of bad quality data and adaptors with fastp
 
 <details>
   <summary> **What fastp does (from Galaxy page)**</summary>      
-```{bash, eval=FALSE}
+
 fastp is a tool designed to provide fast all-in-one preprocessing for FASTQ files. 
 
 Features
@@ -183,42 +195,109 @@ Trim all reads in front and tail
 - Split the output to multiple files (0001.R1.gz, 0002.R1.gz...) to support parallel processing. Two modes can be used, limiting the total split file number, or limitting the lines of each split file (Not enabled in this Galaxy tool)
 - Support long reads (data from PacBio / Nanopore devices)
 
-```
+
 </details> 
 
+Search for a tool "fastp" in the left window (Tools) and put the input files we gathered in the 3-1.
+
+![](assets/RNAseq_for_lab_2022/fastp.png)
+
+Let's take a look on how much/what kind of reads were removed.
+
+![](assets/RNAseq_for_lab_2022/fastp_result.png)
 
 
+## 3-3. Quantify the gene expression on the cleaned reads with Kallisto
 
 
 <details>
   <summary> **What Kallisto does (from Galaxy page)**</summary>      
-```{bash, eval=FALSE}
+
 
 kallisto is a program for quantifying abundances of transcripts from RNA-Seq data, or more generally of target sequences using high-throughput sequencing reads. It is based on the novel idea of pseudoalignment for rapidly determining the compatibility of reads with targets, without the need for alignment. On benchmarks with standard RNA-Seq data, kallisto can quantify 30 million human reads in less than 3 minutes on a Mac desktop computer using only the read sequences and a transcriptome index that itself takes less than 10 minutes to build. Pseudoalignment of reads preserves the key information needed for quantification, and kallisto is therefore not only fast, but also as accurate as existing quantification tools. In fact, because the pseudoalignment procedure is robust to errors in the reads, in many benchmarks kallisto significantly outperforms existing tools.
 
-```
 </details> 
 
+
+![](assets/RNAseq_for_lab_2022/kallisto.png)
+
+If it is taking too long, here are the output files.
+The output files are six in total, transcript * transcript counts tables.
+
+```{bash, eval=FALSE}
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139945_mini.Kallisto.tabular
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139947_mini.Kallisto.tabular
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139969_mini.Kallisto.tabular
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139971_mini.Kallisto.tabular
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139973_mini.Kallisto.tabular
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139950_mini.Kallisto.tabular
+```
+
+
+
+## 3-4. Summarize the transcripts to genes with tximport
+
+Upload a transcript-gene table to Galaxy.
+
+```{bash, eval=FALSE}
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/transcript_gene_ssav3.txt
+```
+
+
+(This table can be obtained at [Ensemnbl BiomaRt](https://www.ensembl.org/biomart/martview/3ed7f9aeecadada91863b573c33aefdc) for many species.)
+
+
+![](assets/RNAseq_for_lab_2022/tximport.png)
+
+
+
+
+
+# 4 Downstream analysis with iDEP
+
+Download the results of the entire RNAseq analysis.
+
+```{bash, eval=FALSE}
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/rnaseq_liver_brain.txt
+```
+
+And go to iDEP
+http://bioinformatics.sdstate.edu/idep/
+
+Upload the gene expression matrix and iDEP automatically runs (it detect the species as well)
+![](assets/RNAseq_for_lab_2022/input_iDEP.png){width=80%}
+
+Quality check
+
+![](assets/RNAseq_for_lab_2022/density.png)
+
+Visualize the expression of your favorite genes
+
+![](assets/RNAseq_for_lab_2022/barplot.png)
+Transcriptome comparison between brain1 and brain2 samples
+![](assets/RNAseq_for_lab_2022/correl_brain.png)
+
+Transcriptome comparison between brain and liver samples
+![](assets/RNAseq_for_lab_2022/correl_brain_liver.png)
+
+Gene Ontology Analysis of differencially expressed genes
+![](assets/RNAseq_for_lab_2022/GO.png)
+Principal component analysis -> visualize overall trend of all the gene expression.
+
+
+
 ![](assets/RNAseq_for_lab_2022/PCA.png)
 
-![](assets/RNAseq_for_lab_2022/Kallisto.png)
+KEGG Analysis
 
-If it is taking too long, here is the output file.
-sample * gene expression table.
-
-
-
-
-## IDEP
-
-
-
-![](assets/RNAseq_for_lab_2022/PCA.png)
 ![](assets/RNAseq_for_lab_2022/KEGG.png)
 
-![](assets/RNAseq_for_lab_2022/Kallisto.png)
 
-
+barplot
+density
+Volcano
+input_iDEP
+GO
 
 
 
