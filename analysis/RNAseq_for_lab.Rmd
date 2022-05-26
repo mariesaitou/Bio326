@@ -265,7 +265,7 @@ And go to iDEP
 http://bioinformatics.sdstate.edu/idep/
 
 Upload the gene expression matrix and iDEP automatically runs (it detect the species as well)
-![](assets/RNAseq_for_lab_2022/input_iDEP.png){width=80%}
+![](assets/RNAseq_for_lab_2022/input_iDEP.png){width=60%}
 
 Quality check
 
