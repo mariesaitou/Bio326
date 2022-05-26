@@ -253,8 +253,8 @@ https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_202
 
 
 
-# 4 Downstream analysis with iDEP
-
+# 4. Downstream analysis with iDEP
+## 4-1. Data upload
 Download the results of the entire RNAseq analysis.
 
 ```{bash, eval=FALSE}
@@ -266,39 +266,41 @@ http://bioinformatics.sdstate.edu/idep/
 
 Upload the gene expression matrix and iDEP automatically runs (it detect the species as well)
 ![](assets/RNAseq_for_lab_2022/input_iDEP.png){width=60%}
-
-Quality check
+## 4-2. Quality check
 
 ![](assets/RNAseq_for_lab_2022/density.png)
 
-Visualize the expression of your favorite genes
 
-![](assets/RNAseq_for_lab_2022/barplot.png)
 Transcriptome comparison between brain1 and brain2 samples
 ![](assets/RNAseq_for_lab_2022/correl_brain.png)
 
 Transcriptome comparison between brain and liver samples
 ![](assets/RNAseq_for_lab_2022/correl_brain_liver.png)
 
-Gene Ontology Analysis of differencially expressed genes
-![](assets/RNAseq_for_lab_2022/GO.png)
-Principal component analysis -> visualize overall trend of all the gene expression.
-
-
+## 4-3.Principal component analysis
+Visualize overall trend of all the gene expression.
 
 ![](assets/RNAseq_for_lab_2022/PCA.png)
+
+
+
+## 4-4. Visualize the expression of your favorite genes
+
+![](assets/RNAseq_for_lab_2022/barplot.png)
+
+## 4-5. Visualize the expression of your favorite genes
+
+![](assets/RNAseq_for_lab_2022/Volcano.png)
+
+Gene Ontology Analysis of differencially expressed genes
+![](assets/RNAseq_for_lab_2022/GO.png)
+
+
+
 
 KEGG Analysis
 
 ![](assets/RNAseq_for_lab_2022/KEGG.png)
-
-
-barplot
-density
-Volcano
-input_iDEP
-GO
-
 
 
 
