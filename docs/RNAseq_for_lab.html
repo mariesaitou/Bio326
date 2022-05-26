@@ -12,7 +12,7 @@
 <meta name="author" content="Marie Saitou" />
 
 
-<title>RNAseq tutorial for lab people</title>
+<title>RNAseq tutorial without coding</title>
 
 <script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -361,7 +361,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">RNAseq tutorial for lab people</h1>
+<h1 class="title toc-ignore">RNAseq tutorial without coding</h1>
 <h4 class="author">Marie Saitou</h4>
 <h4 class="date">4/21/2022</h4>
 
@@ -703,7 +703,20 @@ On iDEP
 <p>Choose local files — upload data from your computer.</p>
 <p>Get the liver and brain RNAseq data</p>
 <p>As it takes hours to analyze the real (gigabytes) data, I made a miniature datasets for each samples.</p>
-<pre class="bash"><code></code></pre>
+<pre class="bash"><code>
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139945_1_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139945_2_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139950_1_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139950_2_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139969_1_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139969_2_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139971_1_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139971_2_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139973_1_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139973_2_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139947_1_mini.fastq.gz
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139947_2_mini.fastq.gz
+</code></pre>
 <p>Get the reference</p>
 <pre class="bash"><code>http://ftp.ensembl.org/pub/release-106/fasta/salmo_salar/cdna/Salmo_salar.Ssal_v3.1.cdna.all.fa.gz
 </code></pre>
@@ -745,15 +758,14 @@ Marie’s note to make tutorial files
 </div>
 <div id="quality-control" class="section level1">
 <h1>3. Quality Control</h1>
-</div>
-<div id="pairing-of-the-paired-read-data-sets" class="section level1">
-<h1>3-1. Pairing of the paired read data sets</h1>
+<div id="pairing-of-the-paired-read-data-sets" class="section level2">
+<h2>3-1. Pairing of the paired read data sets</h2>
 <p><a href="https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/paired-end-vs-single-read.html">What is Paired-End Sequencing?</a></p>
 <p>As each sample has two files (paired-end), we make a “collection of paired datasets” to handle many files conveniently.</p>
 <p><img src="assets/RNAseq_for_lab_2022/pairing.png" /></p>
 </div>
-<div id="trimming-of-bad-quality-data-and-adaptors-with-fastp" class="section level1">
-<h1>3-2. Trimming of bad quality data and adaptors with fastp</h1>
+<div id="trimming-of-bad-quality-data-and-adaptors-with-fastp" class="section level2">
+<h2>3-2. Trimming of bad quality data and adaptors with fastp</h2>
 <details>
 <summary>
 <strong>What fastp does (from Galaxy page)</strong>
@@ -778,8 +790,8 @@ Marie’s note to make tutorial files
 <p>Let’s take a look on how much/what kind of reads were removed.</p>
 <p><img src="assets/RNAseq_for_lab_2022/fastp_result.png" /></p>
 </div>
-<div id="quantify-the-gene-expression-on-the-cleaned-reads-with-kallisto" class="section level1">
-<h1>3-3. Quantify the gene expression on the cleaned reads with Kallisto</h1>
+<div id="quantify-the-gene-expression-on-the-cleaned-reads-with-kallisto" class="section level2">
+<h2>3-3. Quantify the gene expression on the cleaned reads with Kallisto</h2>
 <details>
 <summary>
 <strong>What Kallisto does (from Galaxy page)</strong>
@@ -788,16 +800,37 @@ Marie’s note to make tutorial files
 </details>
 <p><img src="assets/RNAseq_for_lab_2022/kallisto.png" /></p>
 <p>If it is taking too long, here are the output files. The output files are six in total, transcript * transcript counts tables.</p>
+<pre class="bash"><code>https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139945_mini.Kallisto.tabular
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139947_mini.Kallisto.tabular
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139969_mini.Kallisto.tabular
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139971_mini.Kallisto.tabular
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139973_mini.Kallisto.tabular
+https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139950_mini.Kallisto.tabular</code></pre>
 </div>
-<div id="quantify-the-gene-expression-on-the-cleaned-reads-with-tximport" class="section level1">
-<h1>3-4. Quantify the gene expression on the cleaned reads with tximport</h1>
-<p>transcript-gene table.</p>
-<p>(This table can be obtained at <a href="https://www.ensembl.org/biomart/martview/3ed7f9aeecadada91863b573c33aefdc">Ensemnbl BiomaRt</a> for many species. )</p>
+<div id="summarize-the-transcripts-to-genes-with-tximport" class="section level2">
+<h2>3-4. Summarize the transcripts to genes with tximport</h2>
+<p>Upload a transcript-gene table to Galaxy.</p>
+<pre class="bash"><code>https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/transcript_gene_ssav3.txt</code></pre>
+<p>(This table can be obtained at <a href="https://www.ensembl.org/biomart/martview/3ed7f9aeecadada91863b573c33aefdc">Ensemnbl BiomaRt</a> for many species.)</p>
 <p><img src="assets/RNAseq_for_lab_2022/tximport.png" /></p>
-<div id="idep" class="section level2">
-<h2>IDEP</h2>
-<p><img src="assets/RNAseq_for_lab_2022/PCA.png" /> <img src="assets/RNAseq_for_lab_2022/KEGG.png" /></p>
-<p><img src="assets/RNAseq_for_lab_2022/Kallisto.png" /></p>
+</div>
+</div>
+<div id="downstream-analysis-with-idep" class="section level1">
+<h1>4 Downstream analysis with iDEP</h1>
+<p>Download the results of the entire RNAseq analysis.</p>
+<pre class="bash"><code>https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/rnaseq_liver_brain.txt</code></pre>
+<p>And go to iDEP <a href="http://bioinformatics.sdstate.edu/idep/" class="uri">http://bioinformatics.sdstate.edu/idep/</a></p>
+<p>Upload the gene expression matrix and iDEP automatically runs (it detect the species as well) <img src="assets/RNAseq_for_lab_2022/input_iDEP.png" style="width:80.0%" /></p>
+<p>Quality check</p>
+<p><img src="assets/RNAseq_for_lab_2022/density.png" /></p>
+<p>Visualize the expression of your favorite genes</p>
+<p><img src="assets/RNAseq_for_lab_2022/barplot.png" /> Transcriptome comparison between brain1 and brain2 samples <img src="assets/RNAseq_for_lab_2022/correl_brain.png" /></p>
+<p>Transcriptome comparison between brain and liver samples <img src="assets/RNAseq_for_lab_2022/correl_brain_liver.png" /></p>
+<p>Gene Ontology Analysis of differencially expressed genes <img src="assets/RNAseq_for_lab_2022/GO.png" /> Principal component analysis -&gt; visualize overall trend of all the gene expression.</p>
+<p><img src="assets/RNAseq_for_lab_2022/PCA.png" /></p>
+<p>KEGG Analysis</p>
+<p><img src="assets/RNAseq_for_lab_2022/KEGG.png" /></p>
+<p>barplot density Volcano input_iDEP GO</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -831,7 +864,6 @@ loaded via a namespace (and not attached):
 [29] promises_1.2.0.1 fs_1.5.2         glue_1.6.2       evaluate_0.15   
 [33] rmarkdown_2.13   stringi_1.7.6    bslib_0.3.1      compiler_4.1.2  
 [37] pillar_1.7.0     jsonlite_1.8.0   httpuv_1.6.5     pkgconfig_2.0.3 </code></pre>
-</div>
 </div>
 </div>
 
