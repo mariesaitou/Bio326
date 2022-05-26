@@ -479,16 +479,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree0c312c325ed50e4da9e8a2f1e85f897e8742959ftargetblank0c312c3a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/0c312c325ed50e4da9e8a2f1e85f897e8742959f" target="_blank">0c312c3</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree617766ea8f8de63e8adf961ac6e268368edf5017targetblank617766ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/617766ea8f8de63e8adf961ac6e268368edf5017" target="_blank">617766e</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree0c312c325ed50e4da9e8a2f1e85f897e8742959ftargetblank0c312c3a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree617766ea8f8de63e8adf961ac6e268368edf5017targetblank617766ea" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/0c312c325ed50e4da9e8a2f1e85f897e8742959f" target="_blank">0c312c3</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/617766ea8f8de63e8adf961ac6e268368edf5017" target="_blank">617766e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -568,6 +568,74 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/617766ea8f8de63e8adf961ac6e268368edf5017/analysis/RNAseq_for_lab.Rmd" target="_blank">617766e</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-05-26
+</td>
+<td>
+wflow_publish(c(“analysis/RNAseq_for_lab.Rmd”))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/88be94a8c55cf2612a1953b6d8ca6db5125c5da3/docs/RNAseq_for_lab.html" target="_blank">88be94a</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-05-26
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/2908374d66301d9ab1af582d5e3e71b16aa6c17c/analysis/RNAseq_for_lab.Rmd" target="_blank">2908374</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-05-26
+</td>
+<td>
+wflow_publish(c(“analysis/RNAseq_for_lab.Rmd”))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/ee6ef1d1a53dc7507d3f73c315c0c916ec34b03e/docs/RNAseq_for_lab.html" target="_blank">ee6ef1d</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-05-26
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -851,21 +919,32 @@ https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_202
 </div>
 </div>
 <div id="downstream-analysis-with-idep" class="section level1">
-<h1>4 Downstream analysis with iDEP</h1>
+<h1>4. Downstream analysis with iDEP</h1>
+<div id="data-upload" class="section level2">
+<h2>4-1. Data upload</h2>
 <p>Download the results of the entire RNAseq analysis.</p>
 <pre class="bash"><code>https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/rnaseq_liver_brain.txt</code></pre>
 <p>And go to iDEP <a href="http://bioinformatics.sdstate.edu/idep/" class="uri">http://bioinformatics.sdstate.edu/idep/</a></p>
-<p>Upload the gene expression matrix and iDEP automatically runs (it detect the species as well) <img src="assets/RNAseq_for_lab_2022/input_iDEP.png" style="width:80.0%" /></p>
-<p>Quality check</p>
+<p>Upload the gene expression matrix and iDEP automatically runs (it detect the species as well) <img src="assets/RNAseq_for_lab_2022/input_iDEP.png" style="width:60.0%" /> ## 4-2. Quality check</p>
 <p><img src="assets/RNAseq_for_lab_2022/density.png" /></p>
-<p>Visualize the expression of your favorite genes</p>
-<p><img src="assets/RNAseq_for_lab_2022/barplot.png" /> Transcriptome comparison between brain1 and brain2 samples <img src="assets/RNAseq_for_lab_2022/correl_brain.png" /></p>
+<p>Transcriptome comparison between brain1 and brain2 samples <img src="assets/RNAseq_for_lab_2022/correl_brain.png" /></p>
 <p>Transcriptome comparison between brain and liver samples <img src="assets/RNAseq_for_lab_2022/correl_brain_liver.png" /></p>
-<p>Gene Ontology Analysis of differencially expressed genes <img src="assets/RNAseq_for_lab_2022/GO.png" /> Principal component analysis -&gt; visualize overall trend of all the gene expression.</p>
+</div>
+<div id="principal-component-analysis" class="section level2">
+<h2>4-3.Principal component analysis</h2>
+<p>Visualize overall trend of all the gene expression.</p>
 <p><img src="assets/RNAseq_for_lab_2022/PCA.png" /></p>
+</div>
+<div id="visualize-the-expression-of-your-favorite-genes" class="section level2">
+<h2>4-4. Visualize the expression of your favorite genes</h2>
+<p><img src="assets/RNAseq_for_lab_2022/barplot.png" /></p>
+</div>
+<div id="visualize-the-expression-of-your-favorite-genes-1" class="section level2">
+<h2>4-5. Visualize the expression of your favorite genes</h2>
+<p><img src="assets/RNAseq_for_lab_2022/Volcano.png" /></p>
+<p>Gene Ontology Analysis of differencially expressed genes <img src="assets/RNAseq_for_lab_2022/GO.png" /></p>
 <p>KEGG Analysis</p>
 <p><img src="assets/RNAseq_for_lab_2022/KEGG.png" /></p>
-<p>barplot density Volcano input_iDEP GO</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -903,6 +982,7 @@ loaded via a namespace (and not attached):
 [33] rmarkdown_2.13   callr_3.7.0      magrittr_2.0.2   whisker_0.4     
 [37] ps_1.6.0         promises_1.2.0.1 htmltools_0.5.2  ellipsis_0.3.2  
 [41] httpuv_1.6.5     utf8_1.2.2       stringi_1.7.6    crayon_1.5.0    </code></pre>
+</div>
 </div>
 </div>
 
