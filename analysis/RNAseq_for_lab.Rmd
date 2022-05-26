@@ -139,7 +139,7 @@ ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR713/003/SRR7139973/SRR7139973_2.fastq.gz
 </details> 
 
 <details>
-  <summary> **A note to make tutorial files**</summary>      
+  <summary> Marie's note to make tutorial files</summary>      
 ```{bash, eval=FALSE}
 for file in *.fastq.gz; do zcat < $file | head -100000 | gzip > {$file}_mini.fastq.gz; done
 ```
