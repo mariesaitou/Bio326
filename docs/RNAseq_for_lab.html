@@ -14,7 +14,7 @@
 
 <title>RNAseq tutorial without coding</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -370,7 +370,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -379,7 +379,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -388,10 +388,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-05-26
+<strong>Last updated:</strong> 2022-05-29
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>Bio326/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -407,12 +407,12 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -479,16 +479,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree617766ea8f8de63e8adf961ac6e268368edf5017targetblank617766ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/617766ea8f8de63e8adf961ac6e268368edf5017" target="_blank">617766e</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treed86965b58ff31c181b6317975dddfbde436a0312targetblankd86965ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mariesaitou/Bio326/tree/d86965b58ff31c181b6317975dddfbde436a0312" target="_blank">d86965b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree617766ea8f8de63e8adf961ac6e268368edf5017targetblank617766ea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treed86965b58ff31c181b6317975dddfbde436a0312targetblankd86965ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/617766ea8f8de63e8adf961ac6e268368edf5017" target="_blank">617766e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mariesaitou/Bio326/tree/d86965b58ff31c181b6317975dddfbde436a0312" target="_blank">d86965b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -519,6 +519,8 @@ Untracked files:
     Untracked:  Pig_mutation_hist.csv
     Untracked:  PopGenBio326.322/
     Untracked:  RNAseq.Rplot.pdf
+    Untracked:  RNAseq_Jun_2022.pdf
+    Untracked:  RNAseq_Jun_2022.pptx
     Untracked:  Untitled.R
     Untracked:  [eng]BIO326-121VGenomesequencingBIO326-121VGenomsekvensering;verktøyoganalyser-BIO326-121VGenomesequencing_PhillipByronPope.mht
     Untracked:  [eng]BIO326-121VGenomesequencingBIO326-121VGenomsekvensering;verktøyoganalyser-BIO326-121VGenomesequencing_PhillipByronPope.pdf
@@ -530,6 +532,9 @@ Untracked files:
     Untracked:  trial/
     Untracked:  vis.xlsx
     Untracked:  workflowR.bio326.R
+
+Unstaged changes:
+    Modified:   analysis/RNAseq_for_lab.Rmd
 
 </code></pre>
 <p>
@@ -568,6 +573,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/d86965b58ff31c181b6317975dddfbde436a0312/docs/RNAseq_for_lab.html" target="_blank">d86965b</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2022-05-26
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -745,11 +767,11 @@ wflow_publish(c(“analysis/RNAseq_for_lab.Rmd”))
 </div>
 </div>
 </div>
-<div id="lecture-slides-currently-dummy" class="section level2">
-<h2>Lecture slides (currently dummy)</h2>
-<p>Marie: Overview of the RNAseq. What can RNAseq tell us/What should we do when we write a manuscript. <a href="assets/BIO326-genome/BIO326-genome.pdf">slides</a></p>
-<p>Matthew: RNAseq lab part mechanism, experimental design etc.<a href="assets/BIO326-genome/BIO326-genome.pdf">slides</a></p>
-<p>Domniki: How to upload data to ENA. <a href="assets/BIO326-genome/BIO326-genome.pdf">slides</a></p>
+<div id="lecture-slides" class="section level2">
+<h2>Lecture slides</h2>
+<p>Marie: Overview of the RNAseq. What can RNAseq tell us/What should we do when we write a manuscript. <a href="https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/RNAseq_Jun_2022.pdf">slides</a></p>
+<p>Matthew: RNAseq lab part mechanism, experimental design etc. (coming soon)</p>
+<p>Domniki: How to upload data to ENA. (coming soon)</p>
 </div>
 <div id="goal-of-this-workflow" class="section level1">
 <h1>0. Goal of this workflow</h1>
@@ -800,6 +822,8 @@ On iDEP
 <p><img src="assets/RNAseq_for_lab_2022/get_data.png" /> Click “upload data” on the left top - and</p>
 <p>Select Paste/Fetch data and copy/paste the URL of the datasets.</p>
 <p>Choose local files — upload data from your computer.</p>
+<p>Choose remote files — if your Galaxy storage (200Gb in total) is getting full, you can store large files at the NeLS Storage and access them here.</p>
+<p>To transfer files to the NeLS Storage, click Send Data - Export datasets in the left menu and select NeLS Storage as the destination. <img src="assets/RNAseq_for_lab_2022/storage.png" /></p>
 <div id="get-the-liver-and-brain-rnaseq-data" class="section level2">
 <h2>2-1. Get the liver and brain RNAseq data</h2>
 <p>As it takes hours to analyze the real (gigabytes) data, I made a miniature datasets for each samples.</p>
@@ -821,7 +845,10 @@ https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_202
 <div id="get-the-reference" class="section level2">
 <h2>2-2. Get the reference</h2>
 <pre class="bash"><code>http://ftp.ensembl.org/pub/release-106/fasta/salmo_salar/cdna/Salmo_salar.Ssal_v3.1.cdna.all.fa.gz
-</code></pre>
+
+## New! Hien newly made a chromosomes + mitochondrial genome version
+
+http://arken.nmbu.no/~lagr/share/Ssal.withMT/ensembl/Salmo_salar.Ssal_v3.1.106.withMT.gff3.gz</code></pre>
 <p>(If it does not work well, download it on your computer and upload it to Galaxy afterword)</p>
 <p>If you need reference sequences of other species for your study, go to <a href="https://www.ensembl.org/index.html" class="uri">https://www.ensembl.org/index.html</a></p>
 <p>and “select a species” in the all genomes tub.</p>
@@ -901,7 +928,7 @@ Marie’s note to make tutorial files
 </summary>
 <p>kallisto is a program for quantifying abundances of transcripts from RNA-Seq data, or more generally of target sequences using high-throughput sequencing reads. It is based on the novel idea of pseudoalignment for rapidly determining the compatibility of reads with targets, without the need for alignment. On benchmarks with standard RNA-Seq data, kallisto can quantify 30 million human reads in less than 3 minutes on a Mac desktop computer using only the read sequences and a transcriptome index that itself takes less than 10 minutes to build. Pseudoalignment of reads preserves the key information needed for quantification, and kallisto is therefore not only fast, but also as accurate as existing quantification tools. In fact, because the pseudoalignment procedure is robust to errors in the reads, in many benchmarks kallisto significantly outperforms existing tools.</p>
 </details>
-<p><img src="assets/RNAseq_for_lab_2022/kallisto.png" /></p>
+<p><img src="assets/RNAseq_for_lab_2022/Kallisto.png" /></p>
 <p>If it is taking too long, here are the output files. The output files are six in total, transcript * transcript counts tables.</p>
 <pre class="bash"><code>https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139945_mini.Kallisto.tabular
 https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/SRR7139947_mini.Kallisto.tabular
@@ -924,27 +951,60 @@ https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_202
 <h2>4-1. Data upload</h2>
 <p>Download the results of the entire RNAseq analysis.</p>
 <pre class="bash"><code>https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/materials/rnaseq_liver_brain.txt</code></pre>
-<p>And go to iDEP <a href="http://bioinformatics.sdstate.edu/idep/" class="uri">http://bioinformatics.sdstate.edu/idep/</a></p>
-<p>Upload the gene expression matrix and iDEP automatically runs (it detect the species as well) <img src="assets/RNAseq_for_lab_2022/input_iDEP.png" style="width:60.0%" /> ## 4-2. Quality check</p>
-<p><img src="assets/RNAseq_for_lab_2022/density.png" /></p>
-<p>Transcriptome comparison between brain1 and brain2 samples <img src="assets/RNAseq_for_lab_2022/correl_brain.png" /></p>
-<p>Transcriptome comparison between brain and liver samples <img src="assets/RNAseq_for_lab_2022/correl_brain_liver.png" /></p>
+<p>And go to iDEP</p>
+<p><a href="http://bioinformatics.sdstate.edu/idep/" class="uri">http://bioinformatics.sdstate.edu/idep/</a></p>
+<p>Upload the gene expression matrix and iDEP automatically runs (it detect the species as well)</p>
+<p><img src="assets/RNAseq_for_lab_2022/input_iDEP.png" style="width:60.0%" /></p>
 </div>
-<div id="principal-component-analysis" class="section level2">
-<h2>4-3.Principal component analysis</h2>
-<p>Visualize overall trend of all the gene expression.</p>
+<div id="quality-check-pre-process" class="section level2">
+<h2>4-2. Quality check “Pre-Process”</h2>
+<p>Keep genes with minimal counts per million (CPM) in at least n libraries:</p>
+<p>Min. CPM: 1, 2 libraries</p>
+<p>VST: variance stabilizing transform</p>
+<p>(I prefer to make it a bit stricter than default setting).</p>
+<p>This is a density plot of normalized transcriptome of each sample. Brain and liver look slightly different, which makes sense. If some samples look obviously different from others (such as the expression is too high/low), it may be better to remove those samples.</p>
+<p><img src="assets/RNAseq_for_lab_2022/density.png" /></p>
+<p>Transcriptome comparison between brain1 and brain2 samples: high correlation.</p>
+<p><img src="assets/RNAseq_for_lab_2022/correl_brain.png" style="width:60.0%" /></p>
+<p>Transcriptome comparison between brain and liver samples: not very high correlation.</p>
+<p><img src="assets/RNAseq_for_lab_2022/correl_brain_liver.png" style="width:60.0%" /></p>
+</div>
+<div id="principal-component-analysis-pca" class="section level2">
+<h2>4-3.Principal component analysis (PCA)</h2>
+<p>Visualize overall trend of all the gene expression. Each dot is each sample, colored by tissue.</p>
+<p>X axis - Principal component 1 (combination of certain gene expressions) explains 88% of the transcriptome variation across samples (mostly the difference between brain and liver).</p>
+<p>Y axis - Principal component 2 (combination of certain gene expressions) explains 6% of the transcriptome variation across samples (mostly the difference among brain).</p>
+<p>If one sample is obviously distant from others (=shows unusual expression patteren), it may be better to remove that sample from the analysis.</p>
 <p><img src="assets/RNAseq_for_lab_2022/PCA.png" /></p>
 </div>
 <div id="visualize-the-expression-of-your-favorite-genes" class="section level2">
 <h2>4-4. Visualize the expression of your favorite genes</h2>
+<p>“Pre-Process” -&gt; “Plot one or more genes”</p>
+<p>Type your favorite genes…</p>
 <p><img src="assets/RNAseq_for_lab_2022/barplot.png" /></p>
 </div>
-<div id="visualize-the-expression-of-your-favorite-genes-1" class="section level2">
-<h2>4-5. Visualize the expression of your favorite genes</h2>
+<div id="differentially-expressed-genes-deg" class="section level2">
+<h2>4-5. Differentially expressed genes (DEG)</h2>
+<p>Go to DEG1 tab</p>
+<p>“DESeq2”</p>
+<p>False discovery ratio cutoff: 0.05</p>
+<p>Minimum fold change: 1.5</p>
+<p>(You can download the list of deferentially expressed genes)</p>
+<p>Go to DEG2 tab</p>
+<p>liver-brain comparison</p>
+<p>downregulated: more expression in brain (metabolic genes),</p>
+<p>unregulated: more expression in liver (signaling genes)</p>
+<p>Volcano Plot, check “Show interactive version w/ gene symbols”.</p>
+<p>X-axis: fold change, Y-axis: false discovery ratio (statistical significance of the difference)</p>
 <p><img src="assets/RNAseq_for_lab_2022/Volcano.png" /></p>
-<p>Gene Ontology Analysis of differencially expressed genes <img src="assets/RNAseq_for_lab_2022/GO.png" /></p>
-<p>KEGG Analysis</p>
+<p>“Enrichment analysis for DEGs:”</p>
+<p>Gene Ontology Analysis of differentially expressed genes <img src="assets/RNAseq_for_lab_2022/GO.png" /> Also, do play around with Enrichment tree, Network etc.</p>
+<p>KEGG Analysis - if you have a particular pathway of interest.</p>
 <p><img src="assets/RNAseq_for_lab_2022/KEGG.png" /></p>
+<p>Others.</p>
+<p>Genome: if you are interested in the distributions of the differentially expressed genes in the genome.</p>
+<p>K-Means: if you have three or more conditions, “K-means” can classify the gene expression pattern more than up/down.</p>
+<p>Enjoy!</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -967,21 +1027,17 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
-other attached packages:
-[1] workflowr_1.7.0
-
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.8.2     bslib_0.3.1      compiler_4.1.2   pillar_1.7.0    
- [5] later_1.3.0      git2r_0.29.0     jquerylib_0.1.4  tools_4.1.2     
- [9] getPass_0.2-2    digest_0.6.29    jsonlite_1.8.0   evaluate_0.15   
-[13] tibble_3.1.6     lifecycle_1.0.1  pkgconfig_2.0.3  rlang_1.0.2     
-[17] cli_3.2.0        rstudioapi_0.13  yaml_2.3.5       xfun_0.30       
-[21] fastmap_1.1.0    httr_1.4.2       stringr_1.4.0    knitr_1.37      
-[25] sass_0.4.0       fs_1.5.2         vctrs_0.3.8      rprojroot_2.0.2 
-[29] glue_1.6.2       R6_2.5.1         processx_3.5.2   fansi_1.0.2     
-[33] rmarkdown_2.13   callr_3.7.0      magrittr_2.0.2   whisker_0.4     
-[37] ps_1.6.0         promises_1.2.0.1 htmltools_0.5.2  ellipsis_0.3.2  
-[41] httpuv_1.6.5     utf8_1.2.2       stringi_1.7.6    crayon_1.5.0    </code></pre>
+ [1] Rcpp_1.0.8.3     rstudioapi_0.13  whisker_0.4      knitr_1.39      
+ [5] magrittr_2.0.3   workflowr_1.7.0  R6_2.5.1         rlang_1.0.2     
+ [9] fastmap_1.1.0    fansi_1.0.3      stringr_1.4.0    tools_4.1.2     
+[13] xfun_0.31        utf8_1.2.2       cli_3.3.0        git2r_0.30.1    
+[17] jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2   rprojroot_2.0.3 
+[21] yaml_2.3.5       digest_0.6.29    tibble_3.1.7     lifecycle_1.0.1 
+[25] crayon_1.5.1     later_1.3.0      sass_0.4.1       vctrs_0.4.1     
+[29] promises_1.2.0.1 fs_1.5.2         glue_1.6.2       evaluate_0.15   
+[33] rmarkdown_2.14   stringi_1.7.6    bslib_0.3.1      compiler_4.1.2  
+[37] pillar_1.7.0     jsonlite_1.8.0   httpuv_1.6.5     pkgconfig_2.0.3 </code></pre>
 </div>
 </div>
 </div>
