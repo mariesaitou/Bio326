@@ -5,13 +5,14 @@ date: "5/26/2022"
 output: html_document
 ---
 
-## Lecture slides (currently dummy)
-Marie:  Overview of the RNAseq. What can RNAseq tell us/What should we do when we write a manuscript. [slides](assets/BIO326-genome/BIO326-genome.pdf)
+## Lecture slides 
+Marie:  Overview of the RNAseq. What can RNAseq tell us/What should we do when we write a manuscript. [slides](https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_2022/RNAseq_Jun_2022.pdf)
 
-Matthew: RNAseq lab part mechanism, experimental design etc.[slides](assets/BIO326-genome/BIO326-genome.pdf)
+Matthew: RNAseq lab part mechanism, experimental design etc.
+(coming soon)
 
-Domniki: How to upload data to ENA. [slides](assets/BIO326-genome/BIO326-genome.pdf)
-
+Domniki: How to upload data to ENA. 
+(coming soon)
 
 # 0. Goal of this workflow
 
@@ -88,6 +89,12 @@ Select Paste/Fetch data and copy/paste the URL of the datasets.
 
 Choose local files --- upload data from your computer.
 
+Choose remote files --- if your Galaxy storage (200Gb in total) is getting full, you can store large files at the NeLS Storage and access them here. 
+
+To transfer files to the NeLS Storage, click Send Data - Export datasets in the left menu and select NeLS Storage as the destination.
+![](assets/RNAseq_for_lab_2022/storage.png)
+
+
 
 ## 2-1. Get the liver and brain RNAseq data
 
@@ -114,8 +121,13 @@ https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_202
 ```{bash, eval=FALSE}
 http://ftp.ensembl.org/pub/release-106/fasta/salmo_salar/cdna/Salmo_salar.Ssal_v3.1.cdna.all.fa.gz
 
+## New! Hien newly made a chromosomes + mitochondrial genome version
+
+http://arken.nmbu.no/~lagr/share/Ssal.withMT/ensembl/Salmo_salar.Ssal_v3.1.106.withMT.gff3.gz
 ```
 (If it does not work well, download it on your computer and upload it to Galaxy afterword)
+
+
 
 
 If you need reference sequences of other species for your study, go to  https://www.ensembl.org/index.html
@@ -219,7 +231,7 @@ kallisto is a program for quantifying abundances of transcripts from RNA-Seq dat
 </details> 
 
 
-![](assets/RNAseq_for_lab_2022/kallisto.png)
+![](assets/RNAseq_for_lab_2022/Kallisto.png)
 
 If it is taking too long, here are the output files.
 The output files are six in total, transcript * transcript counts tables.
@@ -252,7 +264,6 @@ https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_202
 
 
 
-
 # 4. Downstream analysis with iDEP
 ## 4-1. Data upload
 Download the results of the entire RNAseq analysis.
@@ -262,46 +273,112 @@ https://github.com/mariesaitou/Bio326/blob/master/docs/assets/RNAseq_for_lab_202
 ```
 
 And go to iDEP
+
 http://bioinformatics.sdstate.edu/idep/
 
 Upload the gene expression matrix and iDEP automatically runs (it detect the species as well)
+
 ![](assets/RNAseq_for_lab_2022/input_iDEP.png){width=60%}
-## 4-2. Quality check
+
+
+## 4-2. Quality check "Pre-Process"
+
+Keep genes with minimal counts per million (CPM) in at least n libraries:
+
+Min. CPM: 1, 2 libraries
+
+VST: variance stabilizing transform
+
+(I prefer to make it a bit stricter than default setting).
+
+
+This is a density plot of normalized transcriptome of each sample. Brain and liver look slightly different, which makes sense. If some samples look obviously different from others (such as the expression is too high/low), it may be better to remove those samples.
 
 ![](assets/RNAseq_for_lab_2022/density.png)
 
 
-Transcriptome comparison between brain1 and brain2 samples
-![](assets/RNAseq_for_lab_2022/correl_brain.png)
+Transcriptome comparison between brain1 and brain2 samples: high correlation.
 
-Transcriptome comparison between brain and liver samples
-![](assets/RNAseq_for_lab_2022/correl_brain_liver.png)
+![](assets/RNAseq_for_lab_2022/correl_brain.png){width=60%}
 
-## 4-3.Principal component analysis
-Visualize overall trend of all the gene expression.
+Transcriptome comparison between brain and liver samples: not very high correlation.
+
+![](assets/RNAseq_for_lab_2022/correl_brain_liver.png){width=60%}
+
+## 4-3.Principal component analysis (PCA)
+
+Visualize overall trend of all the gene expression. Each dot is each sample, colored by tissue.
+
+X axis - Principal component 1 (combination of certain gene expressions) explains 88% of the transcriptome variation across samples (mostly the difference between brain and liver). 
+
+Y axis - Principal component 2 (combination of certain gene expressions) explains 6% of the transcriptome variation across samples (mostly the difference among brain). 
+
+If one sample is obviously distant from others (=shows unusual expression patteren), it may be better to remove that sample from the analysis.
 
 ![](assets/RNAseq_for_lab_2022/PCA.png)
 
 
 
-## 4-4. Visualize the expression of your favorite genes
+## 4-4. Visualize the expression of your favorite genes 
+
+
+"Pre-Process" -> "Plot one or more genes"
+
+Type your favorite genes... 
 
 ![](assets/RNAseq_for_lab_2022/barplot.png)
 
-## 4-5. Visualize the expression of your favorite genes
+## 4-5. Differentially expressed genes (DEG)
+
+Go to DEG1 tab
+
+"DESeq2"
+
+False discovery ratio cutoff: 0.05
+
+Minimum fold change: 1.5
+
+(You can download the list of deferentially expressed genes)
+
+
+Go to DEG2 tab
+
+liver-brain comparison
+
+downregulated: more expression in brain (metabolic genes),
+
+unregulated: more expression in liver (signaling genes)
+
+Volcano Plot, check "Show interactive version w/ gene symbols".
+
+X-axis: fold change, Y-axis: false discovery ratio (statistical significance of the difference)
+
 
 ![](assets/RNAseq_for_lab_2022/Volcano.png)
 
-Gene Ontology Analysis of differencially expressed genes
+"Enrichment analysis for DEGs:"
+
+Gene Ontology Analysis of differentially expressed genes
 ![](assets/RNAseq_for_lab_2022/GO.png)
+Also, do play around with Enrichment tree, Network etc. 
 
 
 
+KEGG Analysis - if you have a particular pathway of interest.
 
-KEGG Analysis
 
 ![](assets/RNAseq_for_lab_2022/KEGG.png)
 
+
+Others. 
+
+Genome: if you are interested in the distributions of the differentially expressed genes in the genome.
+
+K-Means: if you have three or more conditions, "K-means" can classify the gene expression pattern more than up/down.
+
+
+
+Enjoy!
 
 
 
