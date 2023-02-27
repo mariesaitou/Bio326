@@ -1,0 +1,304 @@
+---
+title: "Bio326_2023"
+author: "Marie Saitou"
+date: "2023-01-30"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+## Overview of the tutorial
+Last time, you started sequencing of cattle genome using Nanopore MinION. 
+For the following three sessions we will learn:
+
+ - How to use Orion and conduct genome analysis
+ 
+ - Quality check, Read filtering, mapping to the reference genome and variant calling
+
+ - How to interpret summary statistics of Nanopore sequence data
+
+ - How to interpret variant data
+
+In this tutorial, we will investigate a small subset of bull genome sequence. 
+
+You will have an access to the whole datasets later for your reports as soon as the computation is done.
+
+Also, Matthew and I prepared some questions in each section. 
+
+Please discuss and try the quizzes to deepen your understandig on Nanopore data.
+
+
+[Review the previous practice](https://github.com/TheMEMOLab/Bio326-NMBU/blob/main/Doc/BestPracticesOrionHPC.md)
+
+
+
+
+# DAY1 
+
+## Connect to Orion and the preparation
+
+Go to https://orion.nmbu.no/ at NMBU or with VPN.
+![](assets/Bio326-2022/prep1.png){width=80%}
+
+
+In the Terminal/Command prompt, go to your directory.
+[Review: the concept of current directry](https://github.com/TheMEMOLab/Bio326-NMBU/blob/main/Doc/BestPracticesOrionHPC.md#temporary-working-directory-faster-and-more-efficient-jobs)
+
+```{bash,eval=FALSE}
+cd your_directory
+```
+
+
+Let's make a directory for analysis and enter in it.
+
+```{bash,eval=FALSE}
+mkdir bull_analysis # make directory "bull_analysis"
+cd bull_analysis # set the current directory "bull_analysis"
+
+```
+
+Now, you will inspect the fastq file, which contains Nanopore read information.
+
+## Check the read quality by Nanoplot
+###  Browse the inside of the read (fastq) file
+
+[Review: look into a file content in a command line](https://github.com/TheMEMOLab/Bio326-NMBU/blob/main/Doc/BestPracticesOrionHPC.md#conda-envrionment)
+
+```{bash,eval=FALSE}
+zcat /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/bull_demodata_fastq.gz | more
+
+```
+
+How a fastq file looks.
+
+
+Each entry in a FASTQ files consists of 4 lines:
+
+1. A sequence identifier with information about the sequencing run. (run time, run ID, cflow cell id ... )
+
+2.The sequence (the base calls; A, C, T, G and N).
+
+3. A separator, which is simply a plus (+) sign.
+
+4. The base call quality scores. These are Phred +33 encoded, using ASCII characters to represent the numerical quality scores." [quality score sheet](https://learn.gencore.bio.nyu.edu/ngs-file-formats/quality-scores/)
+
+- by [Illumina Knowledge](https://knowledge.illumina.com/software/general/software-general-reference_material-list/000002211)
+
+
+
+![](assets/Bio326-2023/image1.png){width=80%}
+
+
+###  Get basic stats of the fastq file
+
+"zcat"-> look inside
+
+"wc" -> word count
+
+"-l" -> line
+
+```{bash,eval=FALSE}
+zcat /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/bull_demodata_fastq.gz | wc -l
+```
+
+
+![](assets/Bio326-2023/image2.png){width=80%}
+
+**Discussion Point**
+
+Now you got the number of lines in the fastq file.
+
+How many sequence reads are in the fastq file?
+
+<details>
+  <summary> **Need Help?** </summary>      
+
+We see that there are 96000 lines in the fastq file. 
+
+As we learned that "each entry in a FASTQ files consists of 4 lines", one read is corresponding to four lines. So in this file we have 96000/4 = 24000 reads.
+
+</details> 
+
+
+
+###  Run Nanoplot
+
+The original fastq files may contain low quality reads. In this step, we will use "Nanoplot" to see the quality and lentgh of each read.
+
+"Singularity" is a toolset on Orion to execute software. A variety of different bioinformatics tools are available in Singularity.
+
+Make a slurm script like below and run it. 
+
+[Review: make a slurm script and run it by sbatch](https://github.com/TheMEMOLab/Bio326-NMBU/blob/main/Doc/BestPracticesOrionHPC.md#running-the-job-by-sbatch)
+
+
+```{bash,eval=FALSE}
+
+
+#!/bin/bash
+#SBATCH --job-name=Nanoplot  # sensible name for the job
+#SBATCH --mail-user=yourname@nmbu.no # Email me when job is done.
+#SBATCH --mem=12G 
+#SBATCH --ntasks=1   
+#SBATCH --cpus-per-task=8
+#SBATCH --mail-type=END
+
+
+singularity exec /cvmfs/singularity.galaxyproject.org/all/nanoplot:1.41.0--pyhdfd78af_0 NanoPlot -t 8  --fastq /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/bull_demodata_fastq.gz --plots dot   --no_supplementary --no_static --N50 -p before
+
+```
+
+
+Nanoplot will generate the result files, named "before"xxx. Lets look into them... 
+
+![](assets/Bio326-2023/image3.png){width=80%}
+
+![](assets/Bio326-2023/image4.png){width=80%}
+
+![](assets/Bio326-2023/image5.png){width=80%}
+
+
+
+## Nanofilt
+```{bash,eval=FALSE}
+
+#!/bin/bash
+#SBATCH --job-name=Nanoplot  # sensible name for the job
+#SBATCH --mail-user=yourname@nmbu.no # Email me when job is done.
+#SBATCH --mem=12G 
+#SBATCH --ntasks=1   
+#SBATCH --mail-type=END
+
+gunzip -c /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/bull_demodata_fastq.gz | singularity exec  /cvmfs/singularity.galaxyproject.org/all/nanofilt:2.8.0--py_0 NanoFilt -q 12 -l 500 | gzip > cleaned.bull.fastq.gz
+
+```
+
+
+-l,  Filter on a minimum read length
+
+-q, Filter on a minimum average read quality score
+
+
+  
+
+
+## Lets do Nanoplot again on the filtered reads to compare the before and after cleaning sequences 
+
+<details>
+  <summary> **Need help?** </summary>      
+  
+```{bash,eval=FALSE}
+
+#!/bin/bash
+#SBATCH --job-name=Nanoplot  # sensible name for the job
+#SBATCH --mail-user=yourname@nmbu.no # Email me when job is done.
+#SBATCH --mem=12G 
+#SBATCH --ntasks=1   
+#SBATCH --cpus-per-task=8
+#SBATCH --mail-type=END
+
+singularity exec /cvmfs/singularity.galaxyproject.org/all/nanoplot:1.41.0--pyhdfd78af_0 NanoPlot -t 8  --fastq cleaned.bull.fastq.gz  --N50  --no_supplementary --no_static  --plots dot   -p after
+
+
+```
+
+</details> 
+
+
+![](assets/Bio326-2023/image6.png){width=80%}
+
+![](assets/Bio326-2023/image7.png){width=80%}
+
+![](assets/Bio326-2023/image8.png){width=80%}
+
+
+## Discussion topics.
+
+-
+
+-
+
+-
+
+- 
+
+
+## The end of Day1. Well done!
+
+
+# DAY2 
+
+
+
+
+
+## Find out where "minimap2" is in Singularity
+```{bash,eval=FALSE}
+minimap2
+find /cvmfs/singularity.galaxyproject.org/all/  -name minimap2*  
+
+/cvmfs/singularity.galaxyproject.org/all/minimap2:2.24--h7132678_1
+
+
+
+```
+
+
+
+## run Minimap and map the reads to the reference genome
+```{bash,eval=FALSE}
+singularity exec /cvmfs/singularity.galaxyproject.org/all/minimap2:2.24--h7132678_1 minimap2 -t 8 -a Bos_taurus.fa.gz cleaned.bull.fastq.gz > bull.sam
+
+
+
+
+```
+
+
+## Browse the mapped file
+```{bash,eval=FALSE}
+cat bull.sam | head bull.sam
+```
+
+
+
+# Conversion
+```{bash,eval=FALSE}
+singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h6899075_1 samtools view -S -b bull.sam > bull0.bam
+
+singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h6899075_1 samtools sort bull0.bam -o bull.bam
+
+singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h6899075_1 samtools index -M  bull.bam
+
+
+```
+
+
+### Error correction with Pilon/Medaka 
+(Skip this time as it takes time... You will learn the error correction in the prokaryotic part. )
+
+# Variant Calling using Sniffles
+```{bash,eval=FALSE}
+singularity exec /cvmfs/singularity.galaxyproject.org/all/sniffles:2.0.7--pyhdfd78af_0 sniffles --input  bull.bam --vcf bull.vcf
+
+```
+
+
+# Inspect variants
+
+
+
+
+
+
+# DAY3 
+
+Now you have variants! Lets see what genes are affected by the variants.
+
+
+
+
+
+
+
+
