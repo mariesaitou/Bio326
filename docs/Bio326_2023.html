@@ -521,15 +521,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree5ccee4b2e2ad28881043e350442665d741dfb286targetblank5ccee4ba">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treef5fe8f700ecc4fbafcfd1971847f46d64c9651d2targetblankf5fe8f7a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mariesaitou/Bio326/tree/5ccee4b2e2ad28881043e350442665d741dfb286" target="_blank">5ccee4b</a>
+<a href="https://github.com/mariesaitou/Bio326/tree/f5fe8f700ecc4fbafcfd1971847f46d64c9651d2" target="_blank">f5fe8f7</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree5ccee4b2e2ad28881043e350442665d741dfb286targetblank5ccee4ba"
+id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326treef5fe8f700ecc4fbafcfd1971847f46d64c9651d2targetblankf5fe8f7a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -539,7 +539,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mariesaitou/Bio326/tree/5ccee4b2e2ad28881043e350442665d741dfb286" target="_blank">5ccee4b</a>.
+<a href="https://github.com/mariesaitou/Bio326/tree/f5fe8f700ecc4fbafcfd1971847f46d64c9651d2" target="_blank">f5fe8f7</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -599,6 +599,7 @@ Untracked files:
 
 Unstaged changes:
     Modified:   analysis/RNAseq_for_lab.Rmd
+    Modified:   analysis/index.Rmd
     Deleted:    analysis/synchro.Rmd
 
 </code></pre>
@@ -650,6 +651,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/mariesaitou/Bio326/blob/f5fe8f700ecc4fbafcfd1971847f46d64c9651d2/analysis/Bio326_2023.Rmd" target="_blank">f5fe8f7</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2023-02-27
+</td>
+<td>
+wflow_publish(c("analysis//Bio326_2023.Rmd"))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/942fc184be7690b3b78a9c1bddf50c50dd3887e8/docs/Bio326_2023.html" target="_blank">942fc18</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2023-02-27
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/mariesaitou/Bio326/blob/5ccee4b2e2ad28881043e350442665d741dfb286/analysis/Bio326_2023.Rmd" target="_blank">5ccee4b</a>
 </td>
 <td>
@@ -694,6 +729,9 @@ the previous practice</a></p>
 </div>
 <div id="day1" class="section level1">
 <h1>DAY1</h1>
+<p>Overview.</p>
+<p>Quality check -&gt; Trimming of low quality reads -&gt; Quality
+check</p>
 <div id="connect-to-orion-and-the-preparation" class="section level2">
 <h2>Connect to Orion and the preparation</h2>
 <p>Go to <a href="https://orion.nmbu.no/"
@@ -748,7 +786,10 @@ Knowledge</a></li>
 <p>“-l” -&gt; line</p>
 <pre class="bash"><code>zcat /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/bull_demodata_fastq.gz | wc -l</code></pre>
 <p><img src="assets/Bio326-2023/image2.png" style="width:80.0%" /></p>
-<p><strong>Discussion Point</strong></p>
+</div>
+</div>
+<div id="discussion-point" class="section level2">
+<h2><strong>Discussion Point</strong></h2>
 <p>Now you got the number of lines in the fastq file.</p>
 <p>How many sequence reads are in the fastq file?</p>
 <details>
@@ -760,7 +801,6 @@ Knowledge</a></li>
 one read is corresponding to four lines. So in this file we have 96000/4
 = 24000 reads.</p>
 </details>
-</div>
 <div id="run-nanoplot" class="section level3">
 <h3>Run Nanoplot</h3>
 <p>The original fastq files may contain low quality reads. In this step,
@@ -791,8 +831,8 @@ into them…</p>
 <p><img src="assets/Bio326-2023/image5.png" style="width:80.0%" /></p>
 </div>
 </div>
-<div id="nanofilt" class="section level2">
-<h2>Nanofilt</h2>
+<div id="filtering-by-nanofilt" class="section level2">
+<h2>Filtering by Nanofilt</h2>
 <pre class="bash"><code>
 #!/bin/bash
 #SBATCH --job-name=Nanoplot  # sensible name for the job
@@ -805,12 +845,13 @@ gunzip -c /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/
 </code></pre>
 <p>-l, Filter on a minimum read length</p>
 <p>-q, Filter on a minimum average read quality score</p>
+<p>In this case, we are removing reads lower than quality score 12 and
+shorter than 500 bases.</p>
 </div>
-<div
-id="lets-do-nanoplot-again-on-the-filtered-reads-to-compare-the-before-and-after-cleaning-sequences"
+<div id="compare-the-before-and-after-cleaning-sequences"
 class="section level2">
-<h2>Lets do Nanoplot again on the filtered reads to compare the before
-and after cleaning sequences</h2>
+<h2>Compare the before and after cleaning sequences</h2>
+<p>Run Nanoplot again on the cleaned sewuences.</p>
 <details>
 <summary>
 <strong>Need help?</strong>
@@ -831,14 +872,10 @@ singularity exec /cvmfs/singularity.galaxyproject.org/all/nanoplot:1.41.0--pyhdf
 <p><img src="assets/Bio326-2023/image7.png" style="width:80.0%" /></p>
 <p><img src="assets/Bio326-2023/image8.png" style="width:80.0%" /></p>
 </div>
-<div id="discussion-topics." class="section level2">
-<h2>Discussion topics.</h2>
-<ul>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-</ul>
+<div id="discussion-point-1" class="section level2">
+<h2><strong>Discussion Point</strong></h2>
+<p>Did you see the difference of read and quality distribution between
+before and after the filtering?</p>
 </div>
 <div id="the-end-of-day1.-well-done" class="section level2">
 <h2>The end of Day1. Well done!</h2>
@@ -846,11 +883,15 @@ singularity exec /cvmfs/singularity.galaxyproject.org/all/nanoplot:1.41.0--pyhdf
 </div>
 <div id="day2" class="section level1">
 <h1>DAY2</h1>
+<p>Overview</p>
+<p>Map the reads to the reference genome -&gt; Detect variants
+(difference from the reference genome)</p>
 <div id="find-out-where-minimap2-is-in-singularity"
 class="section level2">
 <h2>Find out where “minimap2” is in Singularity</h2>
 <pre class="bash"><code>minimap2
 find /cvmfs/singularity.galaxyproject.org/all/  -name minimap2*  
+
 
 /cvmfs/singularity.galaxyproject.org/all/minimap2:2.24--h7132678_1
 </code></pre>
@@ -858,7 +899,17 @@ find /cvmfs/singularity.galaxyproject.org/all/  -name minimap2*
 <div id="run-minimap-and-map-the-reads-to-the-reference-genome"
 class="section level2">
 <h2>run Minimap and map the reads to the reference genome</h2>
-<pre class="bash"><code>singularity exec /cvmfs/singularity.galaxyproject.org/all/minimap2:2.24--h7132678_1 minimap2 -t 8 -a Bos_taurus.fa.gz cleaned.bull.fastq.gz &gt; bull.sam
+<pre class="bash"><code>
+
+#!/bin/bash
+#SBATCH --job-name=Nanoplot  # sensible name for the job
+#SBATCH --mail-user=yourname@nmbu.no # Email me when job is done.
+#SBATCH --mem=12G 
+#SBATCH --ntasks=1   
+#SBATCH --cpus-per-task=8
+#SBATCH --mail-type=END
+
+singularity exec /cvmfs/singularity.galaxyproject.org/all/minimap2:2.24--h7132678_1 minimap2 -t 8 -a Bos_taurus.fa.gz cleaned.bull.fastq.gz &gt; bull.sam
 </code></pre>
 </div>
 <div id="browse-the-mapped-file" class="section level2">
@@ -866,27 +917,52 @@ class="section level2">
 <pre class="bash"><code>cat bull.sam | head bull.sam</code></pre>
 </div>
 </div>
-<div id="conversion" class="section level1">
-<h1>Conversion</h1>
-<pre class="bash"><code>singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h6899075_1 samtools view -S -b bull.sam &gt; bull0.bam
+<div id="file-format-conversion" class="section level1">
+<h1>File format conversion</h1>
+<pre class="bash"><code>
+#!/bin/bash
+#SBATCH --job-name=Nanoplot  # sensible name for the job
+#SBATCH --mail-user=yourname@nmbu.no # Email me when job is done.
+#SBATCH --mem=12G 
+#SBATCH --ntasks=1   
+#SBATCH --cpus-per-task=8
+#SBATCH --mail-type=END
 
+
+# convert the sam file to bam format
+singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h6899075_1 samtools view -S -b bull.sam &gt; bull0.bam
+
+## sort the bam file
 singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h6899075_1 samtools sort bull0.bam -o bull.bam
 
+# index the bam file
 singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h6899075_1 samtools index -M  bull.bam
 </code></pre>
-<div id="error-correction-with-pilonmedaka" class="section level3">
-<h3>Error correction with Pilon/Medaka</h3>
+<p><a href="assets/Bio326-2023/bull.bam">resulting bam file</a> <a
+href="assets/Bio326-2023/bull.bam.bai">resulting bam.indes file</a></p>
+<p>Error correction with Pilon/Medaka</p>
 <p>(Skip this time as it takes time… You will learn the error correction
 in the prokaryotic part. )</p>
 </div>
-</div>
 <div id="variant-calling-using-sniffles" class="section level1">
 <h1>Variant Calling using Sniffles</h1>
-<pre class="bash"><code>singularity exec /cvmfs/singularity.galaxyproject.org/all/sniffles:2.0.7--pyhdfd78af_0 sniffles --input  bull.bam --vcf bull.vcf
+<pre class="bash"><code>#!/bin/bash
+#SBATCH --job-name=Nanoplot  # sensible name for the job
+#SBATCH --mail-user=yourname@nmbu.no # Email me when job is done.
+#SBATCH --mem=12G 
+#SBATCH --ntasks=1   
+#SBATCH --mail-type=END
+
+singularity exec /cvmfs/singularity.galaxyproject.org/all/sniffles:2.0.7--pyhdfd78af_0 sniffles --input  bull.bam --vcf bull.vcf
 </code></pre>
+<p>Now you got the variant file!</p>
+<p><a href="assets/Bio326-2023/bull.vcf">resulting vcf file</a></p>
 </div>
 <div id="inspect-variants" class="section level1">
 <h1>Inspect variants</h1>
+<pre class="bash"><code>more -s 2255 bull.vcf
+grep -v &#39;^##&#39; bull.vcf | head</code></pre>
+<p><img src="assets/Bio326-2023/image9.png" style="width:80.0%" /></p>
 </div>
 <div id="day3" class="section level1">
 <h1>DAY3</h1>
