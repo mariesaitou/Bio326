@@ -17,7 +17,7 @@ This is the repository of MS's part (Bioinformatics Analysis) of BIO326 at NMBU.
 ### **Index**
 
 2023
-[Nanopore Analyeie](Bio326_2023.html)
+[Nanopore Analysis](Bio326_2023.html)
 
 
 
