@@ -521,15 +521,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree124a988abb7223e81545ffcfecfc6f46085e481atargetblank124a988a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree2016a67867d18c249ed1e077e8dd3760edcf54dftargetblank2016a67a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mariesaitou/Bio326/tree/124a988abb7223e81545ffcfecfc6f46085e481a" target="_blank">124a988</a>
+<a href="https://github.com/mariesaitou/Bio326/tree/2016a67867d18c249ed1e077e8dd3760edcf54df" target="_blank">2016a67</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree124a988abb7223e81545ffcfecfc6f46085e481atargetblank124a988a"
+id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree2016a67867d18c249ed1e077e8dd3760edcf54dftargetblank2016a67a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -539,7 +539,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mariesaitou/Bio326/tree/124a988abb7223e81545ffcfecfc6f46085e481a" target="_blank">124a988</a>.
+<a href="https://github.com/mariesaitou/Bio326/tree/2016a67867d18c249ed1e077e8dd3760edcf54df" target="_blank">2016a67</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -600,6 +600,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/2016a67867d18c249ed1e077e8dd3760edcf54df/analysis/Bio326_2023.Rmd" target="_blank">2016a67</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2023-02-28
+</td>
+<td>
+wflow_publish(c("analysis/Bio326_2023.Rmd"))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/7c8df25aec27d46c03c87a4a212b0188903bea4a/docs/Bio326_2023.html" target="_blank">7c8df25</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2023-02-28
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -814,6 +848,13 @@ singularity exec /cvmfs/singularity.galaxyproject.org/all/nanoplot:1.41.0--pyhdf
 </code></pre>
 <p>Nanoplot will generate the result files, named “before”xxx. Lets look
 into them…</p>
+<pre class="bash"><code>
+# taking too long?
+qlogin 
+
+cp /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/beforeNanoPlot-report.html beforeNanoPlot-report.html
+</code></pre>
+<p>Open “beforeNanoPlot-report.html” on your local computer</p>
 <p><img src="assets/Bio326-2023/image3.png" style="width:80.0%" /></p>
 <p><img src="assets/Bio326-2023/image4.png" style="width:80.0%" /></p>
 <p><img src="assets/Bio326-2023/image5.png" style="width:80.0%" /></p>
@@ -839,7 +880,7 @@ shorter than 500 bases.</p>
 <div id="compare-the-before-and-after-cleaning-sequences"
 class="section level2">
 <h2>Compare the before and after cleaning sequences</h2>
-<p>Run Nanoplot again on the cleaned sewuences.</p>
+<p>Run Nanoplot again on the cleaned sequences.</p>
 <details>
 <summary>
 <strong>Need help?</strong>
@@ -856,6 +897,13 @@ class="section level2">
 singularity exec /cvmfs/singularity.galaxyproject.org/all/nanoplot:1.41.0--pyhdfd78af_0 NanoPlot -t 8  --fastq cleaned.bull.fastq.gz  --N50  --no_supplementary --no_static  --plots dot   -p after
 </code></pre>
 </details>
+<p>Open “afterNanoPlot-report.html” on your local computer.</p>
+<pre class="bash"><code>
+# taking too long?
+qlogin 
+
+cp /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/afterNanoPlot-report.html afterNanoPlot-report.html
+</code></pre>
 <p><img src="assets/Bio326-2023/image6.png" style="width:80.0%" /></p>
 <p><img src="assets/Bio326-2023/image7.png" style="width:80.0%" /></p>
 <p><img src="assets/Bio326-2023/image8.png" style="width:80.0%" /></p>
@@ -903,6 +951,12 @@ singularity exec /cvmfs/singularity.galaxyproject.org/all/minimap2:2.24--h713267
 <div id="browse-the-mapped-file" class="section level2">
 <h2>Browse the mapped file</h2>
 <pre class="bash"><code>cat bull.sam | head bull.sam</code></pre>
+<pre class="bash"><code>
+# taking too long?
+qlogin 
+
+cp /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/bull.sam bull.sam
+</code></pre>
 </div>
 </div>
 <div id="file-format-conversion" class="section level1">
@@ -926,8 +980,6 @@ singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h689
 # index the bam file
 singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h6899075_1 samtools index -M  bull.bam
 </code></pre>
-<p><a href="assets/Bio326-2023/bull.bam">resulting bam file</a> <a
-href="assets/Bio326-2023/bull.bam.bai">resulting bam.indes file</a></p>
 <p>Error correction with Pilon/Medaka</p>
 <p>(Skip this time as it takes time… You will learn the error correction
 in the prokaryotic part. )</p>
