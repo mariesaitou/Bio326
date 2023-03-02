@@ -135,7 +135,11 @@ The original fastq files may contain low quality reads. In this step, we will us
 
 Make a slurm script like below and run it. 
 
-[Review: make a slurm script and run it by sbatch](https://github.com/TheMEMOLab/Bio326-NMBU/blob/main/Doc/BestPracticesOrionHPC.md#running-the-job-by-sbatch)
+[Review: make a slurm script](to be updated)
+
+[Review: run a slurm script by sbatch sbatch](https://orion.nmbu.no/en/SLURM)
+
+
 
 
 ```{bash,eval=FALSE}
@@ -157,6 +161,10 @@ singularity exec /cvmfs/singularity.galaxyproject.org/all/nanoplot:1.41.0--pyhdf
 
 Nanoplot will generate the result files, named "before"xxx. Lets look into them... 
 
+[Review: File transfer between Orion and your computer](https://orion.nmbu.no/en/connectingtoorion)
+
+
+
 ```{bash,eval=FALSE}
 
 # taking too long?
@@ -177,6 +185,32 @@ Open "beforeNanoPlot-report.html" on your local computer
 
 
 
+## The end of Day1. Well done!
+
+
+Everything you need in case scripts do not work well
+
+```{bash,eval=FALSE}
+ls /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data
+
+# use cp command to copy files
+```
+
+
+
+# DAY2 
+
+- Filter low quality reads and short reads
+ 
+- Map the reads to the reference genome 
+
+- Detect variants
+
+
+
+![](assets/BIO326-genome/Slide14.png){width=80%}
+
+
 ## Filtering by Nanofilt
 ```{bash,eval=FALSE}
 
@@ -187,7 +221,7 @@ Open "beforeNanoPlot-report.html" on your local computer
 #SBATCH --ntasks=1   
 #SBATCH --mail-type=END
 
-gunzip -c /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/bull_demodata_fastq.gz | singularity exec  /cvmfs/singularity.galaxyproject.org/all/nanofilt:2.8.0--py_0 NanoFilt -q 12 -l 500 | gzip > cleaned.bull.fastq.gz
+gunzip -c /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/bull_demodata_fastq.gz | singularity exec  /cvmfs/singularity.galaxyproject.org/all/nanofilt:2.8.0--py_0 NanoFilt -q 10 -l 500 | gzip > cleaned.bull.fastq.gz
 
 ```
 
@@ -248,16 +282,6 @@ cp /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/afterNa
 Did you see the difference of read and quality distribution between before and after the filtering?
 
 
-
-## The end of Day1. Well done!
-
-
-
-
-# DAY2 
-
-Overview
-
 Map the reads to the reference genome -> Detect variants (difference from the reference genome)
 
 
@@ -267,8 +291,8 @@ Map the reads to the reference genome -> Detect variants (difference from the re
 minimap2
 find /cvmfs/singularity.galaxyproject.org/all/  -name minimap2*  
 
-
-/cvmfs/singularity.galaxyproject.org/all/minimap2:2.24--h7132678_1
+# and you will find
+# /cvmfs/singularity.galaxyproject.org/all/minimap2:2.24--h7132678_1
 
 ```
 
@@ -288,37 +312,6 @@ find /cvmfs/singularity.galaxyproject.org/all/  -name minimap2*
 
 singularity exec /cvmfs/singularity.galaxyproject.org/all/minimap2:2.24--h7132678_1 minimap2 -t 8 -a Bos_taurus.fa.gz cleaned.bull.fastq.gz > bull.sam
 
-```
-
-
-## Browse the mapped file
-```{bash,eval=FALSE}
-cat bull.sam | head bull.sam
-```
-
-
-```{bash,eval=FALSE}
-
-# taking too long?
-qlogin 
-
-cp /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/bull.sam bull.sam
-
-```
-
-
-# File format conversion
-```{bash,eval=FALSE}
-
-#!/bin/bash
-#SBATCH --job-name=Nanoplot  # sensible name for the job
-#SBATCH --mail-user=yourname@nmbu.no # Email me when job is done.
-#SBATCH --mem=12G 
-#SBATCH --ntasks=1   
-#SBATCH --cpus-per-task=8
-#SBATCH --mail-type=END
-
-
 # convert the sam file to bam format
 singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h6899075_1 samtools view -S -b bull.sam > bull0.bam
 
@@ -329,51 +322,82 @@ singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h689
 singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h6899075_1 samtools index -M  bull.bam
 
 
+# Variant Calling using Sniffles
+singularity exec /cvmfs/singularity.galaxyproject.org/all/sniffles:2.0.7--pyhdfd78af_0 sniffles --input  bull.bam --vcf bull.vcf
+
+
 ```
-
-
 
 Error correction with Pilon/Medaka 
 
 (Skip this time as it takes time... You will learn the error correction in the prokaryotic part. )
 
-# Variant Calling using Sniffles
+
+
 ```{bash,eval=FALSE}
-#!/bin/bash
-#SBATCH --job-name=Nanoplot  # sensible name for the job
-#SBATCH --mail-user=yourname@nmbu.no # Email me when job is done.
-#SBATCH --mem=12G 
-#SBATCH --ntasks=1   
-#SBATCH --mail-type=END
 
-singularity exec /cvmfs/singularity.galaxyproject.org/all/sniffles:2.0.7--pyhdfd78af_0 sniffles --input  bull.bam --vcf bull.vcf
+# taking too long?
+qlogin 
+ls /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/
 
+# and copy the file you need (the final product is .vcf file)
 ```
+
+
+
+![](assets/Bio326-2023/image6.png){width=80%}
 
 Now you got the variant file!
 
 [resulting vcf file](assets/Bio326-2023/bull.vcf)
 
 
-# Inspect variants
+# Inspect variants - Celian may explain how to read a vcf file.
 
 ```{bash,eval=FALSE}
-more -s 2255 bull.vcf
-grep -v '^##' bull.vcf | head
+grep -v '^##' bull.vcf | more
 ```
 
 
-![](assets/Bio326-2023/image9.png){width=80%}
+![](assets/Bio326-2023/image11.png){width=80%}
+
+Important parameters
 
 
-# DAY3 
+1	16849578 : location of the variant 
+
+SVTYPE=DEL;SVLEN=-60 : size and type of the variant
+
+0/1 : genotype 
+
+(you can open a vcf file in notepad, excel etc.)
+
+
+
+# DAY3 - with Celian
 
 Now you have variants! Lets see what genes are affected by the variants.
 
+[Go to IGV (Integrative Genomics Viewer)](https://igv.org/app/)
+
+"Genome": Cow (bosTau9)
+![](assets/Bio326-2023/image12.png){width=80%}
+
+"Tracks": bull.vcf
+![](assets/Bio326-2023/image13.png){width=80%}
 
 
 
+![](assets/Bio326-2023/image10.png){width=80%}
 
 
+# Real result files for the report
+
+Result will be coming to the following folder 
+```{bash,eval=FALSE}
+ls /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/real_data
+
+# please use cp to copy the files to your directory
+```
 
 
