@@ -390,7 +390,7 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2023-02-28
+<strong>Last updated:</strong> 2023-03-02
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -521,15 +521,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree2016a67867d18c249ed1e077e8dd3760edcf54dftargetblank2016a67a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree1dc72fd110db0c3c6f1b82fed5812546a9766c91targetblank1dc72fda">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mariesaitou/Bio326/tree/2016a67867d18c249ed1e077e8dd3760edcf54df" target="_blank">2016a67</a>
+<a href="https://github.com/mariesaitou/Bio326/tree/1dc72fd110db0c3c6f1b82fed5812546a9766c91" target="_blank">1dc72fd</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree2016a67867d18c249ed1e077e8dd3760edcf54dftargetblank2016a67a"
+id="strongRepositoryversionstrongahrefhttpsgithubcommariesaitouBio326tree1dc72fd110db0c3c6f1b82fed5812546a9766c91targetblank1dc72fda"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -539,7 +539,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mariesaitou/Bio326/tree/2016a67867d18c249ed1e077e8dd3760edcf54df" target="_blank">2016a67</a>.
+<a href="https://github.com/mariesaitou/Bio326/tree/1dc72fd110db0c3c6f1b82fed5812546a9766c91" target="_blank">1dc72fd</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -555,6 +555,7 @@ were generated:
 <pre><code>
 Ignored files:
     Ignored:    .DS_Store
+    Ignored:    .Rhistory
 
 </code></pre>
 <p>
@@ -600,6 +601,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mariesaitou/Bio326/blob/1dc72fd110db0c3c6f1b82fed5812546a9766c91/analysis/Bio326_2023.Rmd" target="_blank">1dc72fd</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2023-03-02
+</td>
+<td>
+wflow_publish(c("analysis/Bio326_2023.Rmd"))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mariesaitou/Bio326/91c30c1301cfd2d49187151877133f1068c616b5/docs/Bio326_2023.html" target="_blank">91c30c1</a>
+</td>
+<td>
+mariesaitou
+</td>
+<td>
+2023-02-28
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -830,9 +865,9 @@ we will use “Nanoplot” to see the quality and lentgh of each read.</p>
 <p>“Singularity” is a toolset on Orion to execute software. A variety of
 different bioinformatics tools are available in Singularity.</p>
 <p>Make a slurm script like below and run it.</p>
-<p><a
-href="https://github.com/TheMEMOLab/Bio326-NMBU/blob/main/Doc/BestPracticesOrionHPC.md#running-the-job-by-sbatch">Review:
-make a slurm script and run it by sbatch</a></p>
+<p><a href="to%20be%20updated">Review: make a slurm script</a></p>
+<p><a href="https://orion.nmbu.no/en/SLURM">Review: run a slurm script
+by sbatch sbatch</a></p>
 <pre class="bash"><code>
 
 #!/bin/bash
@@ -848,6 +883,8 @@ singularity exec /cvmfs/singularity.galaxyproject.org/all/nanoplot:1.41.0--pyhdf
 </code></pre>
 <p>Nanoplot will generate the result files, named “before”xxx. Lets look
 into them…</p>
+<p><a href="https://orion.nmbu.no/en/connectingtoorion">Review: File
+transfer between Orion and your computer</a></p>
 <pre class="bash"><code>
 # taking too long?
 qlogin 
@@ -860,6 +897,23 @@ cp /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/beforeN
 <p><img src="assets/Bio326-2023/image5.png" style="width:80.0%" /></p>
 </div>
 </div>
+<div id="the-end-of-day1.-well-done" class="section level2">
+<h2>The end of Day1. Well done!</h2>
+<p>Everything you need in case scripts do not work well</p>
+<pre class="bash"><code>ls /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data
+
+# use cp command to copy files</code></pre>
+</div>
+</div>
+<div id="day2" class="section level1">
+<h1>DAY2</h1>
+<ul>
+<li><p>Filter low quality reads and short reads</p></li>
+<li><p>Map the reads to the reference genome</p></li>
+<li><p>Detect variants</p></li>
+</ul>
+<p><img src="assets/BIO326-genome/Slide14.png"
+style="width:80.0%" /></p>
 <div id="filtering-by-nanofilt" class="section level2">
 <h2>Filtering by Nanofilt</h2>
 <pre class="bash"><code>
@@ -870,7 +924,7 @@ cp /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/beforeN
 #SBATCH --ntasks=1   
 #SBATCH --mail-type=END
 
-gunzip -c /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/bull_demodata_fastq.gz | singularity exec  /cvmfs/singularity.galaxyproject.org/all/nanofilt:2.8.0--py_0 NanoFilt -q 12 -l 500 | gzip &gt; cleaned.bull.fastq.gz
+gunzip -c /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/bull_demodata_fastq.gz | singularity exec  /cvmfs/singularity.galaxyproject.org/all/nanofilt:2.8.0--py_0 NanoFilt -q 10 -l 500 | gzip &gt; cleaned.bull.fastq.gz
 </code></pre>
 <p>-l, Filter on a minimum read length</p>
 <p>-q, Filter on a minimum average read quality score</p>
@@ -912,24 +966,17 @@ cp /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/afterNa
 <h2><strong>Discussion Point</strong></h2>
 <p>Did you see the difference of read and quality distribution between
 before and after the filtering?</p>
-</div>
-<div id="the-end-of-day1.-well-done" class="section level2">
-<h2>The end of Day1. Well done!</h2>
-</div>
-</div>
-<div id="day2" class="section level1">
-<h1>DAY2</h1>
-<p>Overview</p>
 <p>Map the reads to the reference genome -&gt; Detect variants
 (difference from the reference genome)</p>
+</div>
 <div id="find-out-where-minimap2-is-in-singularity"
 class="section level2">
 <h2>Find out where “minimap2” is in Singularity</h2>
 <pre class="bash"><code>minimap2
 find /cvmfs/singularity.galaxyproject.org/all/  -name minimap2*  
 
-
-/cvmfs/singularity.galaxyproject.org/all/minimap2:2.24--h7132678_1
+# and you will find
+# /cvmfs/singularity.galaxyproject.org/all/minimap2:2.24--h7132678_1
 </code></pre>
 </div>
 <div id="run-minimap-and-map-the-reads-to-the-reference-genome"
@@ -946,30 +993,6 @@ class="section level2">
 #SBATCH --mail-type=END
 
 singularity exec /cvmfs/singularity.galaxyproject.org/all/minimap2:2.24--h7132678_1 minimap2 -t 8 -a Bos_taurus.fa.gz cleaned.bull.fastq.gz &gt; bull.sam
-</code></pre>
-</div>
-<div id="browse-the-mapped-file" class="section level2">
-<h2>Browse the mapped file</h2>
-<pre class="bash"><code>cat bull.sam | head bull.sam</code></pre>
-<pre class="bash"><code>
-# taking too long?
-qlogin 
-
-cp /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/bull.sam bull.sam
-</code></pre>
-</div>
-</div>
-<div id="file-format-conversion" class="section level1">
-<h1>File format conversion</h1>
-<pre class="bash"><code>
-#!/bin/bash
-#SBATCH --job-name=Nanoplot  # sensible name for the job
-#SBATCH --mail-user=yourname@nmbu.no # Email me when job is done.
-#SBATCH --mem=12G 
-#SBATCH --ntasks=1   
-#SBATCH --cpus-per-task=8
-#SBATCH --mail-type=END
-
 
 # convert the sam file to bam format
 singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h6899075_1 samtools view -S -b bull.sam &gt; bull0.bam
@@ -979,35 +1002,54 @@ singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h689
 
 # index the bam file
 singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h6899075_1 samtools index -M  bull.bam
+
+
+# Variant Calling using Sniffles
+singularity exec /cvmfs/singularity.galaxyproject.org/all/sniffles:2.0.7--pyhdfd78af_0 sniffles --input  bull.bam --vcf bull.vcf
 </code></pre>
 <p>Error correction with Pilon/Medaka</p>
 <p>(Skip this time as it takes time… You will learn the error correction
 in the prokaryotic part. )</p>
-</div>
-<div id="variant-calling-using-sniffles" class="section level1">
-<h1>Variant Calling using Sniffles</h1>
-<pre class="bash"><code>#!/bin/bash
-#SBATCH --job-name=Nanoplot  # sensible name for the job
-#SBATCH --mail-user=yourname@nmbu.no # Email me when job is done.
-#SBATCH --mem=12G 
-#SBATCH --ntasks=1   
-#SBATCH --mail-type=END
+<pre class="bash"><code>
+# taking too long?
+qlogin 
+ls /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/
 
-singularity exec /cvmfs/singularity.galaxyproject.org/all/sniffles:2.0.7--pyhdfd78af_0 sniffles --input  bull.bam --vcf bull.vcf
-</code></pre>
+# and copy the file you need (the final product is .vcf file)</code></pre>
+<p><img src="assets/Bio326-2023/image6.png" style="width:80.0%" /></p>
 <p>Now you got the variant file!</p>
 <p><a href="assets/Bio326-2023/bull.vcf">resulting vcf file</a></p>
 </div>
-<div id="inspect-variants" class="section level1">
-<h1>Inspect variants</h1>
-<pre class="bash"><code>more -s 2255 bull.vcf
-grep -v &#39;^##&#39; bull.vcf | head</code></pre>
-<p><img src="assets/Bio326-2023/image9.png" style="width:80.0%" /></p>
 </div>
-<div id="day3" class="section level1">
-<h1>DAY3</h1>
+<div id="inspect-variants---celian-may-explain-how-to-read-a-vcf-file."
+class="section level1">
+<h1>Inspect variants - Celian may explain how to read a vcf file.</h1>
+<pre class="bash"><code>grep -v &#39;^##&#39; bull.vcf | more</code></pre>
+<p><img src="assets/Bio326-2023/image11.png" style="width:80.0%" /></p>
+<p>Important parameters</p>
+<p>1 16849578 : location of the variant</p>
+<p>SVTYPE=DEL;SVLEN=-60 : size and type of the variant</p>
+<p>0/1 : genotype</p>
+<p>(you can open a vcf file in notepad, excel etc.)</p>
+</div>
+<div id="day3---with-celian" class="section level1">
+<h1>DAY3 - with Celian</h1>
 <p>Now you have variants! Lets see what genes are affected by the
 variants.</p>
+<p><a href="https://igv.org/app/">Go to IGV (Integrative Genomics
+Viewer)</a></p>
+<p>“Genome”: Cow (bosTau9) <img src="assets/Bio326-2023/image12.png"
+style="width:80.0%" /></p>
+<p>“Tracks”: bull.vcf <img src="assets/Bio326-2023/image13.png"
+style="width:80.0%" /></p>
+<p><img src="assets/Bio326-2023/image10.png" style="width:80.0%" /></p>
+</div>
+<div id="real-result-files-for-the-report" class="section level1">
+<h1>Real result files for the report</h1>
+<p>Result will be coming to the following folder</p>
+<pre class="bash"><code>ls /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/real_data
+
+# please use cp to copy the files to your directory</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
