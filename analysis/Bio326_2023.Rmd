@@ -188,17 +188,24 @@ Open "beforeNanoPlot-report.html" on your local computer
 ## The end of Day1. Well done!
 
 
+
+
+# DAY2 
+
 Everything you need in case scripts do not work well
 
 ```{bash,eval=FALSE}
 ls /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data
 
 # use cp command to copy files
+
+# or run the full slurm script
+sbatch /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/Bio326_2023_full.slurm
 ```
 
 
 
-# DAY2 
+
 
 - Filter low quality reads and short reads
  
@@ -230,7 +237,7 @@ gunzip -c /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/
 
 -q, Filter on a minimum average read quality score
 
-In this case, we are removing reads lower than quality score 12 and shorter than 500 bases.
+In this case, we are removing reads lower than quality score 10 and shorter than 500 bases.
   
 
 
@@ -275,7 +282,7 @@ cp /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/afterNa
 
 ![](assets/Bio326-2023/image7.png){width=80%}
 
-![](assets/Bio326-2023/image8.png){width=80%}
+
 
 ## **Discussion Point**
 
@@ -352,10 +359,19 @@ Now you got the variant file!
 [resulting vcf file](assets/Bio326-2023/bull.vcf)
 
 
-# Inspect variants - Celian may explain how to read a vcf file.
+# Inspect variants 
+
+- Celian will explain how to read a vcf file.
 
 ```{bash,eval=FALSE}
+# INFO field
+
+grep '^##' bull.vcf | tail -n 20
+
+# variants
 grep -v '^##' bull.vcf | more
+
+
 ```
 
 
@@ -374,7 +390,9 @@ SVTYPE=DEL;SVLEN=-60 : size and type of the variant
 
 
 
-# DAY3 - with Celian
+# DAY3
+
+- with Celian
 
 Now you have variants! Lets see what genes are affected by the variants.
 
