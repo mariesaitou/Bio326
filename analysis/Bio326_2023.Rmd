@@ -352,14 +352,13 @@ ls /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/
 
 
 
-![](assets/Bio326-2023/image6.png){width=80%}
 
 Now you got the variant file!
 
 [resulting vcf file](assets/Bio326-2023/bull.vcf)
 
 
-# Inspect variants 
+## Inspect variants 
 
 - Celian will explain how to read a vcf file.
 
