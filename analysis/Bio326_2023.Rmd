@@ -295,7 +295,7 @@ Map the reads to the reference genome -> Detect variants (difference from the re
 
 ## Find out where "minimap2" is in Singularity
 ```{bash,eval=FALSE}
-minimap2
+qlogin
 find /cvmfs/singularity.galaxyproject.org/all/  -name minimap2*  
 
 # and you will find
@@ -303,6 +303,13 @@ find /cvmfs/singularity.galaxyproject.org/all/  -name minimap2*
 
 ```
 
+
+In case Singularity does not work ... use [conda](https://github.com/TheMEMOLab/Bio326-NMBU/blob/main/Doc/SoftwareManagmentWithConda.md)
+
+
+
+# DAY3
+## Inspect variants 
 
 
 ## run Minimap and map the reads to the reference genome
@@ -317,7 +324,9 @@ find /cvmfs/singularity.galaxyproject.org/all/  -name minimap2*
 #SBATCH --cpus-per-task=8
 #SBATCH --mail-type=END
 
-singularity exec /cvmfs/singularity.galaxyproject.org/all/minimap2:2.24--h7132678_1 minimap2 -t 8 -a Bos_taurus.fa.gz cleaned.bull.fastq.gz > bull.sam
+singularity exec /cvmfs/singularity.galaxyproject.org/all/minimap2:2.24--h7132678_1 minimap2 -t 8 -a -a /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/demo_data/Bos_taurus.fa.gz  cleaned.bull.fastq.gz > bull.sam
+# updated (the reference Bos taurus fasta location)
+
 
 # convert the sam file to bam format
 singularity exec  /cvmfs/singularity.galaxyproject.org/all/samtools:1.16.1--h6899075_1 samtools view -S -b bull.sam > bull0.bam
@@ -358,8 +367,6 @@ Now you got the variant file!
 [resulting vcf file](assets/Bio326-2023/bull.vcf)
 
 
-## Inspect variants 
-
 - Celian will explain how to read a vcf file.
 
 ```{bash,eval=FALSE}
@@ -389,23 +396,67 @@ SVTYPE=DEL;SVLEN=-60 : size and type of the variant
 
 
 
-# DAY3
-
-- with Celian
 
 Now you have variants! Lets see what genes are affected by the variants.
 
+
+## Estimate the effect of variants
+
+
+[Go to VEP (Variant Effect Predictor)](https://www.ensembl.org/Tools/VEP)
+
+
+Variant Effect predictor tells us where in the genome the discovered variants are located (genic, regulartory, etc...)
+
+Select "cow" as the reference species.
+
+
+
+
+![](assets/Bio326-2023/image14.png){width=80%}
+
+Upload: bull.vcf - downloaded from Orion or the section above as the file to investigate.
+
+
+![](assets/Bio326-2023/image15.png){width=80%}
+
+There are 428 variants; 88 genes are affected by these varaints.
+
+
+What are the most affected genes?
+
+Click "Filters" and set "Impact is HIGH" to select highly impact variants. 
+
+![](assets/Bio326-2023/image16.png){width=80%}
+
+There are some frameshift/transcript ablation variants.
+
+Let's closely investigate "25:7668-11178	deletion	  transcript_ablation	5S_rRNA".
+
+
+
 [Go to IGV (Integrative Genomics Viewer)](https://igv.org/app/)
 
-"Genome": Cow (bosTau9)
-![](assets/Bio326-2023/image12.png){width=80%}
-
-"Tracks": bull.vcf
-![](assets/Bio326-2023/image13.png){width=80%}
+Select "Genome": Cow (bosTau9)
 
 
+![](assets/Bio326-2023/image12.png){width=40%}
 
-![](assets/Bio326-2023/image10.png){width=80%}
+Select "Tracks": bull.vcf - downloaded from Orion or the section above.
+
+
+![](assets/Bio326-2023/image13.png){width=40%}
+
+Add "Ensembl Genes" to the "Track" and specify the region around chr25:7668-11178. 
+
+
+Did you find the large deletion that is covering the gene? How long is the deletion?
+
+
+![](assets/Bio326-2023/image17.png){width=80%}
+
+
+
 
 
 # Real result files for the report
@@ -416,5 +467,9 @@ ls /net/fs-2/scale/OrionStore/Courses/BIO326/EUK/bull_analysis/real_data
 
 # please use cp to copy the files to your directory
 ```
+
+You can also download the result files from [here](https://www.dropbox.com/sh/2qbvt7y4099j4n9/AACTOQdOBnVfeJkp6JIafQCUa?dl=0).
+
+
 
 
